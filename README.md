@@ -1,6 +1,6 @@
-###IU-EBook
-This is frontend source code of my final project at IUH
-#Front-end technology:
+<h1>IU-EBook</h1>
+<p>This is frontend source code of my final project at IUH</p>
+<h2>Front-end technology:</h2>
 - NextJS
 - MUI
 - Typescript
