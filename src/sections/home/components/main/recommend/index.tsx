@@ -1,5 +1,5 @@
 import React from 'react'
-import BookCard from '../card'
+import BookCard from '../../../../../components/card'
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import SectionHeader from '../section-header';
