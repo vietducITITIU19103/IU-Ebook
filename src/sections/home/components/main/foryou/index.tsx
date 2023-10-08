@@ -1,5 +1,5 @@
 import React from 'react'
-import BookCard from '../card'
+import BookCard from '../../../../../components/card'
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
@@ -67,7 +67,7 @@ export default function ForYou() {
         </Typography>
       </Stack>
       <SectionHeader chipContent="Tiếp tục đọc hoặc mua ngay" title="Yêu thích" hasTitle />
-      <Stack direction="row" justifyContent="space-around" flexWrap="wrap" useFlexGap rowGap="54px" columnGap="20px">
+      <Stack direction="row" justifyContent={{xs:"center",sm: "space-evenly",md:"space-around"}} flexWrap="wrap" useFlexGap rowGap="54px" columnGap="20px">
         {
           fill(new Array(30), "book")
             .map((item: string, index) => {
