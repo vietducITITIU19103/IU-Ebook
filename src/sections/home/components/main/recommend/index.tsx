@@ -32,7 +32,6 @@ export default function Recommend() {
         className="scroll"
         sx={{
           overflowX: "scroll",
-          // overflowY: "hidden"
         }} >
         <Stack
           direction="row"

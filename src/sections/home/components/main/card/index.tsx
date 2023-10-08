@@ -21,7 +21,8 @@ export default function BookCard({ book }: any) {
     borderRadius: "12px",
     position: "relative",
     backgroundColor: WHITE_COLOR,
-    border: "1px solid #6C737F"
+    border: "1px solid #6C737F",
+    cursor: "pointer"
   }
   const TypographyStyle = {
     fontSize: "12px",

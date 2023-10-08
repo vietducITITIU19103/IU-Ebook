@@ -7,6 +7,9 @@ import Grid from '@mui/material/Grid';
 import BasicButtons from '@/components/custom-element/button';
 import SectionHeader from '../section-header';
 import { WHITE_COLOR, LIGHT_DARK } from '@/app/color'
+import StyledButton from '@/components/button/styled-button';
+import fill from "lodash/fill"
+import ForyouBg from '@/assets/icons/background/foryou-bg';
 
 const book = {
   title: "Kế toán tài chính",
@@ -30,7 +33,10 @@ export default function ForYou() {
       borderRadius: { xs: 0, md: "16px" },
       marginBottom: "43px",
       position: "relative",
-      padding: "25px 35px"
+      padding: "25px 35px",
+      display: 'flex',
+      flexDirection: "column",
+      alignItems:"center"
     }}>
       <div style={{
         width: "100%",
@@ -46,15 +52,7 @@ export default function ForYou() {
         left: 0,
         zIndex: 1
       }}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="180" height="45" viewBox="0 0 180 45" fill="none">
-          <path d="M-4 0.862061H180L171.306 25.6325C169.153 31.7659 163.504 35.9874 157.011 36.3135L-4 44.4006V0.862061Z" fill="url(#paint0_linear_0_2684)" />
-          <defs>
-            <linearGradient id="paint0_linear_0_2684" x1="-4" y1="22.6313" x2="180" y2="22.6313" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#919BFF" />
-              <stop offset="1" stopColor="#210CAE" />
-            </linearGradient>
-          </defs>
-        </svg>
+        <ForyouBg sx={{ width: "180px", height: "45px" }} />
       </div>
       <Stack
         direction="row"
@@ -69,29 +67,18 @@ export default function ForYou() {
         </Typography>
       </Stack>
       <SectionHeader chipContent="Tiếp tục đọc hoặc mua ngay" title="Yêu thích" hasTitle />
-      <Grid container columnSpacing="36px" rowSpacing="54px" justifyContent="center"
-        alignItems="center">
+      <Stack direction="row" justifyContent="space-around" flexWrap="wrap" useFlexGap rowGap="54px" columnGap="20px">
         {
-          [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 27, 29]
-            .map((item: number, index) => {
+          fill(new Array(30), "book")
+            .map((item: string, index) => {
               return (
-                <Grid item xs={6} sm={4} md={3} lg={2} key={index}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center"
-                  }}>
-                  <BookCard book={book} />
-                </Grid>
+                <BookCard book={book} key={index} />
               )
             }
             )
         }
-
-        <Grid item xs={12} sx={{ display: 'flex', justifyContent: "center", alignItems: "center", marginBottom: "20px" }}>
-          <BasicButtons content="Xem thêm" width={112} />
-        </Grid>
-      </Grid>
+      </Stack>
+      <StyledButton label='Xem thêm' width={112} bg='#F3633E' sx={{mt: "50px", mb:"20px"}}/>
     </Box >
   )
 }

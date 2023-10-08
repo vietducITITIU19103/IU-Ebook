@@ -5,6 +5,7 @@
 <li>NextJS</li>
 <li>MUI</li>
 <li>Typescript</li>
+<li>Lodash</li>
 <li>React-hook-form & Yub to manage and validate form data</li>
 <li>React-slick to make carousel</li>
 </ul>
