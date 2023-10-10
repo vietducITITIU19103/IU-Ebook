@@ -5,7 +5,7 @@ import TabView from './sub-view/tab-view'
 export default function SearchView() {
   return (
     <HomeLayoutView>
-<TabView/>
+      <TabView />
     </HomeLayoutView>
   )
 }

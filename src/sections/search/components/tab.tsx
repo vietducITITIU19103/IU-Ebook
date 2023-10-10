@@ -2,13 +2,27 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Tabs from '@mui/material/Tabs';
-
+import Container from '@mui/material/Container';
+import Stack from '@mui/material/Stack';
+import BookCard from '@/components/card';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import TabBg from '@/assets/icons/background/tab-bg';
 import tag from "./tag.png"
 import img from "@/assets/images/momo.png"
 import Typography from '@mui/material/Typography';
+import fill from "lodash/fill"
+
+const book = {
+    title: "Kế toán tài chính",
+    type: "Kế toán",
+    code: " MS 001",
+    price: "65.000",
+    download: "+3k",
+    isBought: false,
+    isFavorite: false,
+    isRecommend: false
+}
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -28,7 +42,7 @@ function CustomTabPanel(props: TabPanelProps) {
             {...other}
         >
             {value === index && (
-                <Box sx={{ p: 3 }}>
+                <Box>
                     <Typography>{children}</Typography>
                 </Box>
             )}
@@ -51,7 +65,7 @@ const StyledTabs = styled((props: StyledTabsProps) => (
     />
 ))({
     padding: "24px",
-    backgroundColor:"#F5F5FA",
+    backgroundColor: "#F5F5FA",
     '& .MuiTabs-indicator': {
         display: 'flex',
         justifyContent: 'center',
@@ -102,8 +116,8 @@ export default function CustomizedTabs() {
     };
 
     return (
-        <Box sx={{ width: '100%', backgroundColor:"#F5F5FA" }}>
-            <Box sx={{ backgroundColor:"#F5F5FA" }}>
+        <Box sx={{ width: '100%', backgroundColor: "#F5F5FA" }}>
+            <Box sx={{ backgroundColor: "#F5F5FA" }}>
                 <StyledTabs
                     value={value}
                     onChange={handleChange}
@@ -118,15 +132,29 @@ export default function CustomizedTabs() {
 
 
                 </StyledTabs>
-                <CustomTabPanel value={value} index={0}>
-                    Item One
-                </CustomTabPanel>
-                <CustomTabPanel value={value} index={1}>
-                    Item Two
-                </CustomTabPanel>
-                <CustomTabPanel value={value} index={2}>
-                    Item Three
-                </CustomTabPanel>
+                <Container sx={{ backgroundColor: "white", p: "32px", borderRadius: "16px" }}>
+                    <CustomTabPanel value={value} index={0}>
+
+                        <Stack direction="row" justifyContent={{ xs: "center", sm: "space-evenly", md: "space-around" }} flexWrap="wrap" useFlexGap rowGap="54px" columnGap="20px">
+                            {
+                                fill(new Array(30), "book")
+                                    .map((item: string, index) => {
+                                        return (
+                                            <BookCard book={book} key={index} />
+                                        )
+                                    }
+                                    )
+                            }
+                        </Stack>
+
+                    </CustomTabPanel>
+                    <CustomTabPanel value={value} index={1}>
+                        Item Two
+                    </CustomTabPanel>
+                    <CustomTabPanel value={value} index={2}>
+                        Item Three
+                    </CustomTabPanel>
+                </Container>
                 <Box sx={{ p: 3 }} />
             </Box>
         </Box>
