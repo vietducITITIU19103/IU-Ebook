@@ -16,7 +16,8 @@ import { PURPLE_COLOR, WHITE_COLOR, LIGHT_DARK, ORANGE_COLOR, DARK_COLOR } from 
 export default function BookCard({ book }: any) {
   const { title, type, code, price, download, isBought, isFavorite, isRecommend } = book
   const CardContainerStyle = {
-    width: "177px",
+    // width: {xs: "165px", sm:"177px"},
+    width:"177px",
     height: "270px",
     borderRadius: "12px",
     position: "relative",
