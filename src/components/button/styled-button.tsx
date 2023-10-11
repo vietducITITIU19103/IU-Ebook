@@ -17,11 +17,12 @@ export default function StyledButton({ label, width, bg, sx, ...other }: Props) 
         {...other}
         className="main_layer"
         sx={{
+          color:"white",
           width: width,
           backgroundColor: bg,
           textTransform: "initial",
           '&: hover': {
-            backgroundColor: bg
+            backgroundColor: bg,
           },   
         }}
       >
