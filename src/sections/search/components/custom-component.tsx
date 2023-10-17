@@ -8,20 +8,12 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { useResponsive } from '@/hooks/use-responsive';
 
-// const BgContainer = styled(LoginBg)(({ theme }) => ({
-//     transition: "all 0.2s ease",
-//     width: '532px', 
-//     height: '629px',
-//     [theme.breakpoints.down(1075)]: {
-//       width: '475px', height: '600px'
-//     },
-//   }));
-
 
 export const MainLayout = styled(Container)<ContainerProps>(({ theme }) => ({
     backgroundColor: "white",
     padding: "32px",
     borderRadius: "16px",
+    marginBottom: "30px",
     [theme.breakpoints.down("md")]: {
         backgroundColor: "transparent",
         padding: "20px",

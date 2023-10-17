@@ -9,14 +9,14 @@ import HeartSVG from '../../sections/home/components/main/svg/heartSVG';
 import FavoriteSVG from '../../sections/home/components/main/svg/favouriteSVG';
 import HeartIconSVG from '../../sections/home/components/main/svg/heartIconSVG';
 import PatternSVG from '../../sections/home/components/main/svg/parternSVG';
-import DownloadIconSVG from '../../sections/home/components/main/svg/downloadIconSVG';
+import DownloadIconSVG from '../../assets/icons/book/download-icon';
 import BoughtIconSVG from '../../sections/home/components/main/svg/boughtIconSVG';
 import { PURPLE_COLOR, WHITE_COLOR, LIGHT_DARK, ORANGE_COLOR, DARK_COLOR } from '@/app/color'
+import bookImg from "@/assets/images/book.png"
 
 export default function BookCard({ book }: any) {
   const { title, type, code, price, download, isBought, isFavorite, isRecommend } = book
   const CardContainerStyle = {
-    // width: {xs: "165px", sm:"177px"},
     width:"177px",
     height: "270px",
     borderRadius: "12px",
