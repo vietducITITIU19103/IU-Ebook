@@ -10,36 +10,44 @@ import { useResponsive } from '@/hooks/use-responsive';
 
 
 export const MainLayout = styled(Container)<ContainerProps>(({ theme }) => ({
-    maxHeight: '420px',
-    width: "680px",
-    padding: "0 !important",
-    marginBottom: "44px",
-    marginTop: "4px"
+    width: "100%",
+    display: 'flex',
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center"
+
 }))
 
 interface TabPanelProps {
     children?: React.ReactNode;
     index: number;
     value: number;
+    width: number
 }
 
 export function CustomTabPanel(props: TabPanelProps) {
-    const { children, value, index, ...other } = props;
+    const { children, value, index, width } = props;
 
     return (
-        <div
+        <Box
             role="tabpanel"
             hidden={value !== index}
             id={`simple-tabpanel-${index}`}
             aria-labelledby={`simple-tab-${index}`}
-            {...other}
+            sx={{
+                maxHeight: '420px',
+                width: width + "px",
+                padding: "0 !important",
+                marginBottom: "44px",
+                marginTop: "4px",
+            }}
         >
             {value === index && (
                 <Box>
                     <Typography>{children}</Typography>
                 </Box>
             )}
-        </div>
+        </Box>
     );
 }
 
