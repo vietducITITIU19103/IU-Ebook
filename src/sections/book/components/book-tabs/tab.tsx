@@ -57,6 +57,8 @@ export default function CustomizedTabs() {
                                 <p>
                                     Tư duy kế toán phải có trong kinh doanh là cuốn sách mà bất kỳ nhà quản trị nào hoặc những người đang hoạt động trong lĩnh vực kế toán nên tham khảo thêm.
                                     Takaharu Yasumoto sinh năm 1954 tại Shizuoka. Năm 1976, ông tốt nghiệp trường Đại học Waseda khoa Thương mại. Ông gặt hái được nhiều thành công trong lĩnh vực kế toán với các vị trí như tư vấn tài chính hay kiểm toán. Kế toán không quá phức tạp, chỉ cần bạn hiểu những điểm quan trọng, kế toán sẽ là một công cụ hỗ trợ mạnh hơn bất cứ thứ gì trong kinh doanh.  Tư duy kế toán phải có trong kinh doanh là cuốn sách mà bất kỳ nhà quản trị nào hoặc những người đang hoạt động trong lĩnh vực kế toán nên tham khảo thêm...
+                                    Tư duy kế toán phải có trong kinh doanh là cuốn sách mà bất kỳ nhà quản trị nào hoặc những người đang hoạt động trong lĩnh vực kế toán nên tham khảo thêm.
+                                    Takaharu Yasumoto sinh năm 1954 tại Shizuoka. Năm 1976, ông tốt nghiệp trường Đại học Waseda khoa Thương mại. Ông gặt hái được nhiều thành công trong lĩnh vực kế toán với các vị trí như tư vấn tài chính hay kiểm toán. Kế toán không quá phức tạp, chỉ cần bạn hiểu những điểm quan trọng, kế toán sẽ là một công cụ hỗ trợ mạnh hơn bất cứ thứ gì trong kinh doanh.  Tư duy kế toán phải có trong kinh doanh là cuốn sách mà bất kỳ nhà quản trị nào hoặc những người đang hoạt động trong lĩnh vực kế toán nên tham khảo thêm...
                                 </p>
                             </Box>
                         </Box>

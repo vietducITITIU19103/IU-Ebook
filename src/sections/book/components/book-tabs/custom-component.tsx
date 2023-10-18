@@ -35,7 +35,7 @@ export function CustomTabPanel(props: TabPanelProps) {
             id={`simple-tabpanel-${index}`}
             aria-labelledby={`simple-tab-${index}`}
             sx={{
-                maxHeight: '420px',
+                minHeight: '420px',
                 width: width + "px",
                 padding: "0 !important",
                 marginBottom: "44px",
