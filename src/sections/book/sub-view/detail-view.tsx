@@ -10,6 +10,22 @@ import { BookTitle, BookType, AuthorName, AuthorEmail, AuthorTitle } from '../co
 import TextWithIcon from '../components/text-with-icon';
 import UploadIcon from '@/assets/icons/book/upload-icon';
 import TabView from './tab-view';
+import BookCard from '@/components/card';
+import { PURPLE_COLOR, WHITE_COLOR, LIGHT_DARK } from '@/app/color'
+import SectionHeader from '@/sections/home/components/main/section-header';
+// import "./style.css"
+
+const book = {
+  title: "Kế toán tài chính",
+  type: "Kế toán",
+  code: " MS 001",
+  price: "65.000",
+  download: "+3k",
+  isBought: false,
+  isFavorite: false,
+  isRecommend: true
+}
+
 
 export default function DetailView() {
 
@@ -59,6 +75,29 @@ export default function DetailView() {
         </Box>
       </Stack>
       <TabView/>
+      <SectionHeader chipContent="Những tài liệu hữu ích nhất trong kì mới" title="Đề xuất" />
+      <Box
+        className="scroll"
+        sx={{
+          overflowX: "scroll",
+        }} 
+        >
+        <Stack
+          direction="row"
+          spacing="20px"
+          justifyContent={{ xs: "flex-start", lg: "space-between" }}
+          alignItems="center"
+          sx={{
+            width: "100%", mb: 1
+          }}
+        >
+          {
+            [0, 1, 2, 3, 4, 5].map((item: number) => (
+              <BookCard key={item} book={book} />
+            ))
+          }
+        </Stack >
+      </Box>
     </MainLayout>
   )
 }

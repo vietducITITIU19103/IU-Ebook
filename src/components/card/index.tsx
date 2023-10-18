@@ -23,7 +23,8 @@ export default function BookCard({ book }: any) {
     position: "relative",
     backgroundColor: WHITE_COLOR,
     border: "1px solid #6C737F",
-    cursor: "pointer"
+    cursor: "pointer",
+    flexShrink: 0, 
   }
   const TypographyStyle = {
     fontSize: "12px",
