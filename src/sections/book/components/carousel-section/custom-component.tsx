@@ -3,12 +3,20 @@ import { styled } from '@mui/material/styles';
 import Box, { BoxProps } from '@mui/material/Box';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 
-const RootLayer = styled(Box)<BoxProps>(
-    {
-        width: "100%",
-        height: "592px",
-        position: "relative"
-    }
+const RootLayer = styled(Box)<BoxProps>(({theme})=>({
+    width: "100%",
+    height: "420px",
+    position: "relative",
+    display: "flex",
+    alignSelf: 'center',
+    [theme.breakpoints.only("xs")]: {
+        height: "260px",
+    },
+    [theme.breakpoints.only("sm")]: {
+        height: "360px",
+    },
+})
+    
 )
 
 const GradientLayer = styled(Box)<BoxProps>(

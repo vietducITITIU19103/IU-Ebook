@@ -31,7 +31,7 @@ export default function CustomSeparator() {
   ];
 
   return (
-    <MainLayout sx={{backgroundColor: "transparent", pt: "23px", py: "16px"}}>
+    <MainLayout sx={{ backgroundColor: "transparent", pt: "23px", py: "16px", display: {xs: "none", md: "block"} }}>
       <Stack spacing={2}>
         <Breadcrumbs
           separator={<BreadcrumIcon sx={{ width: "9px", height: '16px' }} />}

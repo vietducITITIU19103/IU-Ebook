@@ -9,13 +9,24 @@ import Typography from '@mui/material/Typography';
 import { useResponsive } from '@/hooks/use-responsive';
 
 
+export const TabRoot = styled(Container)<ContainerProps>(({ theme }) => ({
+    width: '100%', 
+    borderRadius: "16px", 
+    border: "1px solid #D8DBDF", 
+    my: "36px",
+    [theme.breakpoints.down("md")]: {
+        border: "none", 
+        backgroundColor: "white",
+        borderRadius: 0,
+    }
+}))
+
 export const MainLayout = styled(Container)<ContainerProps>(({ theme }) => ({
     width: "100%",
     display: 'flex',
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center"
-
 }))
 
 interface TabPanelProps {
@@ -35,10 +46,10 @@ export function CustomTabPanel(props: TabPanelProps) {
             id={`simple-tabpanel-${index}`}
             aria-labelledby={`simple-tab-${index}`}
             sx={{
-                minHeight: '420px',
-                width: width + "px",
+                height: "auto",
+                width: {xs:"100%", md: width + "px"},
                 padding: "0 !important",
-                marginBottom: "44px",
+                marginBottom: {xs:"22px", md: "44px"},
                 marginTop: "4px",
             }}
         >
@@ -59,18 +70,15 @@ interface StyledTabsProps {
 }
 
 export const StyledTabs = styled((props: StyledTabsProps) => {
-    const sm = useResponsive("down", "md")
     return (
         <Tabs
             {...props}
             TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
-            centered={!sm}
-            sx={{ width: { xs: "800px", sm: "100%" }, }}
+            centered={true}
         />
     )
 })
     ({
-        padding: "20px",
         '& .MuiTabs-indicator': {
 
             backgroundColor: '#4E49D6',

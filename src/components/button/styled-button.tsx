@@ -12,7 +12,7 @@ type Props = ButtonProps & {
 //'#4E49D6'
 export default function StyledButton({ label, width, bg, sx, ...other }: Props) {
   return (
-    <Box position="relative" className="container" sx={{ display: { xs: "none", md: "block" },...sx }}>
+    <Box position="relative" className="container" sx={{ ...sx }}>
       <Button
         {...other}
         className="main_layer"
