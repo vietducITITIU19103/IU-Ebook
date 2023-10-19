@@ -1,7 +1,7 @@
 "use client"
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import { CustomTabPanel, StyledTab, StyledTabs, MainLayout } from './custom-component';
+import { CustomTabPanel, StyledTab, StyledTabs, MainLayout, TabRoot } from './custom-component';
 import "./style.css"
 import CarouselSection from '../carousel-section/carousel';
 
@@ -25,7 +25,7 @@ export default function CustomizedTabs() {
     };
 
     return (
-        <Box sx={{ width: '100%', borderRadius: "16px", border: "1px solid #D8DBDF", my: "36px" }}>
+        <TabRoot>
             <Box >
                 <Box sx={{ overflowX: "scroll" }} className="scroll">
                     <StyledTabs
@@ -43,7 +43,7 @@ export default function CustomizedTabs() {
                     </CustomTabPanel>
                     <CustomTabPanel value={value} index={1} width={916}>
                         <Box sx={{ width: "100%" }}>
-                            <Box sx={{ width: '916px' }}>
+                            <Box sx={{ width: "100%", maxWidth: '916px' }}>
                                 <p>
                                     Tư duy và phong cách quản trị dựa trên nền tảng kế toán tài chính đang trở nên cần thiết trong việc đảm bảo sự phát triển bền vững và tăng trưởng của doanh nghiệp. Những người thành công trong kinh doanh là người có “tư duy kế toán” theo cách riêng của họ. Kế toán không quá phức tạp, chỉ cần bạn hiểu những điểm quan trọng, kế toán sẽ là một công cụ hỗ trợ mạnh hơn bất cứ thứ gì trong kinh doanh.
                                     Trong cuốn sách Tư duy kế toán phải có trong kinh doanh này, bạn sẽ nắm được:
@@ -66,6 +66,6 @@ export default function CustomizedTabs() {
                     </CustomTabPanel>
                 </MainLayout>
             </Box>
-        </Box>
+        </TabRoot>
     );
 }

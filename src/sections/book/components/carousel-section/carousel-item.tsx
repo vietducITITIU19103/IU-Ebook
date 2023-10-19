@@ -19,7 +19,7 @@ export default function CarouselItem() {
                 style={{
                     width: "100%",
                     height: "auto",
-                    objectFit: "cover",
+                    objectFit: "contain",
                     objectPosition: "center"
                 }} />
             
