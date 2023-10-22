@@ -11,10 +11,8 @@ import CarouselItem from './carousel-item';
 import { useCarousel } from '@/components/carousel';
 import BreadcrumIcon from '@/assets/icons/arrow/breadcrum-icon';
 import FullscreenIcon from '@/assets/icons/book/fullscreen-icon';
-import CenterVerticalLayout from '@/layout/component-base-layout/center-vertical-layout';
 import IconButton from '@mui/material/IconButton';
 import ControlButton from './control-button';
-import CenterHorizontalLayout from '@/layout/component-base-layout/center-horizontal-layout';
 import { useResponsive } from '@/hooks/use-responsive';
 
 export default function CarouselSection() {
