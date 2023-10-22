@@ -1,6 +1,5 @@
 import React from 'react'
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import CenterVerticalLayout from '@/layout/component-base-layout/center-vertical-layout';
 import TitleBg from '@/assets/icons/text-bg/title-bg';
 import { MainTitle } from '../_common/custom-component';

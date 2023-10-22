@@ -10,12 +10,12 @@ import { useResponsive } from '@/hooks/use-responsive';
 
 
 export const TabRoot = styled(Container)<ContainerProps>(({ theme }) => ({
-    width: '100%', 
-    borderRadius: "16px", 
-    border: "1px solid #D8DBDF", 
+    width: '100%',
+    borderRadius: "16px",
+    border: "1px solid #D8DBDF",
     my: "36px",
     [theme.breakpoints.down("md")]: {
-        border: "none", 
+        border: "none",
         backgroundColor: "white",
         borderRadius: 0,
     }
@@ -27,6 +27,18 @@ export const MainLayout = styled(Container)<ContainerProps>(({ theme }) => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center"
+}))
+
+export const ContainerLayout = styled(Container)<ContainerProps>(({ theme }) => ({
+    backgroundColor: "white",
+    padding: "32px",
+    borderRadius: "16px",
+    marginBottom: "30px",
+    [theme.breakpoints.down("md")]: {
+        backgroundColor: "transparent",
+        padding: "20px",
+        paddingBottom: "100px",
+    }
 }))
 
 interface TabPanelProps {
@@ -47,9 +59,9 @@ export function CustomTabPanel(props: TabPanelProps) {
             aria-labelledby={`simple-tab-${index}`}
             sx={{
                 height: "auto",
-                width: {xs:"100%", md: width + "px"},
+                width: { xs: "100%", md: width + "px" },
                 padding: "0 !important",
-                marginBottom: {xs:"22px", md: "44px"},
+                marginBottom: { xs: "22px", md: "44px" },
                 marginTop: "4px",
             }}
         >
@@ -80,13 +92,9 @@ export const StyledTabs = styled((props: StyledTabsProps) => {
 })
     ({
         '& .MuiTabs-indicator': {
-
             backgroundColor: '#4E49D6',
         },
         '& .MuiTabs-indicatorSpan': {
-            // maxWidth: 40,
-            // width: '100%',
-            // backgroundColor: '#635ee7',
         },
     });
 
@@ -100,6 +108,7 @@ export const StyledTab = styled((props: StyledTabProps) => (
     minHeight: "38px",
     textTransform: 'none',
     padding: "0px 24px",
+    // paddingBottom: "-10px",
     lineHeight: 1,
     color: " #9DA4AE",
     marginRight: theme.spacing(1),

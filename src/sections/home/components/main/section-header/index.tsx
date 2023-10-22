@@ -5,7 +5,7 @@ import Chip from '@mui/material/Chip';
 import Link from 'next/link';
 import { PURPLE_COLOR, WHITE_COLOR, GRAY_COLOR } from '@/app/color'
 
-export default function SectionHeader({ chipContent, title, hasTitle }: any) {
+export default function SectionHeader({ chipContent, title, hasTitle }: { chipContent?: string, title: string, hasTitle?: boolean }) {
     return (
         <Stack
             direction="row"
@@ -32,7 +32,7 @@ export default function SectionHeader({ chipContent, title, hasTitle }: any) {
                     }}>
                     {title}
                 </Typography>
-                <Chip
+                {chipContent && <Chip
                     label={chipContent}
                     size="small"
                     sx={{
@@ -42,6 +42,7 @@ export default function SectionHeader({ chipContent, title, hasTitle }: any) {
                             xs: "none", sm: "flex"
                         }
                     }} />
+                }
             </Stack>}
             <Stack
                 direction="row"

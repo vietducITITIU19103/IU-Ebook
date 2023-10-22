@@ -14,6 +14,7 @@ export default function BookDetailWiew({ children }: { children: React.ReactNode
                 component="main"
                 sx={{
                     flexGrow: 1,
+                    mb: { xs: '60px', md: '0' }
                 }}
             >
                 {children}
@@ -26,15 +27,6 @@ export default function BookDetailWiew({ children }: { children: React.ReactNode
                 }}
             >
                 <Footer />
-            </Box>
-            <Box
-                sx={{
-                    display: { xs: 'flex', md: 'none' },
-                    justifyContent: "center",
-                    backgroundColor: "white"
-                }}
-            >
-                <BottomNavBar />
             </Box>
         </Box>
     )
