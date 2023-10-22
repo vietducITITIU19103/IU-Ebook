@@ -8,7 +8,7 @@ export default function SearchBar() {
     const down1260px = useResponsive("down",1260);
     const down900px = useResponsive("down",900);
     return (
-        < FormControl sx={{
+        <FormControl sx={{
             width: "615px",
             ...(down1260px&&{width: "35%"}),
             ...(down900px&&{width: "100%"})

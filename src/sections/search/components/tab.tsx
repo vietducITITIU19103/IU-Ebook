@@ -1,6 +1,5 @@
 "use client"
 import * as React from 'react';
-import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import BookCard from '@/components/card';
 import Box from '@mui/material/Box';
@@ -8,7 +7,7 @@ import StyledButton from '@/components/button/styled-button';
 import fill from "lodash/fill"
 import CenterVerticalLayout from '@/layout/component-base-layout/center-vertical-layout';
 import { CustomTabPanel, StyledTab, StyledTabs, MainLayout } from './custom-component';
-import "../style.css"
+import "./style.css"
 
 const book = {
     title: "Kế toán tài chính",

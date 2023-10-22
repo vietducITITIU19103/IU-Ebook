@@ -11,8 +11,7 @@ export default function ControlButton({ children, sx, ...other }: Props) {
             {...other}
             sx={{
                 position: "absolute",
-                top: "calc(50% - 16px)",
-                right: "-40px",
+                top: {xs: "100%", md: "calc(50% - 16px)"},
                 zIndex: 2,
                 width: "35px",
                 height: '35px',

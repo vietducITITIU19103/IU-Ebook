@@ -7,7 +7,7 @@ import "./style.css"
 type Props = ButtonProps & {
   label: string,
   width: number,
-  bg: string
+  bg: "#4E49D6" | "#F3633E"
 }
 //'#4E49D6'
 export default function StyledButton({ label, width, bg, sx, ...other }: Props) {
@@ -15,7 +15,7 @@ export default function StyledButton({ label, width, bg, sx, ...other }: Props) 
     <Box position="relative" className="container" sx={{ ...sx }}>
       <Button
         {...other}
-        className="main_layer"
+        className={bg==="#4E49D6"?"main_layer_dark":"main_layer"}
         sx={{
           color:"white",
           width: width,

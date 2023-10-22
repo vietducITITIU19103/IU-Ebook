@@ -20,28 +20,31 @@ type HeaderData = {
 }
 
 const LinkWithBtn = (item: HeaderData) => (
-    <CenterHorizontalLayout spacing="8px" sx={{ px: "10px", display: {xs:"none",md:"block"} }}>
+    <CenterHorizontalLayout spacing="8px" sx={{ px: "10px", display: { xs: "none", md: "block" } }}>
         {item.icon}
         <HeaderLink component="a" href={item.destination}>{item.title}</HeaderLink>
     </CenterHorizontalLayout>
 )
 
 export default function Header() {
-    const down1260px = useResponsive("down",1260);
+    const down1260px = useResponsive("down", 1260);
     const { navLink, signIn } = ConfigHeader();
 
     return (
         <Box sx={{ borderBottom: "1px solid #F2F4F7", backgroundColor: "white" }}>
-            <Container sx={{ px: "0 !important", my: "16px", ...(down1260px&&{px: "12px"}) }}>
+            <Container sx={{ px: "0 !important", my: "16px", ...(down1260px && { px: "12px" }) }}>
                 <Stack direction="row" justifyContent="space-between" alignItems="center">
-                    <Box  sx={{display: {xs:"none",md:"flex"}}}><MainLogo /></Box>
-                    <CenterHorizontalLayout spacing="8px" justifyContent="flex-end" sx={{width: '100%'}}>
+                    <Box sx={{ display: { xs: "none", md: "flex" } }}><MainLogo /></Box>
+                    <CenterHorizontalLayout spacing="8px" justifyContent="flex-end" sx={{ width: '100%' }}>
                         <SearchBar />
-                        <StyledButton label='Search' width={100} bg='#F3633E'/>
+                        <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                            <StyledButton label='Search' width={100} bg='#F3633E' />
+                        </Box>
+
                         {navLink.map((item: HeaderData) => (
                             <LinkWithBtn {...item} />
                         ))}
-                        <CenterHorizontalLayout spacing="16px" pl={{xs:"8px", md: 0}}>
+                        <CenterHorizontalLayout spacing="16px" pl={{ xs: "8px", md: 0 }}>
                             <ChangeThemeButton />
                             <Box sx={{ width: "1px", height: "22px", backgroundColor: "#D8DBDF" }} />
                             <CartButton num={40} /></CenterHorizontalLayout>

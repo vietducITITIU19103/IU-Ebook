@@ -20,7 +20,7 @@ const book = {
 export default function RecommendView() {
   return (
     <Box sx={{backgroundColor: "white", marginTop: "8px", p: {xs:"16px 0 16px 16px",md: "40px 0"}}}>
-        <SectionHeader chipContent="Những tài liệu hữu ích nhất trong kì mới" title="Đề xuất" />
+        <SectionHeader chipContent="" title="Có thể bạn sẽ thích" />
         <Box
           className="scroll"
           sx={{
