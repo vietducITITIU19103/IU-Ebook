@@ -23,6 +23,7 @@
     "@mui/lab": "^5.0.0-alpha.136",
     "@mui/material": "^5.14.0",
     "@mui/system": "^5.14.0",
+    "@mui/x-data-grid": "^6.17.0",
     "@mui/x-date-pickers": "^6.10.0",
     "@svgr/webpack": "^8.1.0",
     "@types/lodash": "^4.14.195",

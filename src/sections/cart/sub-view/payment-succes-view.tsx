@@ -1,8 +1,5 @@
-import React from 'react'
-import RecommendBookList from "../components/recommend-book"
-import Typography from '@mui/material/Typography'
+import React, { useMemo } from 'react'
 import Stack from '@mui/material/Stack'
-import Container from '@mui/material/Container'
 import Box from '@mui/material/Box'
 import "../../book/components/book-tabs/style.css"
 import Image from 'next/image'
@@ -11,8 +8,10 @@ import imgSRC from "@/assets/images/payment-success.png"
 import { CartTitle, CartDescription, CartInfo, CartPrice } from '../components/custom-component'
 import SubLayout from '../components/sub-layout'
 import MomoLogo from "@/assets/images/momo.png"
+import { useConvertCurrency } from '@/hooks/use-convert-currency'
 
-export default function PaymentSuccesView() {
+export default function PaymentSuccesView({totalPrice}: {totalPrice: number}) {
+    const price = useMemo(()=>useConvertCurrency(totalPrice),[totalPrice])
     return (
         <SubLayout src={imgSRC} direction={{ xs: "column", md: "row-reverse" }} width={405}>
             <CartTitle sx={{ mb: "5px" }}>
@@ -36,10 +35,10 @@ export default function PaymentSuccesView() {
                     <CartInfo>Phương thức thanh toán</CartInfo>
                     <Image src={MomoLogo} width={36} height={36} alt="logo"></Image>
                 </Stack>
-                <hr style={{margin: "16px 0", border: "0.7px solid #F3633E"}}></hr>
+                <hr style={{ margin: "16px 0", border: "0.7px solid #F3633E" }}></hr>
                 <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <CartInfo>Tổng tiền</CartInfo>
-                    <CartPrice>56.000 d</CartPrice>
+                    <CartPrice>{price}{" "}<span style={{textDecoration: "underline"}}>đ</span></CartPrice>
                 </Stack>
             </Box>
             <StyledButton label='Quay lại thư viện' bg='#4E49D6' width={170} />
