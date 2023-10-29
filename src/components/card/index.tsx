@@ -13,6 +13,7 @@ import DownloadIconSVG from '../../assets/icons/book/download-icon';
 import BoughtIconSVG from '../../sections/home/components/main/svg/boughtIconSVG';
 import { PURPLE_COLOR, WHITE_COLOR, LIGHT_DARK, ORANGE_COLOR, DARK_COLOR } from '@/app/color'
 import bookImg from "@/assets/images/book.png"
+import imgSRC from "@/assets/images/ketoantaichinh.png"
 
 export default function BookCard({ book }: any) {
   const { title, type, code, price, download, isBought, isFavorite, isRecommend } = book
@@ -36,7 +37,7 @@ export default function BookCard({ book }: any) {
     right: "6px"
   }
   return (
-    <Card sx={CardContainerStyle}>
+    <Card sx={CardContainerStyle} component="a" href="/book/1">
       {!isFavorite ?
         <div style={{ position: "absolute", top: "11px", right: "11px" }}>
           <HeartSVG />
@@ -52,7 +53,7 @@ export default function BookCard({ book }: any) {
 
       <CardMedia
         sx={{ height: 177, objectFit: "contain", objectPosition: "0%" }}
-        image="/images/book/ketoantaichinh.png"
+        image="images/book/ketoan.png"
         title="green iguana"
       />
 

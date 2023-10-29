@@ -14,7 +14,7 @@ function handleClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
 export default function CustomSeparator() {
   const breadcrumbs = [
     <Link underline="hover" key="1" color="inherit" href="/" onClick={handleClick}>
-      MUI
+      Home page
     </Link>,
     <Link
       underline="hover"
@@ -23,15 +23,15 @@ export default function CustomSeparator() {
       href="/material-ui/getting-started/installation/"
       onClick={handleClick}
     >
-      Core
+      Hạng mục 1
     </Link>,
     <Typography key="3" color="text.primary">
-      Breadcrumb
+      Kế toán tài chính
     </Typography>,
   ];
 
   return (
-    <MainLayout sx={{ backgroundColor: "transparent", pt: "23px", py: "16px", display: {xs: "none", md: "block"} }}>
+    <MainLayout sx={{ backgroundColor: "transparent", pt: "23px", py: "16px", display: { xs: "none", md: "block" }, marginBottom: "0" }}>
       <Stack spacing={2}>
         <Breadcrumbs
           separator={<BreadcrumIcon sx={{ width: "9px", height: '16px' }} />}

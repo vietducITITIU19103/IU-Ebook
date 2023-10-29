@@ -6,7 +6,15 @@ import Image from 'next/image';
 
 export default function MainLogo() {
     return (
-        <Stack direction="row" spacing="12px" alignItems="center" justifyContent="center">
+        <Stack
+            direction="row"
+            spacing="12px"
+            alignItems="center"
+            justifyContent="center"
+            component="a" 
+            href='/'
+            sx={{cursor: "pointer"}}
+        >
             <Image src={IUHLogo} alt="Register logo" width={132} height={37}></Image>
             <TextHidden>Factorazy</TextHidden>
         </Stack>
