@@ -53,7 +53,7 @@ export default function BookCard({ book }: any) {
 
       <CardMedia
         sx={{ height: 177, objectFit: "contain", objectPosition: "0%" }}
-        image="images/book/ketoan.png"
+        image="/images/book/ketoan.png"
         title="green iguana"
       />
 

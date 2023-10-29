@@ -49,7 +49,8 @@ export default function SectionHeader({ chipContent, title, hasTitle }: { chipCo
                 justifyContent="flex-start"
                 alignItems="center"
                 spacing={0}
-                sx={{ paddingRight: { xs: "16px", md: "36px" } }}>
+                sx={{ paddingRight: { xs: "16px", md: "36px", lg: 0 } }}
+                >
                 <Link
                     href=""
                     style={{
