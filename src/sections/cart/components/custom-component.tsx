@@ -45,7 +45,18 @@ const CartPrice = styled(Typography)<TypographyProps>(({ theme }) => (
     }
 ))
 
+const CartSubTitle = styled(Typography)<TypographyProps>(({ theme }) => (
+    {
+        color: "#6C737F",
+        fontSize: "16px",
+        fontStyle: "normal",
+        fontWeight: 400,
+        lineHeight: "20px",
+        marginBottom: "16px"
+    }
+))
 
 
 
-export { CartTitle, CartDescription, CartInfo, CartPrice }
+
+export { CartTitle, CartDescription, CartInfo, CartPrice, CartSubTitle }
