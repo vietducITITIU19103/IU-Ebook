@@ -7,7 +7,7 @@ import BottomNavBar from '@/components/mobile-footer';
 export default function BookDetailWiew({ children }: { children: React.ReactNode }) {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', backgroundColor: "#F5F5FA" }}>
-            <Box sx={{ display: { xs: "none", md: "block" } }}>
+            <Box sx={{ display: { xs: "none", md: "block" }, backgroundColor: "white" }}>
                 <Header />
             </Box>
             <Box
