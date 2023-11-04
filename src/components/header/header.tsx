@@ -41,8 +41,8 @@ export default function Header() {
                             <StyledButton label='Search' width={100} bg='#F3633E' />
                         </Box>
 
-                        {navLink.map((item: HeaderData) => (
-                            <LinkWithBtn {...item} />
+                        {navLink.map((item: HeaderData, index: number) => (
+                            <LinkWithBtn {...item} key={index}/>
                         ))}
                         <CenterHorizontalLayout spacing="16px" pl={{ xs: "8px", md: 0 }}>
                             <ChangeThemeButton />

@@ -23,7 +23,7 @@ function MiniLogo({ ...other }: BoxProps) {
                 </g>
             </mask>
             <g mask="url(#mask1_1295_105891)">
-                <path d="M6.10352e-05 35.7507L19.2595 20.3766C20.6511 19.2657 22.7099 20.2566 22.7099 22.0372V27.4255C22.7099 29.2148 24.7861 30.2029 26.1747 29.0746L45.4332 13.4258" stroke="url(#paint1_linear_1295_105891)" stroke-width="3.13332" stroke-linecap="round" />
+                <path d="M6.10352e-05 35.7507L19.2595 20.3766C20.6511 19.2657 22.7099 20.2566 22.7099 22.0372V27.4255C22.7099 29.2148 24.7861 30.2029 26.1747 29.0746L45.4332 13.4258" stroke="url(#paint1_linear_1295_105891)" strokeWidth="3.13332" strokeLinecap="round" />
             </g>
             <defs>
                 <linearGradient id="paint0_linear_1295_105891" x1="69.3249" y1="47.1094" x2="69.3249" y2="93.7176" gradientUnits="userSpaceOnUse">

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import imgSrc from "@/assets/images/previewImg.png"
 
 
-import { RootLayer, GradientLayer, ContentLayer, ControlButton } from './custom-component';
+import { RootLayer} from './custom-component';
 
 
 

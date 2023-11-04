@@ -17,7 +17,7 @@ import ImgSRC from "@/assets/images/ketoantaichinh.png"
 export default function DetailView() {
   return (
     <>
-      <RenderBookBanner />
+      {/* <RenderBookBanner /> */}
       <ContainerLayout
         sx={{
           p: {
@@ -53,7 +53,7 @@ export default function DetailView() {
         <TabView />
         <RecommendView />
       </ContainerLayout>
-      <BookDetailsFooter />
+      <BookDetailsFooter /> 
     </>
 
   )
