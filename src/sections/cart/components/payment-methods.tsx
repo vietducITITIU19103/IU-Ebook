@@ -58,7 +58,7 @@ const CardItem = (src: any, name: string, value: string, cardNumber: string) => 
 
 export default function PaymentMethods() {
     return (
-        <Box sx={{ width: "100%", maxWidth: "560px" }}>
+        <Box sx={{width: {xs: "100%",md: "560px"}}}>
             <CartSubTitle>Phương thức thanh toán</CartSubTitle>
             <Stack>
 
