@@ -67,7 +67,7 @@ export function CustomTabPanel(props: TabPanelProps) {
         >
             {value === index && (
                 <Box>
-                    <Typography>{children}</Typography>
+                    <>{children}</>
                 </Box>
             )}
         </Box>

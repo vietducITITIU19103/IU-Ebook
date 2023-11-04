@@ -53,7 +53,7 @@ export default function DetailView() {
         <TabView />
         <RecommendView />
       </ContainerLayout>
-      <BookDetailsFooter />
+      <BookDetailsFooter /> 
     </>
 
   )

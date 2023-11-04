@@ -54,9 +54,6 @@ export default function CarouselSection() {
 
             <Box sx={{ width: "100%", transition: "0.3s ease", height: { xs: "260px", sm: "360px", md: "420px" } }}>
                 <Slider {...settings} ref={carouselRef}>
-                    {/* {users.map((item: CarouselProps) => (
-                        <CarouselItem key={item.id} />
-                    ))} */}
                     <CarouselItem />
                     <CarouselItem />
                     <CarouselItem />

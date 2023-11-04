@@ -12,11 +12,12 @@ import DiscountIcon from '@/assets/icons/book/discount-icon'
 export default function PricingBox() {
     const price = useMemo(() => useConvertCurrency(56000), [])
     return (
-        <Box>
+        <Box sx={{width: {xs: "100%",md: "560px"}}}>
             <CartSubTitle>Thành tiền</CartSubTitle>
             <Box
                 sx={{
-                    width: "560px",
+
+                    width: "100%",
                     px: "16px",
                     py: "24px",
                     borderRadius: "16px",

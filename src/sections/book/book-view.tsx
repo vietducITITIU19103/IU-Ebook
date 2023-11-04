@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import HomeLayoutView from '@/layout/layout-view/home-layout-view'
 import CustomSeparator from './components/breadcrumb'
