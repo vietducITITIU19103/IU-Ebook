@@ -2,11 +2,11 @@ import React, { memo } from 'react'
 import Box, { BoxProps } from '@mui/material/Box';
 
 type Props = BoxProps & {
-    color : string
+    colors? : string
 } 
 
 function CartIcon({ color, sx, ...other }: Props) {
-    const colorCode = color? color : "#4E49D6";
+    const colorCode = color? `${color}` : "#4E49D6";
     return (
         <Box component="svg" xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="0 0 23 22" fill="none" { ...other } sx={{width: "24px", height: '23px', ...sx}}>
             <path d="M1.22974 1.39648L3.5065 1.79054L4.5606 14.3489C4.64488 15.3745 5.50195 16.1615 6.53088 16.1582H18.4719C19.4537 16.1604 20.2867 15.438 20.4257 14.466L21.4645 7.28761C21.5805 6.48527 21.0234 5.74095 20.2221 5.62492C20.1521 5.61507 3.8721 5.60959 3.8721 5.60959" stroke={colorCode} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
