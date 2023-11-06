@@ -6,7 +6,16 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function CartButton({ num }: { num: number }) {
     return (
-        <Box sx={{ position: "relative", display: "inline", top: "3px", right: "5px" }}>
+        <Box
+            component="a"
+            href="/auth/cart/"
+            sx={{
+                position: "relative",
+                display: "inline",
+                top: "3px",
+                right: "5px",
+                cursor: "pointer"
+            }}>
             <CartIcon sx={{ width: '24px', height: "23px" }} />
             <Box sx={{
                 padding: "4px",

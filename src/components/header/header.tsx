@@ -42,12 +42,13 @@ export default function Header() {
                         </Box>
 
                         {navLink.map((item: HeaderData, index: number) => (
-                            <LinkWithBtn {...item} key={index}/>
+                            <LinkWithBtn {...item} key={index} />
                         ))}
                         <CenterHorizontalLayout spacing="16px" pl={{ xs: "8px", md: 0 }}>
                             <ChangeThemeButton />
                             <Box sx={{ width: "1px", height: "22px", backgroundColor: "#D8DBDF" }} />
-                            <CartButton num={40} /></CenterHorizontalLayout>
+                            <CartButton num={40} />
+                        </CenterHorizontalLayout>
                     </CenterHorizontalLayout>
                 </Stack>
             </Container>
