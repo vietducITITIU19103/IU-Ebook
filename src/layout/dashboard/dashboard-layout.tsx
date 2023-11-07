@@ -10,7 +10,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <Box sx={{ display: 'flex', flexDirection: 'column', backgroundColor: "#F5F5FA", flexShrink: 1 }}>
             <Header />
 
-            <Container sx={{ display: "flex", justifyContent: "flex-start", mt: "24px",  }}>
+            <Container sx={{ display: "flex", justifyContent: "flex-start", mt: "24px", gap: "24px" }} >
                 <VerticalNavbar />
                 <Box sx={{width: "100%"}}>{children}</Box>
             </Container>

@@ -44,7 +44,7 @@ export default function VerticalNavbar() {
     const path = usePathname()
     const { mainLink, subList } = NavConfig()
     return (
-        <Box sx={{ display: 'flex', height: "calc(100vh - 103px)" }}>
+        <Box sx={{ display: {xs:"none", md:'flex'}, height: "calc(100vh - 103px)" }}>
             <Paper elevation={0} sx={{ width: "256px", backgroundColor: "transparent" }}>
                 <FireNav component="nav" disablePadding>
                     <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing="16px" sx={{ padding: "13px 11px" }}>
