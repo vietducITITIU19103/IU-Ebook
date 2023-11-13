@@ -18,7 +18,7 @@ const book = {
 
 
 export default function DocumentView() {
-  const documentList = [book,book,book,book]
+  const documentList = [book,book,book,book, book]
   const [state, setState] = useState<"empty" | "list">(documentList.length === 0 ? "empty" : "list")
 
   const RenderView = (state: "empty" | "list") => {

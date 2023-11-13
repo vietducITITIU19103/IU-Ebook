@@ -2,6 +2,7 @@ import React from 'react'
 import Stack from '@mui/material/Stack';
 import BookCard from '@/components/card';
 import Grid from '@mui/material/Grid';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import CenterVerticalLayout from '@/layout/component-base-layout/center-vertical-layout';
 type BookTypes = {
@@ -18,38 +19,50 @@ type Props = {
   data: BookTypes[]
 }
 
+declare module '@mui/system' {
+  interface BreakpointOverrides {
+    // Your custom breakpoints
+    xssm: true;
+    smmd: true;
+    // Remove default breakpoints
+    xs: true;
+    sm: true;
+    md: true;
+    lg: true;
+    xl: true;
+  }
+}
+
+
 export default function ListDocumentView({ data }: Props) {
   return (
-    <>
-      <Stack
-        direction="row"
-        rowGap="20px"
-        columnGap="10px"
-        justifyContent={{ xs: "flex-start", md: "flex-start" }}
-        alignItems="center"
-        flexWrap="wrap"
-        sx={{
-          mb: 1, width: 'auto', display: { xs: "none", md: "flex" }
-        }}
+    <CenterVerticalLayout>
+      <ThemeProvider
+        theme={createTheme({
+          breakpoints: {
+            values: {
+              xs: 0,
+              xssm: 450,
+              sm: 600,
+              smmd: 800,
+              md: 900,
+              lg: 1200,
+              xl: 1500,
+            },
+          },
+        })}
       >
+        <Grid container spacing={2}>
+          {
+            data.map((item: BookTypes, index: number) => (
+              <Grid item xs={6} sm={4} smmd={3} md={4} lg={2.4} >
+                <BookCard key={index} book={item} />
+              </Grid>
+            ))
+          }
 
-        {
-          data.map((item: BookTypes, index: number) => (
-            <BookCard key={index} book={item} />
-          ))
-        }
-
-      </Stack >
-      {/* <Grid container spacing={2}  >
-        {
-          data.map((item: BookTypes, index: number) => (
-            <Grid item xs={6} sm={4}>
-              <BookCard key={index} book={item} />
-            </Grid>
-          ))
-        }
-
-      </Grid> */}
-    </>
+        </Grid>
+      </ThemeProvider>
+    </CenterVerticalLayout >
   )
 }

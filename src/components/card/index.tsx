@@ -18,14 +18,14 @@ import imgSRC from "@/assets/images/ketoantaichinh.png"
 export default function BookCard({ book }: any) {
   const { title, type, code, price, download, isBought, isFavorite, isRecommend } = book
   const CardContainerStyle = {
-    width:"177px",
-    height: "270px",
-    borderRadius: "12px",
-    position: "relative",
-    backgroundColor: WHITE_COLOR,
-    border: "1px solid #6C737F",
-    cursor: "pointer",
-    flexShrink: 0, 
+    // width:"177px",
+    // height: "270px",
+    // borderRadius: "12px",
+    // position: "relative",
+    // backgroundColor: WHITE_COLOR,
+    // border: "1px solid #6C737F",
+    // cursor: "pointer",
+    // flexShrink: 0, 
   }
   const TypographyStyle = {
     fontSize: "12px",
@@ -37,54 +37,15 @@ export default function BookCard({ book }: any) {
     right: "6px"
   }
   return (
-    <Card sx={CardContainerStyle} component="a" href="/book/1">
-      {!isFavorite ?
-        <div style={{ position: "absolute", top: "11px", right: "11px" }}>
-          <HeartSVG />
-        </div>
-        :
-        <div style={{ position: "absolute", top: "0", right: "0" }}>
-          <FavoriteSVG />
-          <Typography gutterBottom variant="body2" component="div" sx={TypographyStyle}>
-            <HeartIconSVG />
-            <span style={{ marginLeft: "4px" }}>Yêu thích</span>
-          </Typography>
-        </div>}
+    <Card sx={{ backgroundColor: "black !important" }}>
+
 
       <CardMedia
         sx={{ height: 177, objectFit: "contain", objectPosition: "0%" }}
         image="/images/book/ketoan.png"
         title="green iguana"
       />
-
-      {isRecommend &&
-        <div style={{
-          display: "flex",
-          justifyContent: "flex-start",
-          alignItems: "center",
-          position: "relative",
-          top: "-10px"
-        }}>
-          <div style={{ position: "absolute" }}>
-            <RecommendSVG />
-          </div>
-          <Typography
-            gutterBottom
-            variant="body2"
-            component="div"
-            sx={{
-              fontSize: "12px",
-              fontWeight: "500",
-              color: "white",
-              position: "absolute",
-              paddingLeft: "7px",
-              fontFamily: "inherit"
-            }}>
-            Đề xuất bởi giảng viên
-          </Typography>
-        </div>
-      }
-      <CardContent sx={{ padding: "10px", color: DARK_COLOR }}>
+      <CardContent sx={{ padding: "10px", color: DARK_COLOR, backgroundColor: "white" }}>
         <Typography
           gutterBottom
           variant="body2"
@@ -142,6 +103,48 @@ export default function BookCard({ book }: any) {
           </Stack>
         </Stack>
       </CardContent>
+
+      {!isFavorite ?
+        <div style={{ position: "absolute", top: "11px", right: "11px" }}>
+          <HeartSVG />
+        </div>
+        :
+        <div style={{ position: "absolute", top: "0", right: "0" }}>
+          <FavoriteSVG />
+          <Typography gutterBottom variant="body2" component="div" sx={TypographyStyle}>
+            <HeartIconSVG />
+            <span style={{ marginLeft: "4px" }}>Yêu thích</span>
+          </Typography>
+        </div>}
+
+      {isRecommend &&
+        <div style={{
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          position: "relative",
+          top: "-10px"
+        }}>
+          <div style={{ position: "absolute" }}>
+            <RecommendSVG />
+          </div>
+          <Typography
+            gutterBottom
+            variant="body2"
+            component="div"
+            sx={{
+              fontSize: "12px",
+              fontWeight: "500",
+              color: "white",
+              position: "absolute",
+              paddingLeft: "7px",
+              fontFamily: "inherit"
+            }}>
+            Đề xuất bởi giảng viên
+          </Typography>
+        </div>
+      }
+      
       <div style={{ position: "absolute", bottom: "-5px", right: "0" }}>
         <PatternSVG color={!isFavorite ? PURPLE_COLOR : ORANGE_COLOR} />
       </div>
