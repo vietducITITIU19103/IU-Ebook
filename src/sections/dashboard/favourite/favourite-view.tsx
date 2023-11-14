@@ -1,8 +1,8 @@
 "use client"
 import { Box } from '@mui/material'
 import React, { useState } from 'react'
-import EmptyDocumentView from './sub-view/empty-document-view'
-import ListDocumentView from './sub-view/list-document-view'
+import EmptyFavouriteView from './sub-view/empty-favourite-view'
+import ListFavouriteView from './sub-view/list-favourite-view'
 
 const book = {
   title: "Kế toán tài chính",
@@ -13,19 +13,21 @@ const book = {
   isBought: false,
   isFavorite: false,
   isRecommend: false,
-  isLoved: false
+  isLoved: true,
+  isLovedState: true,
 }
 
 
 
-export default function DocumentView() {
-  const documentList = [book,book,book,book, book]
-  const [state, setState] = useState<"empty" | "list">(documentList.length === 0 ? "empty" : "list")
+export default function FavouriteView() {
+  const FavouriteList = [book,book,book,book, book]
+ // const FavouriteList: any = [];
+  const [state, setState] = useState<"empty" | "list">(FavouriteList.length === 0 ? "empty" : "list")
 
   const RenderView = (state: "empty" | "list") => {
     const currentView = {
-      empty: <EmptyDocumentView />,
-      list: <ListDocumentView data={documentList}/>
+      empty: <EmptyFavouriteView />,
+      list: <ListFavouriteView data={FavouriteList}/>
     }[state]
     return (<>{currentView}</>)
   }

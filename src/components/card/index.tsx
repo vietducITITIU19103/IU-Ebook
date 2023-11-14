@@ -12,21 +12,10 @@ import PatternSVG from '../../sections/home/components/main/svg/parternSVG';
 import DownloadIconSVG from '../../assets/icons/book/download-icon';
 import BoughtIconSVG from '../../sections/home/components/main/svg/boughtIconSVG';
 import { PURPLE_COLOR, WHITE_COLOR, LIGHT_DARK, ORANGE_COLOR, DARK_COLOR } from '@/app/color'
-import bookImg from "@/assets/images/book.png"
-import imgSRC from "@/assets/images/ketoantaichinh.png"
 
 export default function BookCard({ book }: any) {
-  const { title, type, code, price, download, isBought, isFavorite, isRecommend } = book
-  const CardContainerStyle = {
-    // width:"177px",
-    // height: "270px",
-    // borderRadius: "12px",
-    // position: "relative",
-    // backgroundColor: WHITE_COLOR,
-    // border: "1px solid #6C737F",
-    // cursor: "pointer",
-    // flexShrink: 0, 
-  }
+  const { title, type, code, price, download, isBought, isFavorite, isRecommend, isLoved, isLovedState } = book
+
   const TypographyStyle = {
     fontSize: "12px",
     fontWeight: "500",
@@ -37,7 +26,7 @@ export default function BookCard({ book }: any) {
     right: "6px"
   }
   return (
-    <Card sx={{ backgroundColor: "black !important" }}>
+    <Card sx={{ backgroundColor: "black !important", position: "relative", overflow: "hidden", borderRadius: "12px" }}>
 
 
       <CardMedia
@@ -75,8 +64,8 @@ export default function BookCard({ book }: any) {
               <Typography
                 variant="body2"
                 color="text.secondary"
-                sx={{ fontSize: "18px", fontWeight: "bold", color: "#4E49D6" }}>
-                <span>Đã mua</span>
+                sx={{ fontSize: "18px", fontWeight: "bold", color: "#4E49D6", fontFamily: "inherit", }}>
+                Đã mua
               </Typography>
             </Stack>
             :
@@ -88,6 +77,7 @@ export default function BookCard({ book }: any) {
                 fontWeight: "bold",
                 color: "#F3633E",
                 position: "relative",
+                fontFamily: "inherit",
                 top: "3.5px"
               }}>
               <span>
@@ -104,11 +94,7 @@ export default function BookCard({ book }: any) {
         </Stack>
       </CardContent>
 
-      {!isFavorite ?
-        <div style={{ position: "absolute", top: "11px", right: "11px" }}>
-          <HeartSVG />
-        </div>
-        :
+      {isFavorite &&
         <div style={{ position: "absolute", top: "0", right: "0" }}>
           <FavoriteSVG />
           <Typography gutterBottom variant="body2" component="div" sx={TypographyStyle}>
@@ -116,6 +102,10 @@ export default function BookCard({ book }: any) {
             <span style={{ marginLeft: "4px" }}>Yêu thích</span>
           </Typography>
         </div>}
+
+      {isLoved && <div style={{ position: "absolute", top: "11px", right: "11px" }}>
+        <HeartSVG state={isLovedState}/>
+      </div>}
 
       {isRecommend &&
         <div style={{
@@ -144,7 +134,7 @@ export default function BookCard({ book }: any) {
           </Typography>
         </div>
       }
-      
+
       <div style={{ position: "absolute", bottom: "-5px", right: "0" }}>
         <PatternSVG color={!isFavorite ? PURPLE_COLOR : ORANGE_COLOR} />
       </div>
