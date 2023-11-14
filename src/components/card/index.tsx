@@ -12,6 +12,7 @@ import PatternSVG from '../../sections/home/components/main/svg/parternSVG';
 import DownloadIconSVG from '../../assets/icons/book/download-icon';
 import BoughtIconSVG from '../../sections/home/components/main/svg/boughtIconSVG';
 import { PURPLE_COLOR, WHITE_COLOR, LIGHT_DARK, ORANGE_COLOR, DARK_COLOR } from '@/app/color'
+import CustomBackdrop from '@/sections/dashboard/favourite/components/custom-backdrop';
 
 export default function BookCard({ book }: any) {
   const { title, type, code, price, download, isBought, isFavorite, isRecommend, isLoved, isLovedState } = book
@@ -104,7 +105,7 @@ export default function BookCard({ book }: any) {
         </div>}
 
       {isLoved && <div style={{ position: "absolute", top: "11px", right: "11px" }}>
-        <HeartSVG state={isLovedState}/>
+        <CustomBackdrop><HeartSVG state={isLovedState}/></CustomBackdrop>
       </div>}
 
       {isRecommend &&
