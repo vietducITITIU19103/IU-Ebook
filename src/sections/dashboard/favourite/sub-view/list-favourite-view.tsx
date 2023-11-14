@@ -1,5 +1,4 @@
 import React from 'react'
-import Stack from '@mui/material/Stack';
 import BookCard from '@/components/card';
 import Grid from '@mui/material/Grid';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -13,7 +12,9 @@ type BookTypes = {
   download: string,
   isBought: boolean,
   isFavorite: boolean,
-  isRecommend: boolean
+  isRecommend: boolean,
+  isLoved: boolean,
+  isLovedState: boolean
 }
 type Props = {
   data: BookTypes[]
@@ -34,7 +35,7 @@ declare module '@mui/system' {
 }
 
 
-export default function ListDocumentView({ data }: Props) {
+export default function ListFavouriteView({ data }: Props) {
   return (
     <CenterVerticalLayout>
       <ThemeProvider
