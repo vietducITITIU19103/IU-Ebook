@@ -1,13 +1,12 @@
 "use client"
 import * as React from 'react';
 import Backdrop from '@mui/material/Backdrop';
-import CircularProgress from '@mui/material/CircularProgress';
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
-import { useTimeout } from '@/hooks/use-set-timeout';
+import FavoriteIcon from '@/assets/icons/toast/favorite-icon';
+import CenterVerticalLayout from '@/layout/component-base-layout/center-vertical-layout';
 
-export default function CustomBackdrop({ children }: { children: React.ReactNode }) {
+export default function CustomBackdrop({ children, state, insideComponent }: { children: React.ReactNode, state: boolean, insideComponent: React.ReactNode }) {
     const [open, setOpen] = React.useState(false);
 
     React.useEffect(() => {
@@ -19,8 +18,9 @@ export default function CustomBackdrop({ children }: { children: React.ReactNode
     };
 
     const handleOpen = () => {
-        setOpen(true);
-
+        if(!state){
+            setOpen(true);
+        }
     };
 
     return (
@@ -31,9 +31,7 @@ export default function CustomBackdrop({ children }: { children: React.ReactNode
                 open={open}
                 onClick={handleClose}
             >
-                <Box sx={{ backgroundColor: "rgba(17, 25, 39, 0.6)", borderRadius: "16px", width: "246px", height: "120px" }}>
-                    <Typography>Đã thêm tài liệu vào “Yêu thích”</Typography>
-                </Box>
+                {insideComponent}
             </Backdrop>
         </div>
     );
