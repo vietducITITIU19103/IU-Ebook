@@ -3,14 +3,15 @@ import Box, { BoxProps } from '@mui/material/Box'
 import React, { memo, useEffect, useCallback, useState } from 'react'
 
 type Props = BoxProps & {
-    state?: boolean
+    active:boolean,
+    toggleState: ()=>void
 }
 
-function HeartSVG({ state, sx, ...other }: Props) {
-    const [active, setActive] = useState<boolean>(state? state : false)
-    const toggleState = useCallback(() => {
-        setActive(!active)
-    }, [active])
+function HeartSVG({active, toggleState, sx, ...other }: Props) {
+    // const [active, setActive] = useState<boolean>(state? state : false)
+    // const toggleState = useCallback(() => {
+    //     setActive(!active)
+    // }, [active])
     return (
         <Box
             component="svg"

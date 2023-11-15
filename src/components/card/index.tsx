@@ -12,9 +12,17 @@ import PatternSVG from '../../sections/home/components/main/svg/parternSVG';
 import DownloadIconSVG from '../../assets/icons/book/download-icon';
 import BoughtIconSVG from '../../sections/home/components/main/svg/boughtIconSVG';
 import { PURPLE_COLOR, WHITE_COLOR, LIGHT_DARK, ORANGE_COLOR, DARK_COLOR } from '@/app/color'
+import CustomBackdrop from '@/components/backdrop/custom-backdrop';
+import CenterVerticalLayout from '@/layout/component-base-layout/center-vertical-layout';
+import FavoriteIcon from '@/assets/icons/toast/favorite-icon';
 
 export default function BookCard({ book }: any) {
   const { title, type, code, price, download, isBought, isFavorite, isRecommend, isLoved, isLovedState } = book
+
+  const [active, setActive] = React.useState<boolean>(false)
+  const toggleState = React.useCallback(() => {
+    setActive(!active)
+  }, [active])
 
   const TypographyStyle = {
     fontSize: "12px",
@@ -104,7 +112,16 @@ export default function BookCard({ book }: any) {
         </div>}
 
       {isLoved && <div style={{ position: "absolute", top: "11px", right: "11px" }}>
-        <HeartSVG state={isLovedState}/>
+        <CustomBackdrop
+          state={active}
+          insideComponent={
+            <CenterVerticalLayout sx={{ backgroundColor: "rgba(17, 25, 39, 0.6)", borderRadius: "16px", width: "246px", height: "120px" }}>
+              <FavoriteIcon />
+              <Typography>Đã thêm tài liệu vào “Yêu thích”</Typography>
+            </CenterVerticalLayout>}
+        >
+          <HeartSVG toggleState={toggleState} active={active} />
+        </CustomBackdrop>
       </div>}
 
       {isRecommend &&
