@@ -61,9 +61,7 @@ export default function ListFavouriteView({ data }: Props) {
               </Grid>
             ))
           }
-<svg xmlns="http://www.w3.org/2000/svg" width="19" height="9" viewBox="0 0 19 9" fill="white">
-  <path d="M1 0.5C1 0.5 3 8.5 10 8.5C17 8.5 18.5 0.5 18.5 0.5" stroke="black"/>
-</svg>
+
         </Grid>
       </ThemeProvider>
     </CenterVerticalLayout >
