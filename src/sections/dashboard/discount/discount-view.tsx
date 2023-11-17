@@ -3,6 +3,7 @@ import { Box } from '@mui/material'
 import React, { useState } from 'react'
 import EmptyPromotionView from './sub-view/empty-promotion-view'
 import ListPromotionView from './sub-view/list-promotion-view'
+import PromotionTabs from './components/promotion-tabs'
 
 const book = {
   title: "Kế toán tài chính",
@@ -27,7 +28,7 @@ export default function DiscountView() {
   const RenderView = (state: "empty" | "list") => {
     const currentView = {
       empty: <EmptyPromotionView />,
-      list: <ListPromotionView data={PromoList}/>
+      list: <PromotionTabs data={PromoList}/>
     }[state]
     return (<>{currentView}</>)
   }

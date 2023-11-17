@@ -11,6 +11,9 @@ import CenterVerticalLayout from '@/layout/component-base-layout/center-vertical
 import Box from '@mui/material/Box';
 import { Stack } from '@mui/system';
 import { Typography } from '@mui/material';
+import { PromotionTitle, PromotionDescription, PromotionExpire } from '../_config/custom-typography';
+import InfoIcon from '@/assets/icons/promotion/info-icon';
+
 type BookTypes = {
   title: string,
   type: string,
@@ -36,6 +39,7 @@ declare module '@mui/system' {
     xs: true;
     sm: true;
     md: true;
+    mdlg:true;
     lg: true;
     xl: true;
   }
@@ -54,23 +58,25 @@ export default function ListPromotionView({ data }: Props) {
               sm: 600,
               smmd: 800,
               md: 900,
+              mdlg: 1100,
               lg: 1200,
               xl: 1500,
             },
           },
         })}
       >
-        <PromotionTabs></PromotionTabs>
-        <Grid container spacing={2}>
+        
+        <Grid container spacing={2} mt="10px">
           {
             data.map((item: BookTypes, index: number) => (
-              <Grid item xs={12} sm={6}  >
-                <Box sx={{ width: "100%", borderRadius: "12px", border: "1px solid #D8DBDF", position: "relative", backgroundColor: "white" }}>
+              <Grid item xs={12} smmd={6} md={12} mdlg={6}  >
+                <Box sx={{ width: "100%", height: "124px", borderRadius: "12px", border: "1px solid #D8DBDF", position: "relative", backgroundColor: "white" }}>
+                  <InfoIcon sx={{position: "absolute", top: "10px", right: "10px",}}/>
                   <PromotionIcon sx={{ position: "absolute", top: "-1.4px", left: "115px", zIndex: 3 }} />
                   <PromotionIcon sx={{ position: "absolute", bottom: "-1.4px", left: "115px", zIndex: 3, transform: "rotate(180deg)" }} />
-                  <DashedLine sx={{ position: "absolute", top: "7px", left: "127px", zIndex: 3 }}/>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{py:"25px"}}>
-                    <CenterVerticalLayout sx={{px:"37px", flexShrink: 0}}>
+                  <DashedLine sx={{ position: "absolute", top: "7px", left: "127px", zIndex: 3 }} />
+                  <Stack direction="row" justifyContent="flex-start" alignItems="center" sx={{ py: "20px", height: "100%" }} spacing="30px">
+                    <CenterVerticalLayout sx={{ flexShrink: 0, width: "124px" }}>
                       <Image src={ZaloLogo} width={54} height={54} alt="logo" />
                       <Typography
                         sx={{
@@ -85,11 +91,13 @@ export default function ListPromotionView({ data }: Props) {
                         Ví Zalopay
                       </Typography>
                     </CenterVerticalLayout>
-                    <Box>
-                      <Typography>Giảm 50% cho hóa đơn hơn 200k</Typography>
-                      <Typography>Áp dụng cho hóa đơn từ 200k</Typography>
-                      <Typography>HSD: 30/04/2023</Typography>
-                    </Box>
+                    <Stack direction="column" alignItems="space-between" justifyContent="space-between" sx={{height: "100%", width: "100%", mr: "30px !important"}}>
+                      <Box>
+                        <PromotionTitle>Giảm 50% cho hóa đơn hơn 200k</PromotionTitle>
+                        <PromotionDescription>Áp dụng cho hóa đơn từ 200k</PromotionDescription>
+                      </Box>
+                      <PromotionExpire>HSD: 30/04/2023</PromotionExpire>
+                    </Stack>
                   </Stack>
                 </Box>
               </Grid>
