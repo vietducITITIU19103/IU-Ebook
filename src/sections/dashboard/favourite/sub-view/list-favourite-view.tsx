@@ -20,19 +20,6 @@ type Props = {
   data: BookTypes[]
 }
 
-declare module '@mui/system' {
-  interface BreakpointOverrides {
-    // Your custom breakpoints
-    xssm: true;
-    smmd: true;
-    // Remove default breakpoints
-    xs: true;
-    sm: true;
-    md: true;
-    lg: true;
-    xl: true;
-  }
-}
 
 
 export default function ListFavouriteView({ data }: Props) {
@@ -47,6 +34,7 @@ export default function ListFavouriteView({ data }: Props) {
               sm: 600,
               smmd: 800,
               md: 900,
+              mdlg: 1100,
               lg: 1200,
               xl: 1500,
             },
