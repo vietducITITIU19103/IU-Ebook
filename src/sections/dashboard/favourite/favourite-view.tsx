@@ -18,7 +18,6 @@ const book = {
 }
 
 
-
 export default function FavouriteView() {
   const FavouriteList = [book,book,book,book, book]
  // const FavouriteList: any = [];

@@ -19,7 +19,7 @@ import FavoriteIcon from '@/assets/icons/toast/favorite-icon';
 export default function BookCard({ book }: any) {
   const { title, type, code, price, download, isBought, isFavorite, isRecommend, isLoved, isLovedState } = book
 
-  const [active, setActive] = React.useState<boolean>(false)
+  const [active, setActive] = React.useState<boolean>(isLovedState)
   const toggleState = React.useCallback(() => {
     setActive(!active)
   }, [active])
