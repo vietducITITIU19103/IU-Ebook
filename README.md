@@ -8,4 +8,5 @@
 <li>Lodash</li>
 <li>React-hook-form & Yub to manage and validate form data</li>
 <li>React-slick to make carousel</li>
+<li>React-dropzone for handling upload file</li>
 </ul>
