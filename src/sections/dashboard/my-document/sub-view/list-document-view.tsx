@@ -46,6 +46,7 @@ export default function ListDocumentView({ data }: Props) {
               sm: 600,
               smmd: 800,
               md: 900,
+              mdlg: 1100,
               lg: 1200,
               xl: 1500,
             },

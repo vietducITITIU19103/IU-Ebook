@@ -13,6 +13,7 @@ const PromotionTitle = styled(Typography)<TypographyProps>(
         lineHeight: "20px",
     }
 )
+
 const PromotionDescription = styled(Typography)<TypographyProps>(
     {
         color: "#9DA4AE",
@@ -23,10 +24,21 @@ const PromotionDescription = styled(Typography)<TypographyProps>(
     }
 )
 
+const LogoDescription = styled(Typography)<TypographyProps>(
+    {
+        color: "#9DA4AE",
+        fontFamily: "Bitter",
+        fontSize: "10px",
+        fontStyle: "normal",
+        fontWeight: 500,
+        lineHeight: "20px"
+    }
+)
+
 const PromotionExpire = styled(PromotionDescription)<TypographyProps>(
     {
         color: "#1F2A37",
     }
 )
 
-export { PromotionTitle, PromotionDescription, PromotionExpire }
+export { PromotionTitle, PromotionDescription, PromotionExpire, LogoDescription }

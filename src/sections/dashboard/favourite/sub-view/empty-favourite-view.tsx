@@ -1,8 +1,6 @@
 import React from 'react'
 import "../../../book/components/book-tabs/style.css"
-import StyledButton from '@/components/button/styled-button'
 import imgSRC from "@/assets/images/cart-image-purple.png"
-import { CartTitle, CartDescription } from '@/sections/cart/components/custom-component'
 import EmptyLayout from "../../_common/empty-layout"
 
 export default function EmptyFavouriteView() {
