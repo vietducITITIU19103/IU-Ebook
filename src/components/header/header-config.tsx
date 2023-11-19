@@ -8,7 +8,7 @@ export default function ConfigHeader() {
         return {
             navLink: [
                 { title: "Trang chủ", destination: "/", icon: <HomeIcon sx={{width: "14px", height: "16px"}}/> },
-                { title: "Tài khoản", destination: "/", icon: <UserIcon sx={{width: "12px", height: "14px"}}/> },
+                { title: "Tài khoản", destination: "/dashboard/my-document/", icon: <UserIcon sx={{width: "12px", height: "14px"}}/> },
             ],
             signIn: { title: "Đăng ký ", destination: "/register" },
         }

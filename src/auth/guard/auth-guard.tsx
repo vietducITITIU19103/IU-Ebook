@@ -1,3 +1,4 @@
+"use client"
 import { useEffect, useCallback, useState } from 'react';
 // routes
 
@@ -34,7 +35,7 @@ export default function AuthGuard({ children }: Props) {
         returnTo: window.location.pathname,
       }).toString();
 
-      const loginPath = loginPaths[method];
+      const loginPath = "/auth/login/";
 
       const href = `${loginPath}?${searchParams}`;
 
