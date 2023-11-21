@@ -10,8 +10,8 @@ type Props = TextFieldProps & {
 
 const TextFieldStyle = {
   "& .MuiInputBase-input": {
-      paddingTop: "6.5px",
-      paddingBottom: "6.5px",
+      paddingTop: "10px",
+      paddingBottom: "10px",
   },
   "& .MuiOutlinedInput-notchedOutline": {
       borderRadius: "8px",
@@ -19,19 +19,16 @@ const TextFieldStyle = {
   "& .MuiOutlinedInput-root": {
       paddingTop: 0,
       paddingBottom: 0,
-      
+      width: '100%',
       "& fieldset": {
-          borderColor: "#9DA4AE",
-          borderWidth: "1px",
+          borderColor: "#D0D5DD",
       },
       "&:hover fieldset": {
-          borderColor: "#4E49D6",
-          borderWidth: "1px",
+          borderColor: "#006B5B",
       },
       "&.Mui-focused fieldset": {
-          borderColor: "#4E49D6",
-          borderWidth: "1px",
-          boxShadow: "0 0 2px 2px #4e49d65e"
+          borderColor: "#006B5B",
+          boxShadow: "0 0 2px 2px rgba(0, 107, 91, 0.3)"
       },
   },
 };
@@ -44,7 +41,7 @@ export default function RHFTextField({ name, helperText, type, ...other }: Props
       name={name}
       control={control}
       render={({ field, fieldState: { error } }) => (
-        <TextField
+        <TextField 
           {...field}
           fullWidth
           type={type}
@@ -58,8 +55,8 @@ export default function RHFTextField({ name, helperText, type, ...other }: Props
           }}
           error={!!error}
           helperText={error ? error?.message : helperText}
-          {...other}
           sx={{...TextFieldStyle}}
+          {...other} 
         />
       )}
     />
