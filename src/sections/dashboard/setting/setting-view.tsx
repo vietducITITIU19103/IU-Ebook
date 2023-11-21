@@ -1,9 +1,10 @@
+"use client"
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import ListPromotionView from '../sub-view/list-promotion-view';
-import { StyledTabs, a11yProps, CustomTabPanel, StyledTab } from '../../_common/tab-component';
+import { StyledTabs, a11yProps, CustomTabPanel, StyledTab } from '../_common/tab-component';
+import PersonalProfile from './sub-view/personal-profile';
 
-export default function PromotionTabs({ data }: { data: any }) {
+export default function SettingView() {
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -11,23 +12,22 @@ export default function PromotionTabs({ data }: { data: any }) {
     };
 
     return (
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ width: '100%', backgroundColor: "white", padding:"16px 24px", borderRadius: '16px' }}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <StyledTabs value={value} onChange={handleChange} aria-label="basic tabs example" sx={{ textTransform: "initial" }} >
-                    <StyledTab label="Tất cả" {...a11yProps(0)} />
-                    <StyledTab label="Khuyến mãi ebook" {...a11yProps(1)} />
-                    <StyledTab label="Ưu đãi thanh toán" {...a11yProps(2)} />
-                    <StyledTab label="Hết hiệu lực" {...a11yProps(3)} />
+                    <StyledTab label="Hồ sơ cá nhân" {...a11yProps(0)} />
+                    <StyledTab label="Thay đổi mật khẩu" {...a11yProps(1)} />
+                    <StyledTab label="Tùy chỉnh hệ thống" {...a11yProps(2)} />
                 </StyledTabs>
             </Box>
             <CustomTabPanel value={value} index={0}>
-                <ListPromotionView data={data} />
+                <PersonalProfile/>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
-                <ListPromotionView data={data} />
+                2
             </CustomTabPanel>
             <CustomTabPanel value={value} index={2}>
-                <ListPromotionView data={data} />
+                3
             </CustomTabPanel>
         </Box>
     );

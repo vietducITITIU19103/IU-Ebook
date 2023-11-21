@@ -17,6 +17,7 @@ export default function InputContainer({label, isRequired, children}: InputConta
                 sx={{
                     color: "#344054",
                     fontWeight: 700,
+                    fontFamily: "inherit",
                     marginBottom: "6px",
                     lineHeight: "20px",
                     fontSize: "18px"
