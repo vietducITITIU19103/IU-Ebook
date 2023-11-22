@@ -36,7 +36,7 @@ const TextFieldStyle = {
   },
 };
 
-export default function RHFTextField({ name, helperText, type, ...other }: Props) {
+export default function RHFTextField({ name, helperText, type, sx, ...other }: Props) {
   const { control } = useFormContext();
 
   return (
@@ -59,7 +59,7 @@ export default function RHFTextField({ name, helperText, type, ...other }: Props
           error={!!error}
           helperText={error ? error?.message : helperText}
           {...other}
-          sx={{...TextFieldStyle}}
+          sx={{...TextFieldStyle, ...sx}}
         />
       )}
     />

@@ -20,6 +20,7 @@ export default function StyledButton({ label, width, bg, sx, ...other }: Props) 
           color:"white",
           width: width,
           backgroundColor: bg,
+          borderRadius: "8px !important",
           textTransform: "initial",
           '&: hover': {
             backgroundColor: bg,
