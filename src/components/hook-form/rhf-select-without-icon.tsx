@@ -2,8 +2,6 @@ import * as React from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import TextField, { TextFieldProps } from '@mui/material/TextField';
 import { useFormContext, Controller } from 'react-hook-form';
-import { useLocales } from '@/locales';
-// import { useIsClient } from '@/hooks/use-is-client';
 
 type Props = TextFieldProps & {
     name: string;
@@ -12,24 +10,27 @@ type Props = TextFieldProps & {
 
 const TextFieldStyle = {
     "& .MuiInputBase-input": {
-        paddingTop: "8px",
-        paddingBottom: "8px",
+        paddingTop: "6.5px",
+      paddingBottom: "6.5px",
     },
     "& .MuiOutlinedInput-notchedOutline": {
-        borderRadius: "6px",
+        borderRadius: "8px",
     },
     "& .MuiOutlinedInput-root": {
         paddingTop: 0,
         paddingBottom: 0,
         "& fieldset": {
-            borderColor: "#D0D5DD",
+            borderColor: "#9DA4AE",
+            borderWidth: "1px",
         },
         "&:hover fieldset": {
-            borderColor: "#006B5B",
+            borderColor: "#4E49D6",
+            borderWidth: "1px",
         },
         "&.Mui-focused fieldset": {
-            borderColor: "#006B5B",
-            boxShadow: "0 0 2px 2px rgba(0, 107, 91, 0.3)"
+            borderColor: "#4E49D6",
+            borderWidth: "1px",
+            boxShadow: "0 0 2px 2px #4e49d65e"
         },
     },
 };

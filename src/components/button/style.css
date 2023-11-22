@@ -10,7 +10,7 @@
 
 .main_layer {
     height: 100%;
-    border-radius: 8px;
+    border-radius: 8px !important;
     text-transform: inherit;
     color: white;
     font-size: 16px;
@@ -23,18 +23,20 @@
     position: absolute;
     top: 4.5px;
     left: 3.5px;
-    border-radius: 8px;
+    border-radius: 8px !important;
     transition: all 0.3s ease;
     z-index: 1;
 }
 
 .container:hover>.main_layer {
+    border-radius: 8px !important;
     transform: translate(2px, 2.5px);
     box-shadow: 0px 0px 10px 5px rgba(243, 99, 62, 0.2);
     top: 0;
 }
 
 .container:hover>.main_layer_dark {
+    border-radius: 8px !important;
     transform: translate(2px, 2.5px);
     transition: all 0.3s ease !important;
     box-shadow: 0px 0px 10px 5px rgba(78, 73, 214, 0.2);

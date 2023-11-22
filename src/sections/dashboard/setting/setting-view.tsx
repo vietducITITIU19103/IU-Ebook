@@ -3,6 +3,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import { StyledTabs, a11yProps, CustomTabPanel, StyledTab } from '../_common/tab-component';
 import PersonalProfile from './sub-view/personal-profile';
+import ChangePassword from './sub-view/change-password';
 
 export default function SettingView() {
     const [value, setValue] = React.useState(0);
@@ -12,7 +13,7 @@ export default function SettingView() {
     };
 
     return (
-        <Box sx={{ width: '100%', backgroundColor: "white", padding:"16px 24px", borderRadius: '16px' }}>
+        <Box sx={{ width: '100%', backgroundColor: "white", padding:"16px 24px 34px 24px", borderRadius: '16px' }}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <StyledTabs value={value} onChange={handleChange} aria-label="basic tabs example" sx={{ textTransform: "initial" }} >
                     <StyledTab label="Hồ sơ cá nhân" {...a11yProps(0)} />
@@ -24,7 +25,7 @@ export default function SettingView() {
                 <PersonalProfile/>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
-                2
+                <ChangePassword/>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={2}>
                 3
