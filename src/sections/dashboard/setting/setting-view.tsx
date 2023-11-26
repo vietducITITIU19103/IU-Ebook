@@ -1,35 +1,18 @@
 "use client"
 import * as React from 'react';
+import SettingTabs from './sub-view/setting-tabs';
 import Box from '@mui/material/Box';
-import { StyledTabs, a11yProps, CustomTabPanel, StyledTab } from '../_common/tab-component';
-import PersonalProfile from './sub-view/personal-profile';
-import ChangePassword from './sub-view/change-password';
+import ProfileView from './sub-view/profile-view';
 
 export default function SettingView() {
-    const [value, setValue] = React.useState(0);
-
-    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        setValue(newValue);
-    };
 
     return (
-        <Box sx={{ width: '100%', backgroundColor: "white", padding:"16px 24px 34px 24px", borderRadius: '16px' }}>
-            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <StyledTabs value={value} onChange={handleChange} aria-label="basic tabs example" sx={{ textTransform: "initial" }} >
-                    <StyledTab label="Hồ sơ cá nhân" {...a11yProps(0)} />
-                    <StyledTab label="Thay đổi mật khẩu" {...a11yProps(1)} />
-                    <StyledTab label="Tùy chỉnh hệ thống" {...a11yProps(2)} />
-                </StyledTabs>
+        <>
+            <Box sx={{ display: { xs: "block", md: "none" } }}>
+                <ProfileView />
             </Box>
-            <CustomTabPanel value={value} index={0}>
-                <PersonalProfile/>
-            </CustomTabPanel>
-            <CustomTabPanel value={value} index={1}>
-                <ChangePassword/>
-            </CustomTabPanel>
-            <CustomTabPanel value={value} index={2}>
-                3
-            </CustomTabPanel>
-        </Box>
+            <Box sx={{ display: { xs: "none", md: "block" } }}>
+                <SettingTabs />
+            </Box></>
     );
 }
