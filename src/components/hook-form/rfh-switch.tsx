@@ -20,7 +20,7 @@ const IOSSwitch = styled((props: SwitchProps) => (
             transform: 'translateX(16px)',
             color: '#fff',
             '& + .MuiSwitch-track': {
-                backgroundColor: "#006B5B",
+                backgroundColor: "#039855",
                 opacity: 1,
                 border: 0,
             },
@@ -62,7 +62,7 @@ type Props = SwitchProps & {
     children: React.ReactNode
 };
 
-export default function RFHSwitch({ name, children, ...other }: Props) {
+export default function RFHSwitch({ name, children, sx, ...other }: Props) {
     const { control } = useFormContext();
     return (
         <Controller
@@ -74,7 +74,7 @@ export default function RFHSwitch({ name, children, ...other }: Props) {
                         <FormControlLabel
                             control={
                                 <IOSSwitch
-                                    sx={{ ml: 1 }}
+                                    sx={{ ml: 1, ...sx }}
                                     {...other}
                                     checked={field.value}
                                     onChange={field.onChange}
@@ -84,34 +84,6 @@ export default function RFHSwitch({ name, children, ...other }: Props) {
                         {children}
                     </Stack>
                 </FormGroup>
-                // <TextField
-                //     id="outlined-select-currency"
-                //     select
-                //     defaultValue=""
-                //     fullWidth
-                //     inputRef={field.ref}
-                //     onBlur={field.onBlur}
-                //     value={field.value}
-                //     error={!!error}
-                //     helperText={error ? error?.message : helperText}
-                //     onChange={field.onChange}
-                //     sx={{ ...TextFieldStyle }}
-                //     {...other}
-                // >
-                //     <MenuItem key="-" value="-" >
-                //             <Stack direction="row" alignItems="center" gap="8px">
-                //                 {registerData.form_placeholder.country}
-                //             </Stack>
-                //         </MenuItem>    
-                //     {countries.map((option: CountriesT) => (
-                //         <MenuItem key={option.code} value={option.code} >
-                //             <Stack direction="row" alignItems="center" gap="8px">
-                //                 <FlagCdn _width="18px" country_code={option.code} />
-                //                 {option.label}
-                //             </Stack>
-                //         </MenuItem>
-                //     ))}
-                // </TextField>
             )}
         />
 

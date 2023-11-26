@@ -1,8 +1,8 @@
 import React from 'react'
-import Stack from '@mui/material/Stack';
+import Stack, {StackProps} from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-export default function Item({ children, title, isActive, isHidden }: { children: React.ReactNode, title: string, isActive?: Boolean, isHidden?: Boolean }) {
+export default function Item({ children, title, isActive, isHidden, ...other}: StackProps & { children: React.ReactNode, title: string, isActive?: Boolean, isHidden?: Boolean }) {
     return (
         <Stack
             direction="column"
@@ -11,8 +11,11 @@ export default function Item({ children, title, isActive, isHidden }: { children
             justifyContent="center"
             sx={{
                 position: "relative",
-                padding: "14px 0 32px 0"
-            }}>
+                padding: "14px 0 32px 0",
+                cursor: "pointer"
+            }}
+            {...other}
+            >
             {children}
             <Typography
                 variant="body2"
