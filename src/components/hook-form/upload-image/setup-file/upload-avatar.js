@@ -102,11 +102,13 @@ export default function UploadAvatarFile({ isMobile, file, error, onRemove, isUs
                 justifyContent="flex-end"
                 alignItems="center"
                 spacing="15px"
-                sx={{paddingTop: {xs:"50px", md:"20px"},
-            ...(isMobile&&{
-                position: "absolute",
-                bottom: "-65%"
-            })}}
+                sx={{
+                    paddingTop: { xs: "50px", md: "20px" },
+                    ...(isMobile && {
+                        position: "absolute",
+                        top: {xs: "35%", xssm: "42% ",sm: "55%", smmd: "70%"}
+                    })
+                }}
             >
                 {isUseButton && <DropZoneStyle
                     {...getRootProps()}
@@ -154,27 +156,27 @@ export default function UploadAvatarFile({ isMobile, file, error, onRemove, isUs
                             alignItems: "center",
                             position: "relative",
                             overflow: "hidden",
-                            
+
                         }}>
                         <CenterVerticalLayout sx={{
-                            position: "relative", 
+                            position: "relative",
                             zIndex: 2,
-                            width: "100%", 
-                            height: "100%", 
+                            width: "100%",
+                            height: "100%",
                             backgroundColor: "rgba(31, 42, 55, 0.3)",
                             "&:hover": {
                                 backgroundColor: "rgba(31, 42, 55, 0.45)"
                             }
-                            }}>
+                        }}>
                             <CameraIcon />
-                            <Typography sx={{color: "white"}}>Tải ảnh lên</Typography>
+                            <Typography sx={{ color: "white" }}>Tải ảnh lên</Typography>
                         </CenterVerticalLayout>
                         {(file !== undefined && file !== "") && (
                             <>
                                 <Box
                                     component="img"
                                     alt="file preview"
-                                    src={typeof file === "string"? file : URL.createObjectURL(file[0])}
+                                    src={typeof file === "string" ? file : URL.createObjectURL(file[0])}
                                     sx={{
                                         borderRadius: 1,
                                         objectFit: "cover",
@@ -189,9 +191,9 @@ export default function UploadAvatarFile({ isMobile, file, error, onRemove, isUs
                             </>
                         )}
                     </Box>
-                    
+
                 </Box>
-                <Typography sx={{maxWidth: {xs:"300px", lg:"150px"}, fontSize: "14px", textAlign: "center", color: "rgba(99, 115, 129, 1)", letterSpacing: "0"}}>Sử dụng các định dạng *.jpeg, *.jpg, *.png, *.gif Max size of 3.1 MB</Typography>
+                <Typography sx={{ maxWidth: { xs: "300px", lg: "150px" }, fontSize: "14px", textAlign: "center", color: "rgba(99, 115, 129, 1)", letterSpacing: "0" }}>Sử dụng các định dạng *.jpeg, *.jpg, *.png, *.gif Max size of 3.1 MB</Typography>
             </Stack>
             {error && <FormHelperText sx={{ color: "red" }}>{error}</FormHelperText>}
         </>

@@ -11,13 +11,12 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     const path = usePathname();
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', backgroundColor: "#F5F5FA", flexShrink: 1 }}>
-            {!path.includes("setting") && <Header />}
-
+            <Header sx={{...(path.includes("setting") && { display: {xs: "none", md: "block"} })}}/>
             <Container sx={{
                 display: "flex",
                 justifyContent: "flex-start",
-                mt: path.includes("setting") ? 0 : "24px",
-                gap: path.includes("setting") ? 0 : "24px",
+                mt: { xs: path.includes("setting") ? 0 : "24px", md: "24px" },
+                gap: { xs: path.includes("setting") ? 0 : "24px", md: "24px" },
                 ...(path.includes("setting") && { p: "0 !important" })
             }} >
                 <VerticalNavbar />

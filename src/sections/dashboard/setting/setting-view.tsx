@@ -13,6 +13,7 @@ export default function SettingView() {
             </Box>
             <Box sx={{ display: { xs: "none", md: "block" } }}>
                 <SettingTabs />
-            </Box></>
+            </Box>
+            </>
     );
 }

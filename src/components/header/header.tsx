@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 
-import Box from '@mui/material/Box';
+import Box, { BoxProps } from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 
@@ -26,12 +26,12 @@ const LinkWithBtn = (item: HeaderData) => (
     </CenterHorizontalLayout>
 )
 
-export default function Header() {
+export default function Header({ sx, ...other }: BoxProps) {
     const down1260px = useResponsive("down", 1260);
     const { navLink, signIn } = ConfigHeader();
 
     return (
-        <Box sx={{ borderBottom: "1px solid #F2F4F7", backgroundColor: "white" }}>
+        <Box sx={{ borderBottom: "1px solid #F2F4F7", backgroundColor: "white", ...sx }} {...other}>
             <Container sx={{ px: "0 !important", my: "16px", ...(down1260px && { px: "12px" }) }}>
                 <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <Box sx={{ display: { xs: "none", md: "flex" } }}><MainLogo /></Box>
