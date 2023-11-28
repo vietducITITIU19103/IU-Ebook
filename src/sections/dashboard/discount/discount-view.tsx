@@ -6,6 +6,7 @@ import PromotionTabs from './components/promotion-tabs'
 import { PromotionTypes } from '@/type/promotion/type'
 import ZaloLogo from "@/assets/images/zalo.png"
 import MomoLogo from "@/assets/images/momo.png"
+import BottomNavBar from '@/components/mobile-footer'
 
 const data: PromotionTypes[] = [
   {
@@ -58,8 +59,19 @@ export default function DiscountView() {
   }
 
   return (
-    <Box sx={{ width: "100%" }}>
-      {RenderView(state)}
+    <Box>
+      <Box sx={{ width: "100%" }}>
+        {RenderView(state)}
+      </Box>
+      <Box
+        sx={{
+          display: { xs: 'flex', md: 'none' },
+          justifyContent: "center",
+          backgroundColor: "white"
+        }}
+      >
+        <BottomNavBar />
+      </Box>
     </Box>
   )
 }

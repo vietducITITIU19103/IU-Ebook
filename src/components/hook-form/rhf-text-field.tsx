@@ -19,7 +19,7 @@ const TextFieldStyle = {
   "& .MuiOutlinedInput-root": {
       paddingTop: 0,
       paddingBottom: 0,
-      
+      backgroundColor: "white",
       "& fieldset": {
           borderColor: "#9DA4AE",
           borderWidth: "1px",

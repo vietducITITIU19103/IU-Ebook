@@ -12,7 +12,7 @@ export default function CartViewLayout({ children }: { children: React.ReactNode
         <Header />
       </Box>
       <Box sx={{ display: { xs: "block", md: "none" }, backgroundColor: "white" }}>
-        <CartHeader />
+        <CartHeader title="Giỏ hàng"/>
       </Box>
       <Box
         component="main"

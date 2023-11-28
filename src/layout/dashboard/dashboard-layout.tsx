@@ -22,15 +22,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 <VerticalNavbar />
                 <Box sx={{ width: "100%" }}>{children}</Box>
             </Container>
-            <Box
-                sx={{
-                    display: { xs: 'flex', md: 'none' },
-                    justifyContent: "center",
-                    backgroundColor: "white"
-                }}
-            >
-                <BottomNavBar />
-            </Box>
+            
         </Box>
     )
 }

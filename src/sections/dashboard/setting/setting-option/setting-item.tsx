@@ -11,9 +11,9 @@ type Props = StackProps & {
     description?: string
 }
 
-export default function SettingItem({ title, description }: Props) {
+export default function SettingItem({ title, description, ...other }: Props) {
     return (
-        <CenterHorizontalLayout justifyContent="space-between" sx={{ backgroundColor: "white", p: "12px", pr: "6px", cursor: "pointer", transition: "0.2s ease", "&:hover": { backgroundColor: "rgba(31, 42, 55, 0.05)" } }}>
+        <CenterHorizontalLayout justifyContent="space-between" sx={{ backgroundColor: "white", p: "12px", pr: "6px", cursor: "pointer", transition: "0.2s ease", "&:hover": { backgroundColor: "rgba(31, 42, 55, 0.05)" } }} {...other}>
             <Stack>
                 <Typography>{title}</Typography>
                 {description && <Typography sx={{
