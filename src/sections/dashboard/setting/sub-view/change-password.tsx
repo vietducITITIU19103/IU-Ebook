@@ -14,6 +14,7 @@ import VisibilityOffIcon from '@/assets/icons/password/visibility-off-icon';
 import VisibilityIcon from '@/assets/icons/password/visibility-icon';
 import CenterVerticalLayout from '@/layout/component-base-layout/center-vertical-layout';
 import CommonGridLayout from '../_common/common-grid-layout';
+import CartHeader from '@/components/header/cart-header';
 
 const CustomGrid = ({ children, sx, ...other }: GridProps & { children: React.ReactNode }) => (
   <Grid item xs={12} sx={{ width: "100%", ...sx }} {...other}>
@@ -76,8 +77,9 @@ export default function ChangePassword() {
 
   return (
     <CommonGridLayout>
+      <CartHeader title="Thay đổi mật khẩu" isHandleLogic onClick={onSubmit} />
       <FormProvider methods={methods} onSubmit={onSubmit}>
-        <CenterVerticalLayout>
+        <CenterVerticalLayout sx={{padding: "16px", height: {xs: "calc( 100vh )", md: "auto", paddingTop: "70px"}}}>
           <Grid container spacing={2} mt="10px" columnSpacing="48px" rowSpacing="24px" sx={{ width: { sm: "100%", md: "400px" } }}>
             <CustomGrid>
               <InputContainer label="Mật khẩu cũ" isRequired >
@@ -112,7 +114,7 @@ export default function ChangePassword() {
                 <RHFTextField name="repeatePassword" placeholder="Nhập lại mật khẩu ở đây" type="password" />
               </InputContainer>
             </CustomGrid>
-            <CustomGrid sx={{ position: "relative", right: "4px" }}>
+            <CustomGrid sx={{ position: "relative", right: "4px", display: {xs:"none", md: "flex"} }}>
               <StyledButton label='Cập nhật' width={170} bg='#4E49D6' sx={{ float: "right" }} onClick={onSubmit} />
             </CustomGrid>
           </Grid>

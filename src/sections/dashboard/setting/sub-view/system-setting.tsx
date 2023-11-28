@@ -10,6 +10,7 @@ import StyledButton from '@/components/button/styled-button';
 import CenterVerticalLayout from '@/layout/component-base-layout/center-vertical-layout';
 import CommonGridLayout from '../_common/common-grid-layout';
 import RFHSwitch from '@/components/hook-form/rfh-switch';
+import CartHeader from '@/components/header/cart-header';
 
 const CustomGrid = ({ children, sx, ...other }: GridProps & { children: React.ReactNode }) => (
   <Grid item xs={12} sx={{ width: "100%", ...sx }} {...other}>
@@ -57,10 +58,11 @@ export default function SystemSetting() {
   return (
     <CommonGridLayout>
       <FormProvider methods={methods} onSubmit={onSubmit}>
-        <CenterVerticalLayout>
+      <CartHeader title="Cài đặt hệ thống" isHandleLogic onClick={onSubmit} />
+        <CenterVerticalLayout sx={{padding: "16px", height: {xs: "calc( 100vh)", md: "auto", paddingTop: "70px"}}}>
           <Grid container spacing={2} mt="10px" columnSpacing="48px" rowSpacing="24px" sx={{ width: { sm: "100%", md: "468px" } }}>
             <CustomGrid>
-              <InputContainer label="Hoạt động" spacing="15px">
+              <InputContainer label="Hoạt động" spacing="15px" sx={{mt: "-34px"}}>
                 <RFHSwitch name="noteNofi">Nhận tương tác chia sẻ ghi chú từ người khác</RFHSwitch>
               </InputContainer>
             </CustomGrid>
@@ -71,7 +73,7 @@ export default function SystemSetting() {
                 <RFHSwitch name="interactNofi">Nhận thông báo khi có tương tác từ người khác</RFHSwitch>
               </InputContainer>
             </CustomGrid>
-            <CustomGrid sx={{ position: "relative", right: "4px" }}>
+            <CustomGrid sx={{ position: "relative", right: "4px", display: {xs:"none", md: "flex"} }}>
               <StyledButton label='Cập nhật' width={110} bg='#4E49D6' sx={{ float: "right", width: "auto" }} onClick={onSubmit} />
             </CustomGrid>
           </Grid>

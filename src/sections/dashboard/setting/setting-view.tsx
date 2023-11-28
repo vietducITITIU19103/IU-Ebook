@@ -2,18 +2,18 @@
 import * as React from 'react';
 import SettingTabs from './sub-view/setting-tabs';
 import Box from '@mui/material/Box';
-import ProfileView from './sub-view/profile-view';
+import SettingMobileView from './sub-view/setting-mobile-view';
 
-export default function SettingView() {
+export default function SettingView({ tabIndex }: { tabIndex: number }) {
 
     return (
         <>
             <Box sx={{ display: { xs: "block", md: "none" } }}>
-                <ProfileView />
+                <SettingMobileView />
             </Box>
             <Box sx={{ display: { xs: "none", md: "block" } }}>
-                <SettingTabs />
+                <SettingTabs tabIndex={tabIndex} />
             </Box>
-            </>
+        </>
     );
 }
