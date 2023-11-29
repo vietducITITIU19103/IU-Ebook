@@ -79,7 +79,7 @@ export default function ChangePassword() {
     <CommonGridLayout>
       <CartHeader title="Thay đổi mật khẩu" isHandleLogic onClick={onSubmit} />
       <FormProvider methods={methods} onSubmit={onSubmit}>
-        <CenterVerticalLayout sx={{padding: "16px", height: {xs: "calc( 100vh )", md: "auto", paddingTop: "70px"}}}>
+        <CenterVerticalLayout sx={{padding: "16px", height: {xs: "calc( 100vh )", md: "auto"}}}>
           <Grid container spacing={2} mt="10px" columnSpacing="48px" rowSpacing="24px" sx={{ width: { sm: "100%", md: "400px" } }}>
             <CustomGrid>
               <InputContainer label="Mật khẩu cũ" isRequired >
