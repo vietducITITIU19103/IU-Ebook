@@ -39,7 +39,7 @@ export default function PersonalProfile() {
     });
 
     const defaultValues = {
-        name: "",
+        name: "vi",
         address: "",
         sex: 0,
         studentID: "",

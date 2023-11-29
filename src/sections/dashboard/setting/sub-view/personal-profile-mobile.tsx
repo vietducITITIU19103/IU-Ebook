@@ -1,17 +1,28 @@
 "use client"
 import CartHeader from '@/components/header/cart-header'
-import React from 'react'
+import React, { useState } from 'react'
 import SettingItem from '../setting-option/setting-item'
 import { useRouter } from 'next/navigation'
 import Stack from '@mui/material/Stack'
+import EditName from '../components/edit-name'
 
 export default function PersonalProfileMobile() {
-  const router = useRouter()
-  return (
+  const [currentScreen, setCurrentScreen] = useState<string>("overview")
+
+
+  const RenderCurrentScreen = (screenName: string) => {
+    const screenList = {
+      overview: <OverviewScreen/>,
+      name: <EditName value='Nguyễn văn anh'/>
+    }[screenName]
+    return screenList
+  }
+
+  const OverviewScreen = () => (
     <div>
-      <CartHeader title="Hồ sơ cá nhân" />
-      <Stack spacing="5px" sx={{backgroundColor: "#F5F5FA", height: "100vh",paddingTop: "70px"}}>
-        <SettingItem title="Họ và tên" description='Nguyễn văn anh' />
+      
+      <Stack spacing="5px" sx={{ backgroundColor: "#F5F5FA", height: "100vh", paddingTop: "70px" }}>
+        <SettingItem title="Họ và tên" description='Nguyễn văn anh' onClick={()=>setCurrentScreen("name")}/>
         <SettingItem title="Giới tính" description='Nam' />
         <SettingItem title="Ngày sinh" description='13/3/2000' />
         <SettingItem title="Email" description='nguyenvananh@iuh.com' />
@@ -22,5 +33,12 @@ export default function PersonalProfileMobile() {
         <SettingItem title="CMND/ CMT" description='345687940' />
       </Stack>
     </div>
+  )
+  return (
+    <>
+    <CartHeader title="Hồ sơ cá nhân" isHandleBack isHandleLogic={currentScreen!=="overview"} handleBack={()=>setCurrentScreen("overview")}/>
+    {RenderCurrentScreen(currentScreen)}
+    </>
+    
   )
 }
