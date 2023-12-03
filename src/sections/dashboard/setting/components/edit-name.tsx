@@ -5,19 +5,21 @@ import { useForm } from 'react-hook-form';
 import React from 'react';
 import FormProvider from '@/components/hook-form';
 import RHFTextField from '@/components/hook-form/rhf-text-field';
-import EditLayout from './edit-layout';
 import Box from '@mui/material/Box';
+import CartHeader from '@/components/header/cart-header';
+import CloseIcon from '@/assets/icons/button/close-icon';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
 
-
-export default function EditName({ value }: { value: string }) {
+export default function EditName({ value, handleBack }: { value: string, handleBack: VoidFunction }) {
 
 
     const TextSchema = Yup.object().shape({
-        value: Yup.string()
+        name: Yup.string().required("Họ và tên là bắt buộc.")
     });
 
     const defaultValues = {
-        value: value,
+        name: value,
     };
 
     const methods = useForm({
@@ -28,12 +30,17 @@ export default function EditName({ value }: { value: string }) {
     const {
         reset,
         handleSubmit,
+        setValue,
         formState: { isSubmitting },
     } = methods;
 
+    const resetValue = () => {
+        setValue("name","")
+    }
+
     const onSubmit = handleSubmit(async (data) => {
         try {
-            // await login?.(data.username, data.password);
+
         } catch (error) {
             reset();
         }
@@ -42,11 +49,20 @@ export default function EditName({ value }: { value: string }) {
     return (
 
         <FormProvider methods={methods} onSubmit={onSubmit}>
-            {/* <EditLayout title='Họ Và Tên' handleLogic={onSubmit}> */}
-                <Box sx={{ height: "100vh", pt: "75px", px: "12px" }}>
-                    <RHFTextField name="value" placeholder="Điền họ và tên ở đây" />
-                </Box>
-            {/* </EditLayout> */}
+            <CartHeader title="Họ và tên" onClick={onSubmit} isHandleLogic isHandleBack handleBack={handleBack} />
+            <Box sx={{ height: "100vh", pt: "75px", px: "12px" }}>
+                <RHFTextField
+                    name="name"
+                    placeholder="Điền họ và tên ở đây"
+                    InputProps={{
+                        endAdornment: <InputAdornment position="end" sx={{position: "relative", right: "-10px"}}>
+                            <IconButton sx={{padding: '2px'}} onClick={resetValue}>
+                                <CloseIcon />
+                            </IconButton>
+                        </InputAdornment>
+                    }}
+                />
+            </Box>
         </FormProvider>
 
     );

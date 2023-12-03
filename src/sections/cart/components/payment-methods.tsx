@@ -1,25 +1,18 @@
 "use client"
 import React, { useMemo } from 'react'
-import Container from '@mui/material/Container'
-import CartTable from '../components/cart-table'
 import Stack from '@mui/material/Stack'
-import { CartSubTitle, CartTitle, CartDescription, CartInfo, CartPrice } from '../components/custom-component'
+import { CartSubTitle, CartDescription, CartInfo, CartPrice } from '../components/custom-component'
 import Box from '@mui/material/Box'
-import StyledButton from '@/components/button/styled-button'
-import { useConvertCurrency } from '@/hooks/use-convert-currency'
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
-import DiscountIcon from '@/assets/icons/book/discount-icon'
-import PricingBox from '../components/pricing-box'
 import MomoLogo from "@/assets/images/momo.png"
 import ZaloLogo from "@/assets/images/zalo.png"
 import VisaLogo from "@/assets/images/visa.png"
+import { styled } from '@mui/material/styles';
 import Image from 'next/image'
-import Radio from '@mui/material/Radio';
+import Radio, {RadioProps} from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
+
 
 const PaymentItem = (src: any, name: string, value: string) => (
     <Stack spacing="8px" direction="row" justifyContent="flex-start" alignItems="center"
@@ -31,7 +24,7 @@ const PaymentItem = (src: any, name: string, value: string) => (
             border: "1px solid #4E49D6",
             background: "#FFF"
         }}>
-        <FormControlLabel value={value} control={<Radio />} label="" />
+        <FormControlLabel value={value} control={<BpRadio />} label="" />
         <Image src={src} width={36} height={36} alt="logo"></Image>
         <CartDescription>{name}</CartDescription>
     </Stack>
@@ -47,7 +40,7 @@ const CardItem = (src: any, name: string, value: string, cardNumber: string) => 
             border: "1px solid #4E49D6",
             background: "#FFF"
         }}>
-        <FormControlLabel value={value} control={<Radio />} label="" />
+        <FormControlLabel value={value} control={<BpRadio />} label="" />
         <Image src={src} width={36} height={36} alt="logo"></Image>
         <Stack>
         <CartDescription>{name}</CartDescription>
@@ -55,6 +48,61 @@ const CardItem = (src: any, name: string, value: string, cardNumber: string) => 
         </Stack>
     </Stack>
 )
+
+const BpIcon = styled('span')(({ theme }) => ({
+    borderRadius: '50%',
+    width: 16,
+    height: 16,
+    boxShadow:
+      theme.palette.mode === 'dark'
+        ? '0 0 0 1px rgb(16 22 26 / 40%)'
+        : 'inset 0 0 0 1px rgba(16,22,26,.2), inset 0 -1px 0 rgba(16,22,26,.1)',
+    backgroundColor: theme.palette.mode === 'dark' ? '#394b59' : '#f5f8fa',
+    backgroundImage:
+      theme.palette.mode === 'dark'
+        ? 'linear-gradient(180deg,hsla(0,0%,100%,.05),hsla(0,0%,100%,0))'
+        : 'linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0))',
+    '.Mui-focusVisible &': {
+      outline: '2px auto rgba(19,124,189,.6)',
+      outlineOffset: 2,
+    },
+    'input:hover ~ &': {
+      backgroundColor: theme.palette.mode === 'dark' ? '#30404d' : '#ebf1f5',
+    },
+    'input:disabled ~ &': {
+      boxShadow: 'none',
+      background:
+        theme.palette.mode === 'dark' ? 'rgba(57,75,89,.5)' : 'rgba(206,217,224,.5)',
+    },
+  }));
+  
+  const BpCheckedIcon = styled(BpIcon)({
+    backgroundColor: '#3F46D6',
+    backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))',
+    '&:before': {
+      display: 'block',
+      width: 16,
+      height: 16,
+      backgroundImage: 'radial-gradient(#fff,#fff 28%,transparent 32%)',
+      content: '""',
+    },
+    'input:hover ~ &': {
+      backgroundColor: '#106ba3',
+    },
+  });
+  
+  // Inspired by blueprintjs
+  function BpRadio(props: RadioProps) {
+    return (
+      <Radio
+        disableRipple
+        color="default"
+        checkedIcon={<BpCheckedIcon />}
+        icon={<BpIcon />}
+        {...props}
+      />
+    );
+  }
 
 export default function PaymentMethods() {
     return (
@@ -67,9 +115,8 @@ export default function PaymentMethods() {
                         aria-labelledby="demo-radio-buttons-group-label"
                         defaultValue="female"
                         name="radio-buttons-group"
-                        sx={{ display: "flex", direction: "column", gap: "18px" }}
+                        sx={{ display: "flex", direction: "column", gap: "18px", color: "#3F46D6" }}
                     >
-
                         {PaymentItem(MomoLogo,"Momo","momo")}
                         {PaymentItem(ZaloLogo,"Zalopay","zalo")}
                         {CardItem(VisaLogo,"VISA","visa","**** **** **** 1234")}
