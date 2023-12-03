@@ -16,7 +16,7 @@ export default function CartHeader({ title, isHandleLogic, handleBack, isHandleB
         <Box sx={{ borderBottom: "1px solid #F2F4F7", backgroundColor: "white", py: "12px", display: { xs: "block", md: "none" }, position: "fixed", width: "100%" }}>
             <Container sx={{ px: "12px !important" }}>
                 <Stack direction="row" justifyContent="space-between" alignItems="center">
-                    <IconButton onClick={() => handleBack ? handleBack() : alert("bb")}>
+                    <IconButton onClick={() => handleBack ? handleBack() : router.back()}>
                         <BackArrowIcon />
                     </IconButton>
                     <Typography sx={{
