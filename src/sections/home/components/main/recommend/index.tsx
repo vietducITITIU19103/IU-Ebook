@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import SectionHeader from '../section-header';
 import { PURPLE_COLOR, WHITE_COLOR, LIGHT_DARK } from '@/app/color'
 import "./style.css"
+import Grid from '@mui/material/Grid';
 
 const book = {
   title: "Kế toán tài chính",
@@ -12,12 +13,31 @@ const book = {
   code: " MS 001",
   price: "65.000",
   download: "+3k",
-  isBought: false,
-  isFavorite: false,
-  isRecommend: true
+  isRecommend: true,
+  // isBought: false,
+   isFavorite: false,
+  // isRecommend: false,
+   isLoved: true,
+   isLovedState: false,
 }
 
+type BookTypes = {
+  title: string,
+  type: string,
+  code: string,
+  price: string,
+  download: string,
+  isBought?: boolean,
+  isFavorite?: boolean,
+  isRecommend?: boolean,
+  isLoved?: boolean,
+  isLovedState?: boolean
+}
+
+
 export default function Recommend() {
+
+  const data = [book,book,book,book, book,book]
   const layout = {
     flexGrow: 1,
     backgroundColor: WHITE_COLOR,
@@ -35,17 +55,24 @@ export default function Recommend() {
         }} >
         <Stack
           direction="row"
-          spacing="18px"
+          columnGap="18px"
           justifyContent={{ xs: "flex-start", lg: "space-between" }}
           alignItems="center"
           sx={{
-            flexGrow: 1, width: "1242px", mb: 1
+            flexGrow: 1, width: "1190px", mb: 1
           }}
         >
           {
-            [0, 1, 2, 3, 4, 5, 6].map((item: number) => (
-              <BookCard key={item} book={book} />
-            ))
+            <Grid container spacing="25px">
+            {
+              data.map((item: BookTypes, index: number) => (
+                <Grid item xs={2} >
+                  <BookCard key={index} book={item} isRecommend/>
+                </Grid>
+              ))
+            }
+  
+          </Grid>
           }
         </Stack >
       </Box>
