@@ -131,7 +131,7 @@ export default function BookCard({ book }: any) {
           justifyContent: "flex-start",
           alignItems: "center",
           position: "relative",
-          top: "-10px"
+          top: "-100px"
         }}>
           <div style={{ position: "absolute" }}>
             <RecommendSVG />
