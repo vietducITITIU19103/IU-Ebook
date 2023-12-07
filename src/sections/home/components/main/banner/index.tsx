@@ -11,7 +11,7 @@ export default function BannerGroup() {
       display="grid"
       gridTemplateColumns="repeat(12, 1fr)"
       gap={2}
-      sx={{ marginBottom: "43px", display: { xs: "none", md: "grid" } }}>
+      sx={{ marginBottom: "15px", display: { xs: "none", md: "grid" } }}>
       <Box gridColumn="span 8" gridRow="span 2">
         <BannerLeft />
       </Box>

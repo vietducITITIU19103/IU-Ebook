@@ -1,7 +1,7 @@
 import React from 'react'
 import BookCard from '@/components/card';
 import Grid from '@mui/material/Grid';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import GridSystem from '@/components/grid-system/grid-system';
 
 import CenterVerticalLayout from '@/layout/component-base-layout/center-vertical-layout';
 type BookTypes = {
@@ -20,27 +20,10 @@ type Props = {
   data: BookTypes[]
 }
 
-
-
 export default function ListFavouriteView({ data }: Props) {
   return (
     <CenterVerticalLayout>
-      <ThemeProvider
-        theme={createTheme({
-          breakpoints: {
-            values: {
-              xs: 0,
-              xssm: 450,
-              sm: 600,
-              smmd: 800,
-              md: 900,
-              mdlg: 1100,
-              lg: 1200,
-              xl: 1500,
-            },
-          },
-        })}
-      >
+      <GridSystem>
         <Grid container spacing={2}>
           {
             data.map((item: BookTypes, index: number) => (
@@ -49,9 +32,8 @@ export default function ListFavouriteView({ data }: Props) {
               </Grid>
             ))
           }
-
         </Grid>
-      </ThemeProvider>
+      </GridSystem>
     </CenterVerticalLayout >
   )
 }

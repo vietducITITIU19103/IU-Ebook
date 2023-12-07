@@ -5,9 +5,6 @@ import Tabs from '@mui/material/Tabs';
 import Container, { ContainerProps } from '@mui/material/Container';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import { useResponsive } from '@/hooks/use-responsive';
-
 
 export const TabRoot = styled(Container)<ContainerProps>(({ theme }) => ({
     width: '100%',

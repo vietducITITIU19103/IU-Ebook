@@ -4,12 +4,11 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import BasicButtons from '@/components/custom-element/button';
 import SectionHeader from '../section-header';
 import { WHITE_COLOR, LIGHT_DARK } from '@/app/color'
 import StyledButton from '@/components/button/styled-button';
-import fill from "lodash/fill"
 import ForyouBg from '@/assets/icons/background/foryou-bg';
+import { BookTypes } from '@/type/book/book-type';
 
 const book = {
   title: "Kế toán tài chính",
@@ -22,21 +21,21 @@ const book = {
   isRecommend: false
 }
 
-
-
 export default function ForYou() {
+
+  const data = [book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book]
   return (
     <Box sx={{
       flexGrow: 1,
       backgroundColor: WHITE_COLOR,
       overflow: "hidden",
       borderRadius: { xs: 0, md: "16px" },
-      marginBottom: "43px",
+      marginBottom: { xs: "20px", md: "43px" },
       position: "relative",
-      padding: "25px 35px",
+      padding: { xs: "25px 16px", md: "25px 36px" },
       display: 'flex',
       flexDirection: "column",
-      alignItems:"center"
+      alignItems: "center"
     }}>
       <div style={{
         width: "100%",
@@ -67,18 +66,19 @@ export default function ForYou() {
         </Typography>
       </Stack>
       <SectionHeader chipContent="Tiếp tục đọc hoặc mua ngay" title="Yêu thích" hasTitle />
-      <Stack direction="row" justifyContent={{xs:"center",sm: "space-evenly",md:"space-around"}} flexWrap="wrap" useFlexGap rowGap="54px" columnGap="20px">
-        {
-          fill(new Array(30), "book")
-            .map((item: string, index) => {
-              return (
-                <BookCard book={book} key={index} />
-              )
-            }
-            )
-        }
-      </Stack>
-      <StyledButton label='Xem thêm' width={112} bg='#F3633E' sx={{mt: "50px", mb:"20px"}}/>
+      {
+        <Grid container spacing="25px">
+          {
+            data.map((item: BookTypes, index: number) => (
+              <Grid item xs={6} sm={4} smmd={3} md={3} mdlgmin={2.4} lg={2} >
+                <BookCard key={index} book={item} isRecommend />
+              </Grid>
+            ))
+          }
+        </Grid>
+      }
+      {/* </Stack > */}
+      <StyledButton label='Xem thêm' width={112} bg='#F3633E' sx={{ mt: "40px", mb: "20px" }} />
     </Box >
   )
 }

@@ -6,6 +6,7 @@ import SectionHeader from '../section-header';
 import { PURPLE_COLOR, WHITE_COLOR, LIGHT_DARK } from '@/app/color'
 import "./style.css"
 import Grid from '@mui/material/Grid';
+import { BookTypes } from '@/type/book/book-type';
 
 const book = {
   title: "Kế toán tài chính",
@@ -21,20 +22,6 @@ const book = {
    isLovedState: false,
 }
 
-type BookTypes = {
-  title: string,
-  type: string,
-  code: string,
-  price: string,
-  download: string,
-  isBought?: boolean,
-  isFavorite?: boolean,
-  isRecommend?: boolean,
-  isLoved?: boolean,
-  isLovedState?: boolean
-}
-
-
 export default function Recommend() {
 
   const data = [book,book,book,book, book,book]
@@ -43,7 +30,7 @@ export default function Recommend() {
     backgroundColor: WHITE_COLOR,
     padding: { xs: "25px 0 25px 16px", md: "25px 0 25px 35px" },
     borderRadius: { xs: 0, md: "16px" },
-    marginBottom: "43px",
+    marginBottom: { xs: "-8px", md: "43px" }
   }
   return (
     <Box sx={layout}>
@@ -59,7 +46,7 @@ export default function Recommend() {
           justifyContent={{ xs: "flex-start", lg: "space-between" }}
           alignItems="center"
           sx={{
-            flexGrow: 1, width: "1190px", mb: 1
+            flexGrow: 1, width: "1190px"
           }}
         >
           {

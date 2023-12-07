@@ -1,7 +1,7 @@
 "use client"
-import React, { useMemo } from 'react'
+import React from 'react'
 import Stack from '@mui/material/Stack'
-import { CartSubTitle, CartDescription, CartInfo, CartPrice } from '../components/custom-component'
+import { CartSubTitle, CartDescription} from '../components/custom-component'
 import Box from '@mui/material/Box'
 import MomoLogo from "@/assets/images/momo.png"
 import ZaloLogo from "@/assets/images/zalo.png"

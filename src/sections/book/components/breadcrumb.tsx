@@ -6,6 +6,7 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import BreadcrumIcon from '@/assets/icons/arrow/breadcrum-icon';
 import { MainLayout } from '@/sections/search/components/custom-component';
+
 function handleClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
   event.preventDefault();
   console.info('You clicked a breadcrumb.');

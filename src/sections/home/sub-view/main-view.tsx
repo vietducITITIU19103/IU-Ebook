@@ -17,7 +17,7 @@ export default function MainView() {
     <Container sx={{p: "0 !important"}}>
       <Box sx={{
         flexGrow: 1,
-        margin: "32px 0 32px 0"
+        margin: {xs:0, md:"32px 0 32px 0"}, 
       }}>
         <Grid container spacing={2}>
           <Grid xs={12}>
