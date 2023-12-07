@@ -1,13 +1,14 @@
 "use client"
 import * as React from 'react';
-import Stack from '@mui/material/Stack';
 import BookCard from '@/components/card';
 import Box from '@mui/material/Box';
 import StyledButton from '@/components/button/styled-button';
-import fill from "lodash/fill"
 import CenterVerticalLayout from '@/layout/component-base-layout/center-vertical-layout';
 import { CustomTabPanel, StyledTab, StyledTabs, MainLayout } from './custom-component';
 import "./style.css"
+import Grid from '@mui/material/Grid';
+import { BookTypes } from '@/type/book/book-type';
+import GridSystem from '@/components/grid-system/grid-system';
 
 const book = {
     title: "Kế toán tài chính",
@@ -20,8 +21,8 @@ const book = {
     isRecommend: false
 }
 
-
 export default function CustomizedTabs() {
+    const data = [book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book]
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -31,7 +32,7 @@ export default function CustomizedTabs() {
     return (
         <Box sx={{ width: '100%', backgroundColor: "#F5F5FA" }}>
             <Box sx={{ backgroundColor: "#F5F5FA" }}>
-                <Box  sx={{ overflowX: "scroll"}} className="scroll">
+                <Box sx={{ overflowX: "scroll" }} className="scroll">
                     <StyledTabs
                         value={value}
                         onChange={handleChange}
@@ -47,7 +48,7 @@ export default function CustomizedTabs() {
                 </Box>
                 <MainLayout>
                     <CustomTabPanel value={value} index={0}>
-                        <Stack direction="row" justifyContent={{ xs: "center", sm: "space-evenly", md: "space-around" }} flexWrap="wrap" useFlexGap rowGap="54px" columnGap="20px">
+                        {/* <Stack direction="row" justifyContent={{ xs: "center", sm: "space-evenly", md: "space-around" }} flexWrap="wrap" useFlexGap rowGap="54px" columnGap="20px">
                             {
                                 fill(new Array(30), "book")
                                     .map((item: string, index) => {
@@ -57,7 +58,18 @@ export default function CustomizedTabs() {
                                     }
                                     )
                             }
-                        </Stack>
+                        </Stack> */}
+                        <GridSystem>
+                        <Grid container spacing="25px">
+                            {
+                                data.map((item: BookTypes, index: number) => (
+                                    <Grid item xs={6} sm={4} smmdmin={4} smmd={3} md={2.4} mdlgmin={2.4} lg={2} >
+                                        <BookCard key={index} book={item} isRecommend />
+                                    </Grid>
+                                ))
+                            }
+                        </Grid>
+                        </GridSystem>
                     </CustomTabPanel>
                     <CustomTabPanel value={value} index={1}>
                         Item two
@@ -66,7 +78,7 @@ export default function CustomizedTabs() {
                         Item Three
                     </CustomTabPanel>
                     <CenterVerticalLayout>
-                        <StyledButton label='Xem thêm' width={112} bg='#F3633E' sx={{ mt: "50px", mb: "20px" }} />
+                        <StyledButton label='Xem thêm' width={112} bg='#F3633E' sx={{ mt: "50px", mb: {xs:0,md:"20px"} }} />
                     </CenterVerticalLayout>
                 </MainLayout>
                 <Box sx={{ p: 3 }} />

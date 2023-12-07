@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import BookCard from '@/components/card';
 import SectionHeader from '@/sections/home/components/main/section-header';
 
-
 const book = {
     title: "Kế toán tài chính",
     type: "Kế toán",

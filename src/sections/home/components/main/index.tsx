@@ -17,7 +17,7 @@ export default function Main() {
       flexGrow: 1,
       margin: "32px 0 32px 0"
     }}>
-      <Grid container spacing={2}>
+      <Grid container spacing={0}>
         <Grid xs={12}>
           <BannerGroup />
         </Grid>
