@@ -1,6 +1,6 @@
 "use client"
 import * as React from 'react';
-import Card from '@mui/material/Card';
+import Card, { CardProps } from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Stack from '@mui/material/Stack';
@@ -16,84 +16,42 @@ import { PURPLE_COLOR, WHITE_COLOR, LIGHT_DARK, ORANGE_COLOR, DARK_COLOR } from 
 import CustomBackdrop from '@/components/backdrop/custom-backdrop';
 import CenterVerticalLayout from '@/layout/component-base-layout/center-vertical-layout';
 import FavoriteIcon from '@/assets/icons/toast/favorite-icon';
+import { useRouter } from 'next/navigation';
+import { CustomCard, BookTitle, BookType, BookState, BookPrice, RecommendContainer, BookRCM, BookFVR } from './custom-component';
+import Box from '@mui/material/Box';
 
-export default function BookCard({ book }: any) {
+export default function BookCard({ book, sx, ...other }: CardProps & { book: any }) {
   const { title, type, code, price, download, isBought, isFavorite, isRecommend, isLoved, isLovedState } = book
-
+  const router = useRouter();
   const [active, setActive] = React.useState<boolean>(isLovedState)
   const toggleState = React.useCallback(() => {
     setActive(!active)
   }, [active])
 
-  const TypographyStyle = {
-    fontSize: "12px",
-    fontWeight: "500",
-    color: "white",
-    position: "absolute",
-    zIndex: "3",
-    top: "6px",
-    right: "6px"
-  }
   return (
-    <Card sx={{ backgroundColor: "black !important", position: "relative", overflow: "hidden", borderRadius: "12px" }}>
-
-
+    <CustomCard
+      onClick={() => router.push("/book/1")}
+      sx={{ ...sx }}
+      {...other}>
       <CardMedia
         sx={{ height: 177, objectFit: "contain", objectPosition: "0%" }}
         image="/images/book/ketoan.png"
-        title="green iguana"
+        title={title}
       />
       <CardContent sx={{ padding: "10px", color: DARK_COLOR, backgroundColor: "white" }}>
-        <Typography
-          gutterBottom
-          variant="body2"
-          component="div"
-          sx={{
-            fontSize: "16px",
-            fontWeight: "bold",
-            fontFamily: "inherit",
-            color: "inherit"
-          }}>
-          {title}
-        </Typography>
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          sx={{
-            fontSize: "10px",
-            fontFamily: "inherit",
-            color: "inherit"
-          }}>
-          {type} | {code}
-        </Typography>
+        <BookTitle gutterBottom component="h5">{title}</BookTitle>
+        <BookType color="text.secondary">{type} | {code}</BookType>
         <Stack spacing={2} direction="row" justifyContent="space-between" alignItems="flex-end">
           {isBought ?
             <Stack direction="row" alignItems="center" spacing="4px" sx={{ position: "relative", top: "3px" }}>
               <BoughtIconSVG />
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                sx={{ fontSize: "18px", fontWeight: "bold", color: "#4E49D6", fontFamily: "inherit", }}>
-                Đã mua
-              </Typography>
+              <BookState>Đã mua</BookState>
             </Stack>
             :
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{
-                fontSize: "18px",
-                fontWeight: "bold",
-                color: "#F3633E",
-                position: "relative",
-                fontFamily: "inherit",
-                top: "3.5px"
-              }}>
-              <span>
-                {price}
-              </span>
+            <BookPrice color="text.secondary">
+              <span>{price}</span>
               <span style={{ textDecoration: "underline" }}>đ</span>
-            </Typography>}
+            </BookPrice>}
           <Stack direction="row" alignItems="center" gap="2px" justifyContent="center">
             <DownloadIconSVG />
             <Typography variant="body2" color="text.secondary" sx={{ fontSize: "12px", color: "inherit" }}>
@@ -104,59 +62,39 @@ export default function BookCard({ book }: any) {
       </CardContent>
 
       {isFavorite &&
-        <div style={{ position: "absolute", top: "0", right: "0" }}>
+        <Box sx={{ position: "absolute", top: "0", right: "0" }}>
           <FavoriteSVG />
-          <Typography gutterBottom variant="body2" component="div" sx={TypographyStyle}>
+          <BookFVR gutterBottom>
             <HeartIconSVG />
             <span style={{ marginLeft: "4px" }}>Yêu thích</span>
-          </Typography>
+          </BookFVR>
+        </Box>}
+
+      {isLoved &&
+        <div style={{ position: "absolute", top: "11px", right: "11px" }}>
+          <CustomBackdrop
+            state={active}
+            insideComponent={
+              <CenterVerticalLayout sx={{ backgroundColor: "rgba(17, 25, 39, 0.6)", borderRadius: "16px", width: "246px", height: "120px" }}>
+                <FavoriteIcon />
+                <Typography>Đã thêm tài liệu vào “Yêu thích”</Typography>
+              </CenterVerticalLayout>}
+          >
+            <HeartSVG toggleState={toggleState} active={active} />
+          </CustomBackdrop>
         </div>}
 
-      {isLoved && <div style={{ position: "absolute", top: "11px", right: "11px" }}>
-        <CustomBackdrop
-          state={active}
-          insideComponent={
-            <CenterVerticalLayout sx={{ backgroundColor: "rgba(17, 25, 39, 0.6)", borderRadius: "16px", width: "246px", height: "120px" }}>
-              <FavoriteIcon />
-              <Typography>Đã thêm tài liệu vào “Yêu thích”</Typography>
-            </CenterVerticalLayout>}
-        >
-          <HeartSVG toggleState={toggleState} active={active} />
-        </CustomBackdrop>
-      </div>}
-
       {isRecommend &&
-        <div style={{
-          display: "flex",
-          justifyContent: "flex-start",
-          alignItems: "center",
-          position: "relative",
-          top: "-100px"
-        }}>
-          <div style={{ position: "absolute" }}>
-            <RecommendSVG />
-          </div>
-          <Typography
-            gutterBottom
-            variant="body2"
-            component="div"
-            sx={{
-              fontSize: "12px",
-              fontWeight: "500",
-              color: "white",
-              position: "absolute",
-              paddingLeft: "7px",
-              fontFamily: "inherit"
-            }}>
-            Đề xuất bởi giảng viên
-          </Typography>
-        </div>
+        <RecommendContainer>
+          <div style={{ position: "absolute" }}><RecommendSVG /></div>
+          <BookRCM gutterBottom>Đề xuất bởi giảng viên</BookRCM>
+        </RecommendContainer>
       }
 
       <div style={{ position: "absolute", bottom: "-5px", right: "0" }}>
         <PatternSVG color={!isFavorite ? PURPLE_COLOR : ORANGE_COLOR} />
       </div>
-    </Card >
+    </CustomCard >
   )
 }
 
