@@ -3,6 +3,7 @@ import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import BookCard from '@/components/card';
 import SectionHeader from '@/sections/home/components/main/section-header';
+import StaticLayout from '@/components/book-list-layout/static-layout';
 
 const book = {
     title: "Kế toán tài chính",
@@ -17,26 +18,11 @@ const book = {
   
 
 export default function RecommendBookList() {
+  const data = [book, book, book, book, book, book, book, book]
   return (
     <Box sx={{marginTop: "8px", p: {xs:"16px 0 16px 16px",md: "40px 0"}}}>
         <SectionHeader chipContent="" title="Có thể bạn sẽ thích" />
-        <Box className="scroll" sx={{overflowX: "scroll"}}>
-          <Stack
-            direction="row"
-            spacing="20px"
-            justifyContent={{ xs: "flex-start", lg: "space-between" }}
-            alignItems="center"
-            sx={{
-              width: "100%", mb: 1
-            }}
-          >
-            {
-              [0, 1, 2, 3, 4, 5].map((item: number) => (
-                <BookCard key={item} book={book} />
-              ))
-            }
-          </Stack >
-        </Box>
+        <StaticLayout data={data}/>
     </Box>
   )
 }

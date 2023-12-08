@@ -7,8 +7,8 @@ export default function CartView() {
     return (
         <CartViewLayout>
             {/* <PaymentSuccesView totalPrice={56000}/> */}
-            {/* <CartEmptyView/> */}
-            <SubCartView/>
+            <CartEmptyView/>
+            {/* <SubCartView/> */}
         </CartViewLayout>
     )
 }

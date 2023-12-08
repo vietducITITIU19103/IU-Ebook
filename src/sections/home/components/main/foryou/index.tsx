@@ -9,6 +9,7 @@ import { WHITE_COLOR, LIGHT_DARK } from '@/app/color'
 import StyledButton from '@/components/button/styled-button';
 import ForyouBg from '@/assets/icons/background/foryou-bg';
 import { BookTypes } from '@/type/book/book-type';
+import DynamicLayout from '@/components/book-list-layout/dynamic-layout';
 
 const book = {
   title: "Kế toán tài chính",
@@ -66,18 +67,7 @@ export default function ForYou() {
         </Typography>
       </Stack>
       <SectionHeader chipContent="Tiếp tục đọc hoặc mua ngay" title="Yêu thích" hasTitle />
-      {
-        <Grid container spacing="25px">
-          {
-            data.map((item: BookTypes, index: number) => (
-              <Grid item xs={6} sm={4} smmd={3} md={3} mdlgmin={2.4} lg={2} >
-                <BookCard key={index} book={item} isRecommend />
-              </Grid>
-            ))
-          }
-        </Grid>
-      }
-      {/* </Stack > */}
+      <DynamicLayout data={data} />
       <StyledButton label='Xem thêm' width={112} bg='#F3633E' sx={{ mt: "40px", mb: "20px" }} />
     </Box >
   )

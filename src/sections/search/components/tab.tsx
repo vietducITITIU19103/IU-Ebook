@@ -48,17 +48,6 @@ export default function CustomizedTabs() {
                 </Box>
                 <MainLayout>
                     <CustomTabPanel value={value} index={0}>
-                        {/* <Stack direction="row" justifyContent={{ xs: "center", sm: "space-evenly", md: "space-around" }} flexWrap="wrap" useFlexGap rowGap="54px" columnGap="20px">
-                            {
-                                fill(new Array(30), "book")
-                                    .map((item: string, index) => {
-                                        return (
-                                            <BookCard book={book} key={index} />
-                                        )
-                                    }
-                                    )
-                            }
-                        </Stack> */}
                         <GridSystem>
                         <Grid container spacing="25px">
                             {

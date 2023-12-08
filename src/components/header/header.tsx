@@ -1,10 +1,10 @@
 "use client"
-import React from 'react'
+import React, {useCallback} from 'react'
 
 import Box, { BoxProps } from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
-
+import { useScrollPosition } from '@/hooks/use-ScrollPosition';
 import MainLogo from '@/components/logo/main-logo'
 import CenterHorizontalLayout from '../../layout/component-base-layout/center-horizontal-layout';
 import ConfigHeader from './header-config';
@@ -29,9 +29,9 @@ const LinkWithBtn = (item: HeaderData) => (
 export default function Header({ sx, ...other }: BoxProps) {
     const down1260px = useResponsive("down", 1260);
     const { navLink, signIn } = ConfigHeader();
-
+    useCallback(() => useScrollPosition("header"), [])()
     return (
-        <Box sx={{ borderBottom: "1px solid #F2F4F7", backgroundColor: "white", ...sx }} {...other}>
+        <Box id="header" sx={{ borderBottom: "1px solid #F2F4F7", backgroundColor: "white",position: "sticky",zIndex: 20, ...sx }} {...other}>
             <Container sx={{ px: "0 !important", my: "16px", ...(down1260px && { px: "12px" }) }}>
                 <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <Box sx={{ display: { xs: "none", md: "flex" } }}><MainLogo /></Box>
