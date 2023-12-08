@@ -73,6 +73,16 @@ const BookRCM = styled(Typography)<TypographyProps>(
     }
 )
 
+const BookFVR = styled(Typography)<TypographyProps>(
+    {
+        fontSize: "12px",
+        fontWeight: "500",
+        color: "white",
+        position: "absolute",
+        zIndex: "3",
+        top: "6px",
+        right: "6px"
+    }
+)
 
-
-export { CustomCard, BookTitle, BookType, BookState, BookPrice, RecommendContainer, BookRCM }
+export { CustomCard, BookTitle, BookType, BookState, BookPrice, RecommendContainer, BookRCM, BookFVR }
