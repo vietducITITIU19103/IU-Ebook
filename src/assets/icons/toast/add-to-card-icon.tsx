@@ -1,0 +1,48 @@
+
+import { memo } from 'react';
+// @mui
+import Box, { BoxProps } from '@mui/material/Box';
+
+// ----------------------------------------------------------------------
+
+function AddToCardIcon({ sx, ...other }: BoxProps) {
+    return (
+
+        <Box component="svg"
+            width={64}
+            height={64}
+            viewBox="0 0 64 64"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            {...other}
+            sx={{ width: "64px", height: "64px", ...sx }}
+        >
+            <path
+                d="M41.0892 23.8371V16.1308C41.0892 10.834 36.7964 6.54111 31.5021 6.54111C26.2052 6.51823 21.892 10.7908 21.8691 16.0876V16.1308V23.8371"
+                stroke="white"
+                strokeWidth="2.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M43.5531 53.5625H19.4469C13.4686 53.5625 8.625 48.7206 8.625 42.7477V28.7279C8.625 22.755 13.4686 17.9131 19.4469 17.9131H43.5531C49.5314 17.9131 54.375 22.755 54.375 28.7279V42.7477C54.375 48.7206 49.5314 53.5625 43.5531 53.5625Z"
+                stroke="white"
+                strokeWidth="2.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <circle cx="49.4355" cy="45.3735" r={12} fill="white" />
+            <path
+                d="M44.8418 45.4673L47.9043 48.5298L54.0293 41.9673"
+                stroke="#039855"
+                strokeWidth="1.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </Box>
+    );
+}
+
+export default memo(AddToCardIcon);

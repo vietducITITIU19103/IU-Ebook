@@ -4,9 +4,10 @@ import Box from '@mui/material/Box';
 import BookCard from '@/components/card';
 import SectionHeader from '@/sections/home/components/main/section-header';
 import StaticLayout from '@/components/book-list-layout/static-layout';
+import { BookTypes } from '@/type/book/book-type';
 
 
-const book = {
+const book: BookTypes = {
   title: "Kế toán tài chính",
   type: "Kế toán",
   code: " MS 001",
@@ -14,7 +15,9 @@ const book = {
   download: "+3k",
   isBought: false,
   isFavorite: false,
-  isRecommend: true
+  isRecommend: true,
+  isLoved: true,
+  isLovedState: false
 }
 
 

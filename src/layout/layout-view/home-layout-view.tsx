@@ -8,11 +8,11 @@ export default function HomeLayoutView({ children }: {children: React.ReactNode}
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', backgroundColor: "#F5F5FA"}}>
       <Header/>
-
       <Box
         component="main"
         sx={{
           flexGrow: 1,
+          overflow: "hidden"
         }}
       >
         {children}

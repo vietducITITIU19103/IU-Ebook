@@ -7,8 +7,18 @@ export default function ConfigHeader() {
     const data = useMemo(() => {
         return {
             navLink: [
-                { title: "Trang chủ", destination: "/", icon: <HomeIcon sx={{width: "14px", height: "16px"}}/> },
-                { title: "Tài khoản", destination: "/dashboard/my-document/", icon: <UserIcon sx={{width: "12px", height: "14px"}}/> },
+                {
+                    title: "Trang chủ",
+                    destination: "/",
+                    icon: <HomeIcon sx={{ width: "14px", height: "16px" }} />,
+                    iconActive: <HomeIcon isActive sx={{ width: "14px", height: "16px" }} />
+                },
+                {
+                    title: "Tài khoản",
+                    destination: "/dashboard/my-document/",
+                    icon: <UserIcon />,
+                    iconActive: <UserIcon isActive  />
+                },
             ],
             signIn: { title: "Đăng ký ", destination: "/register" },
         }

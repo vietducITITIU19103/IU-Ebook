@@ -29,47 +29,61 @@ export default function BookCard({ book, sx, ...other }: CardProps & { book: any
   }, [active])
 
   return (
-    <CustomCard
-      onClick={() => router.push("/book/1")}
-      sx={{ ...sx }}
-      {...other}>
-      <CardMedia
-        sx={{ height: 177, objectFit: "contain", objectPosition: "0%" }}
-        image="/images/book/ketoan.png"
-        title={title}
-      />
-      <CardContent sx={{ padding: "10px", color: DARK_COLOR, backgroundColor: "white" }}>
-        <BookTitle gutterBottom component="h5">{title}</BookTitle>
-        <BookType color="text.secondary">{type} | {code}</BookType>
-        <Stack spacing={2} direction="row" justifyContent="space-between" alignItems="flex-end">
-          {isBought ?
-            <Stack direction="row" alignItems="center" spacing="4px" sx={{ position: "relative", top: "3px" }}>
-              <BoughtIconSVG />
-              <BookState>Đã mua</BookState>
+    <Box sx={{ position: "relative" }}>
+      <CustomCard
+        onClick={() => router.push("/book/1")}
+        sx={{ ...sx }}
+        {...other}>
+        <CardMedia
+          sx={{ height: 177, objectFit: "contain", objectPosition: "0%" }}
+          image="/images/book/ketoan.png"
+          title={title}
+        />
+        <CardContent sx={{ padding: "10px", color: DARK_COLOR, backgroundColor: "white" }}>
+          <BookTitle gutterBottom component="h5">{title}</BookTitle>
+          <BookType color="text.secondary">{type} | {code}</BookType>
+          <Stack spacing={2} direction="row" justifyContent="space-between" alignItems="flex-end">
+            {isBought ?
+              <Stack direction="row" alignItems="center" spacing="4px" sx={{ position: "relative", top: "3px" }}>
+                <BoughtIconSVG />
+                <BookState>Đã mua</BookState>
+              </Stack>
+              :
+              <BookPrice color="text.secondary">
+                <span>{price}</span>
+                <span style={{ textDecoration: "underline" }}>đ</span>
+              </BookPrice>}
+            <Stack direction="row" alignItems="center" gap="2px" justifyContent="center">
+              <DownloadIconSVG />
+              <Typography variant="body2" color="text.secondary" sx={{ fontSize: "12px", color: "inherit" }}>
+                {download}
+              </Typography>
             </Stack>
-            :
-            <BookPrice color="text.secondary">
-              <span>{price}</span>
-              <span style={{ textDecoration: "underline" }}>đ</span>
-            </BookPrice>}
-          <Stack direction="row" alignItems="center" gap="2px" justifyContent="center">
-            <DownloadIconSVG />
-            <Typography variant="body2" color="text.secondary" sx={{ fontSize: "12px", color: "inherit" }}>
-              {download}
-            </Typography>
           </Stack>
-        </Stack>
-      </CardContent>
+        </CardContent>
 
-      {isFavorite &&
-        <Box sx={{ position: "absolute", top: "0", right: "0" }}>
-          <FavoriteSVG />
-          <BookFVR gutterBottom>
-            <HeartIconSVG />
-            <span style={{ marginLeft: "4px" }}>Yêu thích</span>
-          </BookFVR>
-        </Box>}
+        {isFavorite &&
+          <Box sx={{ position: "absolute", top: "0", right: "0" }}>
+            <FavoriteSVG />
+            <BookFVR gutterBottom>
+              <HeartIconSVG />
+              <span style={{ marginLeft: "4px" }}>Yêu thích</span>
+            </BookFVR>
+          </Box>}
 
+
+
+        {isRecommend &&
+          <RecommendContainer>
+            <div style={{ position: "absolute" }}><RecommendSVG /></div>
+            <BookRCM gutterBottom>Đề xuất bởi giảng viên</BookRCM>
+          </RecommendContainer>
+        }
+
+        <div style={{ position: "absolute", bottom: "-5px", right: "0" }}>
+          <PatternSVG color={!isFavorite ? PURPLE_COLOR : ORANGE_COLOR} />
+        </div>
+      </CustomCard >
       {isLoved &&
         <div style={{ position: "absolute", top: "11px", right: "11px" }}>
           <CustomBackdrop
@@ -83,18 +97,7 @@ export default function BookCard({ book, sx, ...other }: CardProps & { book: any
             <HeartSVG toggleState={toggleState} active={active} />
           </CustomBackdrop>
         </div>}
-
-      {isRecommend &&
-        <RecommendContainer>
-          <div style={{ position: "absolute" }}><RecommendSVG /></div>
-          <BookRCM gutterBottom>Đề xuất bởi giảng viên</BookRCM>
-        </RecommendContainer>
-      }
-
-      <div style={{ position: "absolute", bottom: "-5px", right: "0" }}>
-        <PatternSVG color={!isFavorite ? PURPLE_COLOR : ORANGE_COLOR} />
-      </div>
-    </CustomCard >
+    </Box>
   )
 }
 
