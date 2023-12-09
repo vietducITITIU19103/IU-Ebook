@@ -1,5 +1,5 @@
 "use client"
-import React, {useCallback} from 'react'
+import React, { useCallback } from 'react'
 
 import Box, { BoxProps } from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -14,24 +14,36 @@ import SearchBar from '@/sections/home/components/intro/search-bar';
 import ChangeThemeButton from '../change-theme-button';
 import CartButton from '../cart-button';
 import { useResponsive } from '@/hooks/use-responsive';
+import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+
 
 type HeaderData = {
-    title: string, destination: string, icon: React.ReactNode
+    title: string, destination: string, icon: React.ReactNode, iconActive: React.ReactNode
 }
 
-const LinkWithBtn = (item: HeaderData) => (
-    <CenterHorizontalLayout spacing="8px" sx={{ px: "10px", display: { xs: "none", md: "block" } }}>
-        {item.icon}
-        <HeaderLink component="a" href={item.destination}>{item.title}</HeaderLink>
-    </CenterHorizontalLayout>
-)
 
 export default function Header({ sx, ...other }: BoxProps) {
     const down1260px = useResponsive("down", 1260);
+    const path = usePathname()
+    const router = useRouter()
     const { navLink, signIn } = ConfigHeader();
     useCallback(() => useScrollPosition("header"), [])()
+
+    const LinkWithBtn = (item: HeaderData) => (
+        <CenterHorizontalLayout spacing="8px" sx={{ px: "10px", display: { xs: "none", md: "block" } }}>
+            {path === item.destination ? item.iconActive : item.icon}
+            <HeaderLink
+                onClick={() => router.push(item.destination)}
+                sx={{ display: "inline",cursor: "pointer", ...(path === item.destination && { color: '#4E49D6' }) }}>
+                {item.title}
+            </HeaderLink>
+        </CenterHorizontalLayout>
+    )
+
+
     return (
-        <Box id="header" sx={{ borderBottom: "1px solid #F2F4F7", backgroundColor: "white",position: "sticky",zIndex: 20, ...sx }} {...other}>
+        <Box id="header" sx={{ borderBottom: "1px solid #F2F4F7", backgroundColor: "white", position: "sticky", zIndex: 20, ...sx }} {...other}>
             <Container sx={{ px: "0 !important", my: "16px", ...(down1260px && { px: "12px" }) }}>
                 <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <Box sx={{ display: { xs: "none", md: "flex" } }}><MainLogo /></Box>

@@ -20,7 +20,7 @@ export default function StaticLayout({ data }: { data: BookTypes[] }) {
           justifyContent={{ xs: "flex-start", lg: "space-between" }}
           alignItems="center"
           sx={{
-            width: "1190px", mb: 1
+            width: "1190px", mb: "2px"
           }}
         >
           {

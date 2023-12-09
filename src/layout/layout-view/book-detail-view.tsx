@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Header from '../../components/header/header';
 import Footer from '@/components/footer/footer';
 import BottomNavBar from '@/components/mobile-footer';
+import BookDetailHeader from '@/components/header/book-detail-header';
 
 export default function BookDetailWiew({ children }: { children: React.ReactNode }) {
     return (
@@ -10,6 +11,7 @@ export default function BookDetailWiew({ children }: { children: React.ReactNode
             <Box sx={{ display: { xs: "none", md: "block" }, backgroundColor: "white" }}>
                 <Header />
             </Box>
+            <BookDetailHeader sx={{display: "none"}}/>
             <Box
                 component="main"
                 sx={{

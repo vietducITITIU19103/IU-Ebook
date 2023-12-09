@@ -13,7 +13,7 @@ import CheckIcon from '@/assets/icons/header/check-icon';
 export default function CartHeader({ title, isHandleLogic, handleBack, isHandleBack,...other }: IconButtonProps & { title: string, isHandleLogic?: boolean, isHandleBack?: boolean,handleBack?: VoidFunction }) {
     const router = useRouter()
     return (
-        <Box sx={{ borderBottom: "1px solid #F2F4F7", backgroundColor: "white", py: "12px", display: { xs: "block", md: "none" }, position: "fixed", width: "100%" }}>
+        <Box sx={{ borderBottom: "1px solid #F2F4F7", backgroundColor: "white", py: "12px", display: { xs: "block", md: "none" }, position: "fixed", width: "100%", zIndex: 20 }}>
             <Container sx={{ px: "12px !important" }}>
                 <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <IconButton onClick={() => handleBack ? handleBack() : router.back()}>

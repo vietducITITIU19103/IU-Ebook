@@ -10,7 +10,7 @@ const HeaderLink = styled(Typography)<TypographyProps & { href?: string }>(
         lineHeight: "24px",
         transition: "color 0.3s ease",
         "&:hover": {
-            color: "#006B5B",
+            color: "#4E49D6",
         }
     }
 )

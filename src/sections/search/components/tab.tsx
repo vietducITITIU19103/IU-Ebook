@@ -9,8 +9,9 @@ import "./style.css"
 import Grid from '@mui/material/Grid';
 import { BookTypes } from '@/type/book/book-type';
 import GridSystem from '@/components/grid-system/grid-system';
+import DynamicLayout from '@/components/book-list-layout/dynamic-layout';
 
-const book = {
+const book: BookTypes = {
     title: "Kế toán tài chính",
     type: "Kế toán",
     code: " MS 001",
@@ -18,7 +19,10 @@ const book = {
     download: "+3k",
     isBought: false,
     isFavorite: false,
-    isRecommend: false
+    isRecommend: false,
+    isLoved: true,
+    isLovedState: false
+
 }
 
 export default function CustomizedTabs() {
@@ -53,7 +57,7 @@ export default function CustomizedTabs() {
                             {
                                 data.map((item: BookTypes, index: number) => (
                                     <Grid item xs={6} sm={4} smmdmin={4} smmd={3} md={2.4} mdlgmin={2.4} lg={2} >
-                                        <BookCard key={index} book={item} isRecommend />
+                                        <BookCard key={index} book={item} />
                                     </Grid>
                                 ))
                             }
