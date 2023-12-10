@@ -20,8 +20,8 @@ const PaymentItem = (src: any, name: string, value: string) => (
             width: "100%",
             height: "54px",
             padding: "16px 24px 16px 16px",
-            borderRadius: "12px",
-            border: "1px solid #4E49D6",
+            borderRadius: {xs:0, md:"12px"},
+            border: {xs:"none", md:"1px solid #4E49D6"},
             background: "#FFF"
         }}>
         <FormControlLabel value={value} control={<BpRadio />} label="" />
@@ -36,13 +36,13 @@ const CardItem = (src: any, name: string, value: string, cardNumber: string) => 
             width: "100%",
             height: "54px",
             padding: "16px 24px 16px 16px",
-            borderRadius: "12px",
-            border: "1px solid #4E49D6",
+            borderRadius: {xs:0, md:"12px"},
+            border: {xs:"none", md:"1px solid #4E49D6"},
             background: "#FFF"
         }}>
         <FormControlLabel value={value} control={<BpRadio />} label="" />
         <Image src={src} width={36} height={36} alt="logo"></Image>
-        <Stack>
+        <Stack alignItems="flex-start">
         <CartDescription>{name}</CartDescription>
         <CartDescription sx={{color: "#767676", fontSize: "12px"}}>{cardNumber}</CartDescription>
         </Stack>
@@ -113,9 +113,9 @@ export default function PaymentMethods() {
                 <FormControl>
                     <RadioGroup
                         aria-labelledby="demo-radio-buttons-group-label"
-                        defaultValue="female"
+                        defaultValue="momo"
                         name="radio-buttons-group"
-                        sx={{ display: "flex", direction: "column", gap: "18px", color: "#3F46D6" }}
+                        sx={{ display: "flex", direction: "column", gap: {xs: "2px", md: "18px"}, color: "#3F46D6" }}
                     >
                         {PaymentItem(MomoLogo,"Momo","momo")}
                         {PaymentItem(ZaloLogo,"Zalopay","zalo")}

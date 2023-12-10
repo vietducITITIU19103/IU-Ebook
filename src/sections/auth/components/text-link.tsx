@@ -1,12 +1,12 @@
 import React from 'react'
-import Typography from '@mui/material/Typography';
+import Typography, {TypographyProps} from '@mui/material/Typography';
 
-type TextLinkProps = {
+type TextLinkProps = TypographyProps & {
     label: string;
     href: string
 }
 
-export default function TextLink({label, href}: TextLinkProps) {
+export default function TextLink({label, href, sx, ...other}: TextLinkProps) {
     return (
         <Typography
             component="a"
@@ -19,7 +19,9 @@ export default function TextLink({label, href}: TextLinkProps) {
                 "&:hover": {
                     textDecoration: "underline",
                 },
+                ...sx
             }}
+            {...other}
         >
             {label}
         </Typography>

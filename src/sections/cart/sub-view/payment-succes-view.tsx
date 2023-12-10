@@ -1,3 +1,4 @@
+"use client"
 import React, { useMemo } from 'react'
 import Stack from '@mui/material/Stack'
 import Box from '@mui/material/Box'
@@ -9,9 +10,11 @@ import { CartTitle, CartDescription, CartInfo, CartPrice } from '../components/c
 import SubLayout from '../components/sub-layout'
 import MomoLogo from "@/assets/images/momo.png"
 import { useConvertCurrency } from '@/hooks/use-convert-currency'
+import { useRouter } from 'next/navigation'
 
 export default function PaymentSuccesView({totalPrice}: {totalPrice: number}) {
     const price = useMemo(()=>useConvertCurrency(totalPrice),[totalPrice])
+    const router = useRouter()
     return (
         <SubLayout src={imgSRC} direction={{ xs: "column", md: "row-reverse" }} width={405}>
             <CartTitle sx={{ mb: "5px" }}>
@@ -41,7 +44,7 @@ export default function PaymentSuccesView({totalPrice}: {totalPrice: number}) {
                     <CartPrice>{price}{" "}<span style={{textDecoration: "underline"}}>đ</span></CartPrice>
                 </Stack>
             </Box>
-            <StyledButton label='Quay lại thư viện' bg='#4E49D6' width={170} />
+            <StyledButton label='Quay lại thư viện' bg='#4E49D6' width={170} onClick={()=>router.push("/search")}/>
         </SubLayout>
     )
 }
