@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -16,48 +15,38 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import BagIcon from '@/assets/icons/bag-icon';
 import { visuallyHidden } from '@mui/utils';
+import Chip from '@mui/material/Chip';
+import DeleteIcon from '@/assets/icons/table/delete-icon';
+import TextLink from '@/sections/auth/components/text-link';
+import { useResponsive } from '@/hooks/use-responsive';
 
 interface Data {
   id: number;
-  calories: number;
-  carbs: number;
-  fat: number;
+  price: number;
+  date: string;
+  discountRate: number;
   name: string;
-  protein: number;
 }
 
 function createData(
   id: number,
   name: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number,
+  price: number,
+  discountRate: number,
+  date: string,
 ): Data {
   return {
     id,
     name,
-    calories,
-    fat,
-    carbs,
-    protein,
+    price,
+    discountRate,
+    date,
   };
 }
 
 const rows = [
-  createData(1, 'Cupcake', 305, 3.7, 67, 4.3),
-  createData(2, 'Donut', 452, 25.0, 51, 4.9),
-  createData(3, 'Eclair', 262, 16.0, 24, 6.0),
-  createData(4, 'Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData(5, 'Gingerbread', 356, 16.0, 49, 3.9),
-  createData(6, 'Honeycomb', 408, 3.2, 87, 6.5),
-  createData(7, 'Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData(8, 'Jelly Bean', 375, 0.0, 94, 0.0),
-  createData(9, 'KitKat', 518, 26.0, 65, 7.0),
-  createData(10, 'Lollipop', 392, 0.2, 98, 0.0),
-  createData(11, 'Marshmallow', 318, 0, 81, 2.0),
-  createData(12, 'Nougat', 360, 19.0, 9, 37.0),
-  createData(13, 'Oreo', 437, 18.0, 63, 4.0),
+  createData(1, 'Giáo trình Kế toán Tài chính - Phần I ', 70000, 50, "20/10/2024"),
+  createData(2, 'Giáo trình Kế toán Tài chính - Phần II ', 60000, 60, "20/10/2024"),
 ];
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -84,10 +73,7 @@ function getComparator<Key extends keyof any>(
     : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
-// Since 2020 all major browsers ensure sort stability with Array.prototype.sort().
-// stableSort() brings sort stability to non-modern browsers (notably IE11). If you
-// only support modern browsers you can replace stableSort(exampleArray, exampleComparator)
-// with exampleArray.slice().sort(exampleComparator)
+
 function stableSort<T>(array: readonly T[], comparator: (a: T, b: T) => number) {
   const stabilizedThis = array.map((el, index) => [el, index] as [T, number]);
   stabilizedThis.sort((a, b) => {
@@ -112,32 +98,37 @@ const headCells: readonly HeadCell[] = [
     id: 'name',
     numeric: false,
     disablePadding: true,
-    label: 'Tất cả (x sản phẩm)',
+    label: `Tất cả (${rows.length} sản phẩm)`,
   },
   {
-    id: 'calories',
-    numeric: true,
+    id: 'price',
+    numeric: false,
     disablePadding: false,
     label: 'Đơn giá',
   },
   {
-    id: 'fat',
-    numeric: true,
+    id: 'discountRate',
+    numeric: false,
     disablePadding: false,
     label: 'Khuyến mãi',
   },
   {
-    id: 'carbs',
-    numeric: true,
+    id: 'date',
+    numeric: false,
     disablePadding: false,
     label: 'Ngày',
   },
+
+];
+
+const headCellsMobile: readonly HeadCell[] = [
   {
-    id: 'protein',
-    numeric: true,
-    disablePadding: false,
-    label: '',
+    id: 'name',
+    numeric: false,
+    disablePadding: true,
+    label: `Tất cả (${rows.length} sản phẩm)`,
   },
+
 ];
 
 interface EnhancedTableProps {
@@ -156,10 +147,11 @@ function EnhancedTableHead(props: EnhancedTableProps) {
     (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, property);
     };
-
+  const mddown = useResponsive("down", "md")
+  const data = mddown ? headCellsMobile : headCells
   return (
     <TableHead>
-      <TableRow>
+      <TableRow sx={{ borderBottom: { xs: "8px solid #F5F5FA", md: "none" } }}>
         <TableCell padding="checkbox">
           <Checkbox
             color="primary"
@@ -171,13 +163,16 @@ function EnhancedTableHead(props: EnhancedTableProps) {
             }}
           />
         </TableCell>
-        {headCells.map((headCell) => (
+        {data.map((headCell) => (
           <TableCell
             key={headCell.id}
             align={headCell.numeric ? 'right' : 'left'}
             padding={headCell.disablePadding ? 'none' : 'normal'}
             sortDirection={orderBy === headCell.id ? order : false}
+            sx={{ color: "#0D006A !important", fontWeight: 600 }}
           >
+
+
             <TableSortLabel
               active={orderBy === headCell.id}
               direction={orderBy === headCell.id ? order : 'asc'}
@@ -190,69 +185,23 @@ function EnhancedTableHead(props: EnhancedTableProps) {
                 </Box>
               ) : null}
             </TableSortLabel>
+
+
           </TableCell>
+
         ))}
+        <TableCell align={mddown ? "right" : 'left'}>
+          <DeleteIcon />
+        </TableCell>
       </TableRow>
     </TableHead>
   );
 }
 
-interface EnhancedTableToolbarProps {
-  numSelected: number;
-}
-
-function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
-  const { numSelected } = props;
-
-  return (
-    <Toolbar
-      sx={{
-        pl: { sm: 2 },
-        pr: { xs: 1, sm: 1 },
-        ...(numSelected > 0 && {
-          bgcolor: (theme) =>
-            alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
-        }),
-      }}
-    >
-      {numSelected > 0 ? (
-        <Typography
-          sx={{ flex: '1 1 100%' }}
-          color="inherit"
-          variant="subtitle1"
-          component="div"
-        >
-          {numSelected} selected
-        </Typography>
-      ) : (
-        <Typography
-          sx={{ flex: '1 1 100%' }}
-          variant="h6"
-          id="tableTitle"
-          component="div"
-        >
-          Nutrition
-        </Typography>
-      )}
-      {numSelected > 0 ? (
-        <Tooltip title="Delete">
-          <IconButton>
-            <BagIcon />
-          </IconButton>
-        </Tooltip>
-      ) : (
-        <Tooltip title="Filter list">
-          <IconButton>
-            <BagIcon />
-          </IconButton>
-        </Tooltip>
-      )}
-    </Toolbar>
-  );
-}
 export default function CartTable() {
+  const mddown = useResponsive("down", "md")
   const [order, setOrder] = React.useState<Order>('asc');
-  const [orderBy, setOrderBy] = React.useState<keyof Data>('calories');
+  const [orderBy, setOrderBy] = React.useState<keyof Data>('name');
   const [selected, setSelected] = React.useState<readonly number[]>([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
@@ -321,84 +270,101 @@ export default function CartTable() {
   );
 
   return (
-    <Box sx={{ width: '100%', border: "1px solid #D8DBDF", borderRadius: "12px"}}>
-      {/* <Paper sx={{ width: '100%', mb: 2 }}> */}
-        {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
-        <TableContainer>
-          <Table
-            sx={{ minWidth: 750 }}
-            aria-labelledby="tableTitle"
-            size={dense ? 'small' : 'medium'}
-          >
-            <EnhancedTableHead
-              numSelected={selected.length}
-              order={order}
-              orderBy={orderBy}
-              onSelectAllClick={handleSelectAllClick}
-              onRequestSort={handleRequestSort}
-              rowCount={rows.length}
-            />
-            <TableBody>
-              {visibleRows.map((row, index) => {
-                const isItemSelected = isSelected(row.id);
-                const labelId = `enhanced-table-checkbox-${index}`;
+    <Box
+      sx={{
+        width: '100%',
+        border: { xs: "none", md: "1px solid #D8DBDF" },
+        borderRadius: { xs: "0", md: "12px" },
+        backgroundColor: "white"
+      }}>
+      <TableContainer>
+        <Table
+          aria-labelledby="tableTitle"
+          size={dense ? 'small' : 'medium'}
+        >
+          <EnhancedTableHead
+            numSelected={selected.length}
+            order={order}
+            orderBy={orderBy}
+            onSelectAllClick={handleSelectAllClick}
+            onRequestSort={handleRequestSort}
+            rowCount={rows.length}
+          />
+          <TableBody>
+            {visibleRows.map((row, index) => {
+              const isItemSelected = isSelected(row.id);
+              const labelId = `enhanced-table-checkbox-${index}`;
 
-                return (
-                  <TableRow
-                    hover
-                    onClick={(event) => handleClick(event, row.id)}
-                    role="checkbox"
-                    aria-checked={isItemSelected}
-                    tabIndex={-1}
-                    key={row.id}
-                    selected={isItemSelected}
-                    sx={{ cursor: 'pointer' }}
-                  >
-                    <TableCell padding="checkbox">
-                      <Checkbox
-                        color="primary"
-                        checked={isItemSelected}
-                        inputProps={{
-                          'aria-labelledby': labelId,
-                        }}
-                      />
-                    </TableCell>
-                    <TableCell
-                      component="th"
-                      id={labelId}
-                      scope="row"
-                      padding="none"
-                    >
-                      {row.name}
-                    </TableCell>
-                    <TableCell align="right">{row.calories}</TableCell>
-                    <TableCell align="right">{row.fat}</TableCell>
-                    <TableCell align="right">{row.carbs}</TableCell>
-                    <TableCell align="right">{row.protein}</TableCell>
-                  </TableRow>
-                );
-              })}
-              {emptyRows > 0 && (
+              return (
                 <TableRow
-                  style={{
-                    height: (dense ? 33 : 53) * emptyRows,
-                  }}
+                  hover
+                  onClick={(event) => handleClick(event, row.id)}
+                  role="checkbox"
+                  aria-checked={isItemSelected}
+                  tabIndex={-1}
+                  key={row.id}
+                  selected={isItemSelected}
+                  sx={{ cursor: 'pointer', borderBottom: { xs: "2px solid #F5F5FA", md: "none" } }}
                 >
-                  <TableCell colSpan={6} />
+                  <TableCell padding="checkbox">
+                    <Checkbox
+                      color="primary"
+                      checked={isItemSelected}
+                      inputProps={{
+                        'aria-labelledby': labelId,
+                      }}
+                    />
+                  </TableCell>
+                  <TableCell
+                    component="th"
+                    id={labelId}
+                    scope="row"
+                    padding="none"
+                    sx={{ color: "#1F2A37", fontWeight: 600 }}
+                  >
+                    {row.name}
+                  </TableCell>
+                  <TableCell align="left" sx={{ color: "#1F2A37", display: { xs: "none", md: "table-cell" } }}>{row.price}đ</TableCell>
+                  <TableCell align="left" sx={{ color: "#1F2A37", display: { xs: "none", md: "table-cell" } }}>
+                    <Chip
+                      size="small"
+                      sx={{
+                        borderRadius: "8px",
+                        border: "1px solid #039855",
+                        background: "#D6FFEC",
+                        color: "#039855",
+                        padding: "3px !important",
+                        fontWeight: 600
+                      }}
+                      label={`${row.discountRate}%`} />
+                  </TableCell>
+                  <TableCell align="left" sx={{ color: "#1F2A37", display: { xs: "none", md: "table-cell" } }}>{row.date}</TableCell>
+                  <TableCell align={mddown ? "right" : 'left'} sx={{ color: "#1F2A37" }}><TextLink label='Xoá' href="/" sx={{ color: "#D92D20", textDecoration: "underline", fontWeight: 400 }} /></TableCell>
                 </TableRow>
-              )}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
-          component="div"
-          count={rows.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />
+              );
+            })}
+            {emptyRows > 0 && (
+              <TableRow
+                style={{
+                  height: (dense ? 33 : 53) * emptyRows,
+                }}
+              >
+                <TableCell colSpan={6} />
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      {/* <TablePagination
+        rowsPerPageOptions={[5, 10, 25]}
+        component="div"
+        count={rows.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+        labelRowsPerPage="Số dòng trên trang"
+      /> */}
     </Box>
   );
 }

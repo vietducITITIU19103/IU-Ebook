@@ -17,8 +17,8 @@ import PaymentMethods from '../components/payment-methods'
 export default function SubCartView() {
     const price = useMemo(() => useConvertCurrency(56000), [])
     return (
-        <Container sx={{ backgroundColor: 'white', p: "35px", my: "30px", borderRadius: "16px", height: "auto" }}>
-            <Box mb="36px">
+        <Container sx={{ backgroundColor: {xs:"#F5F5FA",md:'white'}, p:{xs:"35px 0",md:"35px"} , my: "30px", borderRadius: "16px", height: "auto" }}>
+            <Box mb={{xs: "12px",md:"36px"}} mt="10px">
                 <CartSubTitle>Danh sách mua</CartSubTitle>
                 <CartTable />
             </Box>

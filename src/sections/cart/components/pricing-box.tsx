@@ -8,22 +8,22 @@ import { useConvertCurrency } from '@/hooks/use-convert-currency'
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import DiscountIcon from '@/assets/icons/book/discount-icon'
+import Divider from '@mui/material/Divider'
 
 export default function PricingBox() {
     const price = useMemo(() => useConvertCurrency(56000), [])
     return (
-        <Box sx={{width: {xs: "100%",md: "560px"}}}>
-            <CartSubTitle>Thành tiền</CartSubTitle>
+        <Box sx={{width: {xs: "100%",md: "560px"}, position: {xs: "fixed", md: "static"}, bottom: 0, right: 0}}>
+            <CartSubTitle sx={{display: {xs: "none", md: "block"}}}>Thành tiền</CartSubTitle>
             <Box
                 sx={{
-
                     width: "100%",
                     px: "16px",
                     py: "24px",
-                    borderRadius: "16px",
-                    border: "1px solid #F3633E",
-                    backgroundColor: "#FFF7F5",
-                    mb: "24px"
+                    borderRadius: {xs: 0, md: "16px"},
+                    border: {xs: "none", md: "1px solid #F3633E"},
+                    backgroundColor: {xs: "white", md: "#FFF7F5"},
+                    mb: {xs: 0, md: "24px"}
                 }}>
                 <Stack direction="column" justifyContent="flex-start" alignItems="flex-start" spacing="16px">
                     <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing="8px">
@@ -45,7 +45,7 @@ export default function PricingBox() {
                         />
                     </Box>
                 </Stack>
-                <hr style={{ margin: "16px 0", border: "0.7px solid #F3633E" }}></hr>
+                <Divider sx={{ margin: "16px 0", border: {xs:"0.7px solid #D8DBDF", md: "0.7px solid #F3633E"} }}></Divider>
                 <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing="12px">
                         <CartInfo>Tổng tiền</CartInfo>

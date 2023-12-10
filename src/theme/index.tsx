@@ -8,6 +8,7 @@ import { palette } from './palette';
 import { typography } from './typography';
 import merge from 'lodash/merge';
 import { componentsOverrides } from './overrides';
+import { viVN } from '@mui/material/locale';
 
 type ProviderPropsT = {
   children: React.ReactNode;
@@ -15,11 +16,14 @@ type ProviderPropsT = {
 
 export default function ThemeProvider({ children }: ProviderPropsT) {
   const baseOption = useMemo(
-    () => ({
-      palette: palette('light'),
-      typography,
-      shape: { borderRadius: 8 },
-    }),
+    () => (
+      {
+        palette: palette('light'),
+        typography,
+        shape: { borderRadius: 8 },
+        viVN
+      }
+    ),
     []
   );
 

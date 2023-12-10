@@ -52,7 +52,10 @@ const CartSubTitle = styled(Typography)<TypographyProps>(({ theme }) => (
         fontStyle: "normal",
         fontWeight: 400,
         lineHeight: "20px",
-        marginBottom: "16px"
+        marginBottom: "16px",
+        [theme.breakpoints.down("md")]: {
+            marginBottom: "10px",
+        }
     }
 ))
 
