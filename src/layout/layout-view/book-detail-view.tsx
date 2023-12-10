@@ -8,10 +8,12 @@ import BookDetailHeader from '@/components/header/book-detail-header';
 export default function BookDetailWiew({ children }: { children: React.ReactNode }) {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', backgroundColor: "#F5F5FA" }}>
-            <Box sx={{ display: { xs: "none", md: "block" }, backgroundColor: "white" }}>
+            {/* <Box sx={{ display: { xs: "none", md: "block" }, backgroundColor: "white" }}> */}
                 <Header />
+            {/* </Box> */}
+            <Box sx={{ display: { xs: "block", md: "none" } }}>
+                <BookDetailHeader sx={{ display: "none" }} />
             </Box>
-            <BookDetailHeader sx={{display: "none"}}/>
             <Box
                 component="main"
                 sx={{
