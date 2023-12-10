@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 //Mui component
 import Box from '@mui/material/Box';
 //React-slick
@@ -14,8 +14,11 @@ import FullscreenIcon from '@/assets/icons/book/fullscreen-icon';
 import IconButton from '@mui/material/IconButton';
 import ControlButton from './control-button';
 import { useResponsive } from '@/hooks/use-responsive';
+import LightBoxModal from '@/components/lightbox/LightboxModal';
+import imgSrc from "@/assets/images/previewImg.png"
 
 export default function CarouselSection() {
+    const [open, setOpen] = useState(false);
     const MdDown = useResponsive("down", "md");
     var settings = {
         dots: MdDown ? true : false,
@@ -42,14 +45,27 @@ export default function CarouselSection() {
                 mb: { xs: "20px", md: "0" },
             }}
         >
-            <ControlButton sx={{ right: {xs: 0, md: "-40px"} }} onClick={onNext}>
+            <ControlButton sx={{ right: { xs: 0, md: "-40px" } }} onClick={onNext}>
                 <BreadcrumIcon />
             </ControlButton>
-            <ControlButton sx={{ left: {xs: 0, md: "-40px"}, transform: "rotate(180deg)" }} onClick={onPrev}>
+            <ControlButton sx={{ left: { xs: 0, md: "-40px" }, transform: "rotate(180deg)" }} onClick={onPrev}>
                 <BreadcrumIcon />
             </ControlButton>
             <IconButton sx={{ p: "5px", backgroundColor: "rgba(0, 0, 0, 0.6)", position: "absolute", zIndex: '2', borderRadius: '50%' }}>
-                <FullscreenIcon />
+                <LightBoxModal
+                    open={open}
+                    setOpen={setOpen}
+                    data={[
+                        {
+                            src: "https://img3.thuthuatphanmem.vn/uploads/2019/09/30/background-hoa-la_111221097.jpg",
+                            alt: "image 1",
+                            width: 640,
+                            height: 427,
+                            downloadFilename: "banner-preview"
+                        },
+                    ]}>
+                    <FullscreenIcon />
+                </LightBoxModal>
             </IconButton>
 
             <Box sx={{ width: "100%", transition: "0.3s ease", height: { xs: "260px", sm: "360px", md: "420px" } }}>
