@@ -19,14 +19,61 @@ import FavoriteIcon from '@/assets/icons/toast/favorite-icon';
 import { useRouter } from 'next/navigation';
 import { CustomCard, BookTitle, BookType, BookState, BookPrice, RecommendContainer, BookRCM, BookFVR } from './custom-component';
 import Box from '@mui/material/Box';
+import Chip from '@mui/material/Chip';
+import DownloadedIcon from '@/assets/icons/book/downloaded-icon';
+import { BookTypes } from '@/type/book/book-type';
 
-export default function BookCard({ book, sx, ...other }: CardProps & { book: any }) {
-  const { title, type, code, price, download, isBought, isFavorite, isRecommend, isLoved, isLovedState } = book
+export default function BookCard({ title, type, code, price, download, state, isFavorite, isRecommend, isLoved, isLovedState, isDownLoaded, sx, ...other }: CardProps & BookTypes) {
+
   const router = useRouter();
-  const [active, setActive] = React.useState<boolean>(isLovedState)
+  const [active, setActive] = React.useState<boolean>(isLovedState || false)
   const toggleState = React.useCallback(() => {
     setActive(!active)
   }, [active])
+
+  const renderView = (viewName: "bought" | "mine" | "none") => {
+    const currentView = {
+      bought: <BoughtState />,
+      mine: <MineState />,
+      none: <NoneState />
+    }[viewName]
+    return currentView
+  }
+
+  const NoneState = () => (
+    <>
+      <BookPrice color="text.secondary">
+        <span>{price}</span>
+        <span style={{ textDecoration: "underline" }}>đ</span>
+      </BookPrice>
+      <Stack direction="row" alignItems="center" gap="2px" justifyContent="center">
+        <DownloadIconSVG />
+        <Typography variant="body2" color="text.secondary" sx={{ fontSize: "12px", color: "inherit" }}>
+          {download}
+        </Typography>
+      </Stack></>
+  )
+
+  const BoughtState = () => (
+    <>
+      <Stack direction="row" alignItems="center" spacing="4px" sx={{ position: "relative", top: "3px" }}>
+        <BoughtIconSVG />
+        <BookState>Đã mua</BookState>
+      </Stack>
+      <Stack direction="row" alignItems="center" gap="2px" justifyContent="center">
+        <DownloadIconSVG />
+        <Typography variant="body2" color="text.secondary" sx={{ fontSize: "12px", color: "inherit" }}>
+          {download}
+        </Typography>
+      </Stack>
+    </>
+  )
+
+  const MineState = () => (
+    <Stack direction="row" alignItems="center" spacing="4px" sx={{ position: "relative", top: "3px" }}>
+      <BookState sx={{ color: isDownLoaded ? "#F3633E" : "#D8DBDF" }}>Code: {code}</BookState>
+    </Stack>
+  )
 
   return (
     <Box sx={{ position: "relative" }}>
@@ -43,22 +90,7 @@ export default function BookCard({ book, sx, ...other }: CardProps & { book: any
           <BookTitle gutterBottom component="h5">{title}</BookTitle>
           <BookType color="text.secondary">{type} | {code}</BookType>
           <Stack spacing={2} direction="row" justifyContent="space-between" alignItems="flex-end">
-            {isBought ?
-              <Stack direction="row" alignItems="center" spacing="4px" sx={{ position: "relative", top: "3px" }}>
-                <BoughtIconSVG />
-                <BookState>Đã mua</BookState>
-              </Stack>
-              :
-              <BookPrice color="text.secondary">
-                <span>{price}</span>
-                <span style={{ textDecoration: "underline" }}>đ</span>
-              </BookPrice>}
-            <Stack direction="row" alignItems="center" gap="2px" justifyContent="center">
-              <DownloadIconSVG />
-              <Typography variant="body2" color="text.secondary" sx={{ fontSize: "12px", color: "inherit" }}>
-                {download}
-              </Typography>
-            </Stack>
+            {renderView(state)}
           </Stack>
         </CardContent>
 
@@ -71,7 +103,22 @@ export default function BookCard({ book, sx, ...other }: CardProps & { book: any
             </BookFVR>
           </Box>}
 
-
+        {
+          isDownLoaded &&
+          <Chip
+            icon={<DownloadedIcon />}
+            label="Đã tải"
+            size='small'
+            sx={{
+              backgroundColor: "#FFFFFF",
+              color: "#039855",
+              borderRadius: "8px",
+              position: "absolute",
+              top: "10px",
+              right: "10px"
+            }}
+          />
+        }
 
         {isRecommend &&
           <RecommendContainer>

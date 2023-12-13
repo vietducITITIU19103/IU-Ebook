@@ -4,10 +4,11 @@ export type BookTypes = {
     code: string,
     price: string,
     download: string,
-    isBought?: boolean,
     isFavorite?: boolean,
     isRecommend?: boolean,
     isLoved?: boolean,
-    isLovedState?: boolean
+    isLovedState?: boolean, 
+    isDownLoaded?: boolean, 
+    state: "bought" | "mine" | "none"
   }
   

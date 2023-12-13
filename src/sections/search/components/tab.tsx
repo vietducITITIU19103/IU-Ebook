@@ -71,10 +71,9 @@ export default function CustomizedTabs() {
                         Item Three
                     </CustomTabPanel>
                     <CenterVerticalLayout>
-                        <StyledButton label='Xem thêm' width={112} bg='#F3633E' sx={{ mt: "50px", mb: {xs:0,md:"20px"} }} />
+                        <StyledButton label='Xem thêm' width={112} bg='#F3633E' sx={{ mt: "50px", mb:"20px" }} />
                     </CenterVerticalLayout>
                 </MainLayout>
-                <Box sx={{ p: 3 }} />
             </Box>
         </Box>
     );

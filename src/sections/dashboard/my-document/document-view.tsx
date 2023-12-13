@@ -4,17 +4,19 @@ import React, { useState } from 'react'
 import EmptyDocumentView from './sub-view/empty-document-view'
 import ListDocumentView from './sub-view/list-document-view'
 import BottomNavBar from '@/components/mobile-footer'
+import { BookTypes } from '@/type/book/book-type'
 
-const book = {
+const book: BookTypes = {
   title: "Kế toán tài chính",
   type: "Kế toán",
   code: " MS 001",
   price: "65.000",
   download: "+3k",
-  isBought: false,
+  state: "mine",
   isFavorite: false,
   isRecommend: false,
-  isLoved: false
+  isLoved: false,
+  isDownLoaded: true
 }
 
 

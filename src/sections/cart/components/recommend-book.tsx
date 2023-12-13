@@ -12,7 +12,7 @@ const book:BookTypes = {
     code: " MS 001",
     price: "65.000",
     download: "+3k",
-    isBought: false,
+    state: "none",
     isFavorite: false,
     isRecommend: true,
     isLoved: true,

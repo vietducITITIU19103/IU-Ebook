@@ -5,18 +5,17 @@ import { PURPLE_COLOR, WHITE_COLOR, LIGHT_DARK } from '@/app/color'
 import { BookTypes } from '@/type/book/book-type';
 import StaticLayout from '@/components/book-list-layout/static-layout';
 
-const book:BookTypes = {
+const book: BookTypes = {
   title: "Kế toán tài chính",
   type: "Kế toán",
   code: " MS 001",
   price: "65.000",
   download: "+3k",
   isRecommend: true,
-  // isBought: false,
-   isFavorite: false,
-  // isRecommend: false,
-   isLoved: true,
-   isLovedState: false,
+  state: "none",
+  isFavorite: false,
+  isLoved: true,
+  isLovedState: false,
 }
 
 export default function Recommend() {
@@ -32,7 +31,7 @@ export default function Recommend() {
   return (
     <Box sx={layout}>
       <SectionHeader chipContent="Những tài liệu hữu ích nhất trong kì mới" title="Đề xuất" />
-      <StaticLayout data={data}/>
+      <StaticLayout data={data} />
     </Box >
   )
 }
