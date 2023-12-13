@@ -3,14 +3,15 @@ import Box from '@mui/material/Box';
 import SectionHeader from '../section-header';
 import { WHITE_COLOR, LIGHT_DARK } from '@/app/color'
 import StaticLayout from '@/components/book-list-layout/static-layout';
+import { BookTypes } from '@/type/book/book-type';
 
-const book = {
+const book: BookTypes = {
   title: "Kế toán tài chính",
   type: "Kế toán",
   code: " MS 001",
   price: "65.000",
   download: "+3k",
-  isBought: false,
+  state: "none",
   isFavorite: true,
   isRecommend: false
 }

@@ -3,14 +3,15 @@ import { Box } from '@mui/material'
 import React, { useState } from 'react'
 import EmptyFavouriteView from './sub-view/empty-favourite-view'
 import ListFavouriteView from './sub-view/list-favourite-view'
+import { BookTypes } from '@/type/book/book-type'
 
-const book = {
+const book: BookTypes = {
   title: "Kế toán tài chính",
   type: "Kế toán",
   code: " MS 001",
   price: "65.000",
   download: "+3k",
-  isBought: false,
+  state: "none",
   isFavorite: false,
   isRecommend: false,
   isLoved: true,
@@ -32,7 +33,7 @@ export default function FavouriteView() {
   }
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%"}}>
       {RenderView(state)}
     </Box>
   )

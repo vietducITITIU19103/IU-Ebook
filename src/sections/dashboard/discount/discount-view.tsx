@@ -40,6 +40,22 @@ const data: PromotionTypes[] = [
     title: "Giảm 50% cho hóa đơn hơn 200k",
     description: "Áp dụng cho hóa đơn từ 200k",
     expire: "30/04/2023"
+  },
+  {
+    id: "5",
+    logo: MomoLogo,
+    logoDes: "Ví Momo",
+    title: "Giảm 50% cho hóa đơn hơn 200k",
+    description: "Áp dụng cho hóa đơn từ 200k",
+    expire: "30/04/2023"
+  },
+  {
+    id: "6",
+    logo: MomoLogo,
+    logoDes: "Ví Momo",
+    title: "Giảm 50% cho hóa đơn hơn 200k",
+    description: "Áp dụng cho hóa đơn từ 200k",
+    expire: "30/04/2023"
   }
 ]
 
@@ -60,7 +76,7 @@ export default function DiscountView() {
 
   return (
     <Box>
-      <Box sx={{ width: "100%" }}>
+      <Box sx={{ width: "100%", mb: "130px" }}>
         {RenderView(state)}
       </Box>
       <Box

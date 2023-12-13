@@ -15,8 +15,7 @@ export const MainLayout = styled(Container)<ContainerProps>(({ theme }) => ({
     borderRadius: "16px",
     marginBottom: "30px",
     [theme.breakpoints.down("md")]: {
-        padding: "20px",
-        paddingBottom: "100px",
+        padding: "20px"
     }
 }))
 

@@ -12,7 +12,8 @@ export default function HomeLayoutView({ children }: {children: React.ReactNode}
         component="main"
         sx={{
           flexGrow: 1,
-          overflow: "hidden"
+          overflow: "hidden",
+          mb: "60px"
         }}
       >
         {children}

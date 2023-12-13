@@ -25,7 +25,7 @@ export default function StaticLayout({ data }: { data: BookTypes[] }) {
         >
           {
             data.map((item: BookTypes, index: number) => (
-              <BookCard key={index} book={item} sx={{width: "177px", flexShrink: 0}}/>
+              <BookCard key={index} {...item} sx={{width: "177px", flexShrink: 0}}/>
             ))
           }
         </Stack >

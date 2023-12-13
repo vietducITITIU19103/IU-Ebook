@@ -10,7 +10,7 @@ export default function DynamicLayout({ data }: { data: BookTypes[] }) {
             {
                 data.map((item: BookTypes, index: number) => (
                     <Grid item xs={6} sm={4} smmdmin={4} smmd={3} md={2.4} mdlgmin={2.4} lg={2} >
-                        <BookCard key={index} book={item} isRecommend />
+                        <BookCard key={index} {...item} isRecommend />
                     </Grid>
                 ))
             }
