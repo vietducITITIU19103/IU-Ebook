@@ -46,7 +46,7 @@ export function cssBaseline(theme: Theme) {
         },
         a: {
           textDecoration: 'none',
-          color: theme.palette.factorazy.text.default,
+          color: theme.palette.iub.text.default,
         },
       },
     },

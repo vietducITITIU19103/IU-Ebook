@@ -89,7 +89,7 @@ export default function RHFAutoComplete({ name, title, isRequired, helperText, t
                                 key={option.label}
                                 sx={{
                                     borderRadius: "6px",
-                                    borderColor: "factorazy.auth.line",
+                                    borderColor: "iub.auth.line",
                                     paddingTop: "2px"
                                 }}
                             />
