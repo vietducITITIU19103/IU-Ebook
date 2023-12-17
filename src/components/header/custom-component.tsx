@@ -3,10 +3,10 @@ import { styled } from '@mui/material/styles';
 
 const HeaderLink = styled(Typography)<TypographyProps & { href?: string }>(
     {
-        color: "#475467",
+        color: "iub.text.normal",
         fontSize: "16px",
         fontStyle: "normal",
-        fontWeight: 600,
+        fontWeight: 400,
         lineHeight: "24px",
         transition: "color 0.3s ease",
         "&:hover": {

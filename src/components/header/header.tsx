@@ -35,7 +35,7 @@ export default function Header({ sx, ...other }: BoxProps) {
             {path === item.destination ? item.iconActive : item.icon}
             <HeaderLink
                 onClick={() => router.push(item.destination)}
-                sx={{ display: "inline",cursor: "pointer", ...(path === item.destination && { color: '#4E49D6' }) }}>
+                sx={{ display: "inline", cursor: "pointer", color: "iub.text.normal",...(path === item.destination && { color: 'iub.text.active', fontWeight: 600 }) }}>
                 {item.title}
             </HeaderLink>
         </CenterHorizontalLayout>
@@ -43,7 +43,16 @@ export default function Header({ sx, ...other }: BoxProps) {
 
 
     return (
-        <Box id="header" sx={{ borderBottom: "1px solid #F2F4F7", backgroundColor: "white", position: "sticky", zIndex: 20, ...sx }} {...other}>
+        <Box id="header"
+            sx={{
+                borderBottom: "1px solid #F2F4F7",
+                backgroundColor: "iub.background.default",
+                position: "sticky",
+                zIndex: 20,
+                ...sx
+            }}
+            {...other}
+        >
             <Container sx={{ px: "0 !important", my: "16px", ...(down1260px && { px: "12px" }) }}>
                 <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <Box sx={{ display: { xs: "none", md: "flex" } }}><MainLogo /></Box>

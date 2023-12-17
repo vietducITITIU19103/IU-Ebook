@@ -5,12 +5,14 @@ export type ColorSchema = 'primary' | 'secondary' | 'info' | 'success' | 'warnin
 
 declare module '@mui/material/styles/createPalette' {
   interface Palette {
-    factorazy: {
+    iub: {
       text: {
         default: string;
         paper: string;
         info: string;
         placeholder: string;
+        normal: string,
+        active: string
       };
       background: {
         default: string;
@@ -25,16 +27,41 @@ declare module '@mui/material/styles/createPalette' {
 }
 
 // SETUP COLORS
-const COMMON = {
-  factorazy: {
+const LIGHT = {
+  iub: {
     text: {
       default: '#000000',
       paper: '#FFFFFF',
       info: '#2DC0AC',
       placeholder: '#667085',
+      //-------
+      normal: "#9DA4AE",
+      active: "#4E49D6"
     },
     background: {
+      default: 'white',
+      paper: '#FFFFFF',
+      transparent: 'transparent',
+    },
+    line: {
       default: '#FFFCF6',
+    },
+  },
+};
+
+const DARK = {
+  iub: {
+    text: {
+      default: '#000000',
+      paper: '#FFFFFF',
+      info: '#2DC0AC',
+      placeholder: '#667085',
+      //-------
+      normal: "#9DA4AE",
+      active: "white"
+    },
+    background: {
+      default: '#212B36',
       paper: '#FFFFFF',
       transparent: 'transparent',
     },
@@ -46,12 +73,12 @@ const COMMON = {
 
 export function palette(mode: 'light' | 'dark') {
   const light = {
-    ...COMMON,
+    ...LIGHT,
     mode: 'light',
   };
 
   const dark = {
-    ...COMMON,
+    ...DARK,
     mode: 'dark',
   };
 

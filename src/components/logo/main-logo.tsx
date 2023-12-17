@@ -16,7 +16,7 @@ export default function MainLogo() {
             sx={{cursor: "pointer"}}
         >
             <Image src={IUHLogo} alt="Register logo" width={132} height={37}></Image>
-            <TextHidden>Factorazy</TextHidden>
+            <TextHidden>IUH Ebook</TextHidden>
         </Stack>
     )
 }

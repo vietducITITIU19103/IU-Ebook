@@ -1,22 +1,20 @@
 "use client"
-import React, {useState} from 'react'
+import React, { useState, useContext } from 'react'
 import "./style.css"
+import { ThemeContext } from '@/theme'
 
 
 export default function ChangeThemeButton() {
-    // const { currentTheme, handleChangeTheme }: any = React.useContext(ThemeContext);
-    const [currentTheme, setCurrentTheme] = useState<boolean>(true)
-    const handleChangeState = () => {
-        setCurrentTheme(!currentTheme);
-    }
+    const { themeName, toggleTheme } = useContext(ThemeContext)
+
     return (
         <div
-            className={currentTheme ?"buttonContainer" : "buttonContainerDark"}
-            onClick={handleChangeState}>
+            className={themeName === "light" ? "buttonContainer" : "buttonContainerDark"}
+            onClick={toggleTheme}>
             <span
-                className={currentTheme ? "iconLight" : "animLight"}
+                className={themeName === "light" ? "iconLight" : "animLight"}
                 id="icon-theme">
-                {currentTheme ?
+                {themeName === "light" ?
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="20"

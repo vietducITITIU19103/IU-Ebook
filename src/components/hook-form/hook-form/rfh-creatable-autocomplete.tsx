@@ -102,7 +102,7 @@ export default function RFHCreatableAutocomplete({ name, sx, ...other }: Props) 
                                 key={option}
                                 sx={{
                                     borderRadius: "6px",
-                                    borderColor: "factorazy.auth.line",
+                                    borderColor: "iub.auth.line",
                                 }}
                             />)
                         }
