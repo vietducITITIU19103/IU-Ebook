@@ -23,7 +23,7 @@ export default function Recommend() {
   const data = [book, book, book, book, book, book, book, book]
   const layout = {
     flexGrow: 1,
-    backgroundColor: WHITE_COLOR,
+    backgroundColor: "iub.background.default",
     padding: { xs: "25px 0 25px 16px", md: "25px 0 25px 35px" },
     borderRadius: { xs: 0, md: "16px" },
     marginBottom: { xs: "-8px", md: "43px" }

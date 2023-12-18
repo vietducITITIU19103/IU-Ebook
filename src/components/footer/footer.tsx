@@ -11,6 +11,7 @@ import Info from './info';
 import Payment from './payment';
 import DownLoad from './download';
 import MainLogo from '../logo/main-logo';
+import { typography } from '@/theme/typography';
 
 export default function Footer() {
     return (
@@ -18,9 +19,9 @@ export default function Footer() {
             sx={{
                 flexGrow: 1,
                 margin: "16px",
-                color: "#0D006A",
+                color: "iub.text.active",
                 p: "0 !important",
-                backgroundColor: "white" 
+                backgroundColor: "iub.background.default" 
             }}>
             <Grid container
                 sx={{
@@ -53,8 +54,8 @@ export default function Footer() {
                         variant="body2"
                         sx={{
                             textAlign: "center",
-                            color: "#6C737F",
-                            fontFamily: "inherit"
+                            color: "iub.text.light",
+                            fontFamily: typography.interFont
                         }}>
                         Copyright © 2023 IUH University Viet Nam
                     </Typography>
