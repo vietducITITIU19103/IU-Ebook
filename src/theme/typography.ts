@@ -36,9 +36,17 @@ export const secondaryFont = Bitter({
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
 });
 
+export const interFont = Inter({
+  weight: ['400',  '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  fallback: ['Helvetica', 'Arial', 'sans-serif'],
+});
+
 export const typography = {
   fontFamily: primaryFont.style.fontFamily,
   fontFamilySecondary: secondaryFont.style.fontFamily,
+  interFont: interFont.style.fontFamily,
   fontWeightRegular: 400,
   fontWeightMedium: 500,
   fontWeightSemiBold: 600,

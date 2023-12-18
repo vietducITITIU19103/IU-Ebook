@@ -3,11 +3,13 @@ import Box from '@mui/material/Box';
 import Header from '../../components/header/header';
 import Footer from '@/components/footer/footer';
 import BottomNavBar from '@/components/mobile-footer';
+import { useTheme } from '@mui/material/styles';
 
-export default function HomeLayoutView({ children }: {children: React.ReactNode}) {
+export default function HomeLayoutView({ children }: { children: React.ReactNode }) {
+  // const { palette: { iub } } = useTheme()
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', backgroundColor: "#F5F5FA"}}>
-      <Header/>
+    <Box sx={{ display: 'flex', flexDirection: 'column', backgroundColor: "iub.background.body" }}>
+      <Header />
       <Box
         component="main"
         sx={{
@@ -22,19 +24,19 @@ export default function HomeLayoutView({ children }: {children: React.ReactNode}
         sx={{
           display: { xs: 'none', md: 'flex' },
           justifyContent: "center",
-          backgroundColor: "white" 
+          backgroundColor: "iub.background.default" 
         }}
       >
-        <Footer/>
+        <Footer />
       </Box>
       <Box
         sx={{
           display: { xs: 'flex', md: 'none' },
           justifyContent: "center",
-          backgroundColor: "white" 
+          backgroundColor: "iub.background.default" 
         }}
       >
-        <BottomNavBar/>
+        <BottomNavBar />
       </Box>
     </Box>
   )

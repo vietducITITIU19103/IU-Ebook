@@ -1,8 +1,7 @@
 import React from 'react'
 import Stack from '@mui/material/Stack';
-import IUHLogo from '@/assets/images/Logo-Ebook.png';
 import TextHidden from "@/components/text-hidden"
-import Image from 'next/image';
+import MainLogoIcon from '@/assets/icons/logo/main-logo';
 
 export default function MainLogo() {
     return (
@@ -15,7 +14,7 @@ export default function MainLogo() {
             href='/'
             sx={{cursor: "pointer"}}
         >
-            <Image src={IUHLogo} alt="Register logo" width={132} height={37}></Image>
+            <MainLogoIcon sx={{width: '132px', height: "36.5px"}}/>
             <TextHidden>IUH Ebook</TextHidden>
         </Stack>
     )

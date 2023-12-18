@@ -45,7 +45,7 @@ export default function Header({ sx, ...other }: BoxProps) {
     return (
         <Box id="header"
             sx={{
-                borderBottom: "1px solid #F2F4F7",
+                borderBottom: "1px solid iub.line.headerBottom",
                 backgroundColor: "iub.background.default",
                 position: "sticky",
                 zIndex: 20,

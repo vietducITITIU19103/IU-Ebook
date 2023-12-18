@@ -2,10 +2,12 @@ import React from 'react'
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
-import Link from 'next/link';
+import Link from "@mui/material/Link"
 import { PURPLE_COLOR, WHITE_COLOR, GRAY_COLOR } from '@/app/color'
+import { useTheme } from '@mui/material/styles';
 
 export default function SectionHeader({ chipContent, title, hasTitle }: { chipContent?: string, title: string, hasTitle?: boolean }) {
+    const {palette: {iub}} = useTheme()
     return (
         <Stack
             direction="row"
@@ -15,7 +17,7 @@ export default function SectionHeader({ chipContent, title, hasTitle }: { chipCo
                 position: "relative",
                 zIndex: 1,
                 width: "100%",
-                color: PURPLE_COLOR
+                color: "iub.text.active"
             }}>
             {!hasTitle && <Stack
                 direction="row"
@@ -36,7 +38,7 @@ export default function SectionHeader({ chipContent, title, hasTitle }: { chipCo
                     label={chipContent}
                     size="small"
                     sx={{
-                        backgroundColor: "#F2EFFF",
+                        backgroundColor: "iub.background.chip",
                         color: "inherit",
                         display: {
                             xs: "none", sm: "flex"
@@ -53,14 +55,15 @@ export default function SectionHeader({ chipContent, title, hasTitle }: { chipCo
                 >
                 <Link
                     href=""
-                    style={{
+                    sx={{
                         textDecoration: "none",
-                        color: "gray",
-                        fontSize: "12px"
+                        color: "iub.text.light",
+                        fontSize: "12px",
+                        fontWeight: 400
                     }}>Xem tất cả</Link>
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 16" fill="none">
-                        <path d="M8.19922 5.5L13.1992 10.5L8.19922 15.5" stroke={GRAY_COLOR} strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M8.19922 5.5L13.1992 10.5L8.19922 15.5" stroke={iub.text.light} strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </span>
             </Stack>

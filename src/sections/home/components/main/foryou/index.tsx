@@ -1,39 +1,38 @@
-import React from 'react'
-import BookCard from '../../../../../components/card'
+"use client"
+import React, {useContext} from 'react'
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
 import SectionHeader from '../section-header';
-import { WHITE_COLOR, LIGHT_DARK } from '@/app/color'
 import StyledButton from '@/components/button/styled-button';
 import ForyouBg from '@/assets/icons/background/foryou-bg';
 import { BookTypes } from '@/type/book/book-type';
 import DynamicLayout from '@/components/book-list-layout/dynamic-layout';
+import { ThemeContext } from '@/theme';
 
-const book = {
+const book: BookTypes = {
   title: "Kế toán tài chính",
   type: "Kế toán",
   code: " MS 001",
   price: "65.000",
   download: "+3k",
-  isBought: false,
+  state: "none",
   isFavorite: false,
   isRecommend: false
 }
 
 export default function ForYou() {
-
+const {themeName} = useContext(ThemeContext)
   const data = [book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book, book]
   return (
     <Box sx={{
       flexGrow: 1,
-      backgroundColor: WHITE_COLOR,
+      backgroundColor: "iub.background.default",
       overflow: "hidden",
       borderRadius: { xs: 0, md: "16px" },
       marginBottom: { xs: "20px", md: "43px" },
       position: "relative",
-      padding: { xs: "25px 16px", md: "25px 36px" },
+      py: "25px",
       display: 'flex',
       flexDirection: "column",
       alignItems: "center"
@@ -45,6 +44,7 @@ export default function ForYou() {
         left: 0,
         height: "254px",
         backgroundImage: "linear-gradient(#D9D3FF, #E7E5FB, white)",
+        display: themeName === "dark" ? "none" : "block"
       }}></div>
       <div style={{
         position: "absolute",
@@ -67,7 +67,10 @@ export default function ForYou() {
         </Typography>
       </Stack>
       <SectionHeader chipContent="Tiếp tục đọc hoặc mua ngay" title="Yêu thích" hasTitle />
+      <Box sx={{padding: { xs: "0 16px", md: "0 36px" }}}>
       <DynamicLayout data={data} />
+      </Box>
+      
       <StyledButton label='Xem thêm' width={112} bg='#F3633E' sx={{ mt: "40px", mb: "20px" }} />
     </Box >
   )
