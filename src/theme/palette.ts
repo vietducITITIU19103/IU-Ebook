@@ -16,17 +16,21 @@ declare module '@mui/material/styles/createPalette' {
         placeholder: string;
         normal: string,
         active: string,
-        light: string
+        light: string,
+        main: string,
+        footer: string
       };
       background: {
         default: string;
         paper: string;
         transparent: string;
         body: string,
-        chip: string
+        chip: string,
+        pattern_purple: string,
+        pattern_orange: string,
       };
       line: {
-        headerBottom: string; 
+        headerBottom: string;
         default: string;
       };
     };
@@ -47,17 +51,21 @@ const LIGHT = {
       //-------
       normal: "#9DA4AE",//gray-gray
       active: "#4E49D6", //purple-white
-      light: "#6C737F" //gray-white
+      light: "#6C737F", //gray-white
+      main: "#1F2A37", //black-white
+      footer: "#0D006A"
     },
     background: {
       default: 'white',
       paper: '#FFFFFF',
       transparent: 'transparent',
       body: "#F5F5FA",
-      chip: "#F2EFFF"
+      chip: "#F2EFFF",
+      pattern_purple: "#4E49D6",
+      pattern_orange: "#F3633E",
     },
     line: {
-      headerBottom: "#F2F4F7", 
+      headerBottom: "#F2F4F7",
       default: '#FFFCF6',
     },
   },
@@ -76,17 +84,21 @@ const DARK = {
       //-------
       normal: "#9DA4AE",
       active: "white",
-      light: "white"
+      light: "white",
+      main: "white",
+      footer: "#white"
     },
     background: {
       default: '#212B36',
       paper: '#FFFFFF',
       transparent: 'transparent',
       body: "#161C24",
-      chip: "#6C737F"
+      chip: "#6C737F",
+      pattern_purple: "#F2EFFF",
+      pattern_orange: "#F2EFFF",
     },
     line: {
-      headerBottom: '#212B36', 
+      headerBottom: '#212B36',
       default: '#FFFCF6',
     },
   },

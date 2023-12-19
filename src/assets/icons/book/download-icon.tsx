@@ -2,6 +2,7 @@ import { memo } from 'react';
 // @mui
 import Box, { BoxProps } from '@mui/material/Box';
 import { GRAY_COLOR, WHITE_COLOR } from '@/app/color'
+import { useTheme } from '@mui/material/styles';
 
 // ----------------------------------------------------------------------
 type Props = BoxProps & {
@@ -9,7 +10,8 @@ type Props = BoxProps & {
 }
 
 function DownloadIcon({ sx, color, ...other }: Props) {
-    const colorCode = color? color : GRAY_COLOR
+    const {palette: {iub}} = useTheme()
+    const colorCode = color? color : iub.text.light
     return (
         <Box component="svg" xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none" {...other} sx={{width: "13px", height: "13px", ...sx}}> 
             <path d="M6.25667 8.00439L6.25667 0.980469" stroke={colorCode} strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" />

@@ -19,7 +19,7 @@ export default function Footer() {
             sx={{
                 flexGrow: 1,
                 margin: "16px",
-                color: "iub.text.active",
+                color: "iub.text.footer",
                 p: "0 !important",
                 backgroundColor: "iub.background.default" 
             }}>

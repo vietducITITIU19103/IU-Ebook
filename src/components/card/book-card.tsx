@@ -48,7 +48,7 @@ export default function BookCard({ title, type, code, price, download, state, is
       </BookPrice>
       <Stack direction="row" alignItems="center" gap="2px" justifyContent="center">
         <DownloadIconSVG />
-        <Typography variant="body2" color="text.secondary" sx={{ fontSize: "12px", color: "inherit" }}>
+        <Typography variant="body2" color="text.secondary" sx={{ fontSize: "12px", color: "iub.text.light" }}>
           {download}
         </Typography>
       </Stack></>
@@ -76,7 +76,7 @@ export default function BookCard({ title, type, code, price, download, state, is
   )
 
   return (
-    <Box sx={{ position: "relative" }}>
+    <Box sx={{ position: "relative", }}>
       <CustomCard
         onClick={() => router.push("/book/1")}
         sx={{ ...sx }}
@@ -86,7 +86,7 @@ export default function BookCard({ title, type, code, price, download, state, is
           image="/images/book/ketoan.png"
           title={title}
         />
-        <CardContent sx={{ padding: "10px", color: DARK_COLOR, backgroundColor: "white" }}>
+        <CardContent sx={{ padding: "10px", color: DARK_COLOR, backgroundColor: "iub.background.default" }}>
           <BookTitle gutterBottom component="h5">{title}</BookTitle>
           <BookType color="text.secondary">{type} | {code}</BookType>
           <Stack spacing={2} direction="row" justifyContent="space-between" alignItems="flex-end">
@@ -95,7 +95,7 @@ export default function BookCard({ title, type, code, price, download, state, is
         </CardContent>
 
         {isFavorite &&
-          <Box sx={{ position: "absolute", top: "0", right: "0" }}>
+          <Box sx={{ position: "absolute", top: "-1px", right: "0" }}>
             <FavoriteSVG />
             <BookFVR gutterBottom>
               <HeartIconSVG />
@@ -128,7 +128,7 @@ export default function BookCard({ title, type, code, price, download, state, is
         }
 
         <div style={{ position: "absolute", bottom: "-5px", right: "0" }}>
-          <PatternSVG color={!isFavorite ? PURPLE_COLOR : ORANGE_COLOR} />
+          <PatternSVG isFavorite={isFavorite} />
         </div>
       </CustomCard >
       {isLoved &&

@@ -6,7 +6,7 @@ import { useTheme } from '@mui/material/styles';
 
 function MailIcon({ ...other }: BoxProps) {
     const {palette} = useTheme()
-    const colorCode = palette.iub.text.active
+    const colorCode = palette.iub.text.footer
     return (
         <Box component="svg" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none" { ...other }>
             <path d="M18.0698 9.63513L14.0272 12.9223C13.2635 13.5283 12.1889 13.5283 11.4251 12.9223L7.34839 9.63513" stroke={colorCode} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

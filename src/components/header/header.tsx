@@ -58,7 +58,7 @@ export default function Header({ sx, ...other }: BoxProps) {
                     <Box sx={{ display: { xs: "none", md: "flex" } }}><MainLogo /></Box>
                     <CenterHorizontalLayout spacing="8px" justifyContent="flex-end" sx={{ width: '100%' }}>
                         <SearchBar />
-                        <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                        <Box sx={{ display: { xs: "none", md: "flex" } }} onClick={()=>router.push("/search")}>
                             <StyledButton label='Search' width={100} bg='#F3633E' />
                         </Box>
 

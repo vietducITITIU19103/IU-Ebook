@@ -37,7 +37,7 @@ export default function BottomNavBar() {
                     width: "100%",
                 }}>
                 {data.map(({ name, path, icon, activeIcon }: { name: string, path: string, icon: any, activeIcon: any }, index: number) => (
-                    <>{
+                    <React.Fragment key={index}>{
                         path !== "/" ?
                             <Item
                                 key={index}
@@ -60,7 +60,7 @@ export default function BottomNavBar() {
                                 {!currentPath.includes("search") &&
                                     !currentPath.includes("dashboard") ? activeIcon : icon}
                             </Item>
-                    }</>
+                    }</React.Fragment>
                 ))}
             </Stack>
         </Box >

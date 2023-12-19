@@ -20,10 +20,10 @@ function VoucherIcon({ isActive, sx, ...other }: Props) {
                     </Box>
                     :
                     <Box component="svg" xmlns="http://www.w3.org/2000/svg" width="27" height="22" viewBox="0 0 27 22" fill="none" {...other} sx={{ width: "27px", height: "22px", ...sx }}>
-                        <path d="M15.6367 1.54004V4.56504" stroke="#6C737F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M15.6367 18.4277V20.9577" stroke="#6C737F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M15.6367 14.1327V8.10645" stroke="#6C737F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M21.7019 21.2275C23.9795 21.2275 25.8242 19.4057 25.8242 17.1565V13.9158C24.3171 13.9158 23.1034 12.7172 23.1034 11.2288C23.1034 9.74048 24.3171 8.54053 25.8242 8.54053L25.8229 5.29861C25.8229 3.04935 23.9769 1.22754 21.7006 1.22754H4.94786C2.67158 1.22754 0.825522 3.04935 0.825522 5.29861L0.824219 8.6461C2.33131 8.6461 3.54507 9.74048 3.54507 11.2288C3.54507 12.7172 2.33131 13.9158 0.824219 13.9158V17.1565C0.824219 19.4057 2.66897 21.2275 4.94656 21.2275H21.7019Z" stroke="#6C737F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M15.6367 1.54004V4.56504" stroke="#6C737F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M15.6367 18.4277V20.9577" stroke="#6C737F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M15.6367 14.1327V8.10645" stroke="#6C737F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path fillRule="evenodd" clipRule="evenodd" d="M21.7019 21.2275C23.9795 21.2275 25.8242 19.4057 25.8242 17.1565V13.9158C24.3171 13.9158 23.1034 12.7172 23.1034 11.2288C23.1034 9.74048 24.3171 8.54053 25.8242 8.54053L25.8229 5.29861C25.8229 3.04935 23.9769 1.22754 21.7006 1.22754H4.94786C2.67158 1.22754 0.825522 3.04935 0.825522 5.29861L0.824219 8.6461C2.33131 8.6461 3.54507 9.74048 3.54507 11.2288C3.54507 12.7172 2.33131 13.9158 0.824219 13.9158V17.1565C0.824219 19.4057 2.66897 21.2275 4.94656 21.2275H21.7019Z" stroke="#6C737F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </Box>
             }
         </>

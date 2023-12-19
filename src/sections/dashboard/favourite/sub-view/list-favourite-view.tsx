@@ -1,5 +1,5 @@
 import React from 'react'
-import BookCard from '@/components/card';
+import BookCard from '@/components/card/book-card';
 import Grid from '@mui/material/Grid';
 import GridSystem from '@/components/grid-system/grid-system';
 import { BookTypes } from '@/type/book/book-type';
