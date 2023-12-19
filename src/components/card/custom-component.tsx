@@ -12,6 +12,11 @@ const CustomCard = styled(Card)<CardProps>(
         overflow: "hidden",
         borderRadius: "12px",
         cursor: "pointer",
+        boxShadow: "2px 2px 4px 0px rgba(0, 0, 0, 0.15)",
+        border: '0.5px solid #6C737F'
+
+
+        
     }
 )
 
@@ -25,20 +30,20 @@ const RecommendContainer = styled(Box)<BoxProps>(
     }
 )
 
-const BookTitle = styled(Typography)<TypographyProps>(
+const BookTitle = styled(Typography)<TypographyProps>(({theme})=>(
     {
         fontSize: "16px",
         fontWeight: "bold",
         fontFamily: "inherit",
-        color: "inherit"
+        color: theme.palette.iub.text.main
     }
 )
-
+)
 const BookType = styled(Typography)<TypographyProps>(
     {
         fontSize: "10px",
         fontFamily: "inherit",
-        color: "inherit"
+        color: "iub.text.light"
     }
 )
 

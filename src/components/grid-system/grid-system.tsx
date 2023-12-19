@@ -1,6 +1,6 @@
 import React from 'react'
 import Stack from '@mui/material/Stack';
-import BookCard from '@/components/card';
+import BookCard from '@/components/card/book-card';
 import Grid from '@mui/material/Grid';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 

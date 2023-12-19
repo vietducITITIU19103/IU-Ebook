@@ -5,9 +5,10 @@ import Chip from '@mui/material/Chip';
 import Link from "@mui/material/Link"
 import { PURPLE_COLOR, WHITE_COLOR, GRAY_COLOR } from '@/app/color'
 import { useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 
 export default function SectionHeader({ chipContent, title, hasTitle }: { chipContent?: string, title: string, hasTitle?: boolean }) {
-    const {palette: {iub}} = useTheme()
+    const { palette: { iub } } = useTheme()
     return (
         <Stack
             direction="row"
@@ -51,20 +52,42 @@ export default function SectionHeader({ chipContent, title, hasTitle }: { chipCo
                 justifyContent="flex-start"
                 alignItems="center"
                 spacing={0}
-                sx={{ paddingRight: { xs: "16px", md: "16px", lg: "30px" } }}
-                >
+                sx={{
+                    cursor: "pointer",
+                    paddingRight: { xs: "16px", md: "16px", lg: "30px" },
+                    "&:hover>#view-all": {
+                        color: "iub.text.active",
+                    },
+                    "&:hover>span>svg>path": {
+                        stroke: iub.text.active,
+                    },
+                }}
+            >
                 <Link
+                    id="view-all"
                     href=""
                     sx={{
                         textDecoration: "none",
                         color: "iub.text.light",
                         fontSize: "12px",
-                        fontWeight: 400
+                        fontWeight: 500,
+                        // "&:hover": {
+                        //     color: "iub.text.active",
+                        // }
                     }}>Xem tất cả</Link>
                 <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 16" fill="none">
-                        <path d="M8.19922 5.5L13.1992 10.5L8.19922 15.5" stroke={iub.text.light} strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
+                    <Box
+                        component="svg"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="21"
+                        height="21"
+                        viewBox="0 0 21 16" fill="none"
+                        sx={{
+                            width: "21px",
+                            height: "21px",
+                        }}>
+                        <path d="M8.19922 5.5L13.1992 10.5L8.19922 15.5" stroke={iub.text.light} strokeLinecap="round" strokeLinejoin="round" id="arrow"/>
+                    </Box>
                 </span>
             </Stack>
         </Stack>

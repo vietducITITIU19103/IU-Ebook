@@ -70,9 +70,9 @@ export default function CarouselSection() {
 
             <Box sx={{ width: "100%", transition: "0.3s ease", height: { xs: "260px", sm: "360px", md: "420px" } }}>
                 <Slider {...settings} ref={carouselRef}>
-                    <CarouselItem />
-                    <CarouselItem />
-                    <CarouselItem />
+                    <CarouselItem key="1"/>
+                    <CarouselItem key="2"/>
+                    <CarouselItem key="3"/>
                 </Slider>
             </Box>
 

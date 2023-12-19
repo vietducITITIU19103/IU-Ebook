@@ -19,8 +19,8 @@ function UserIcon({ isActive, sx, ...other }: Props) {
               </Box>
                     :
                     <Box component="svg" xmlns="http://www.w3.org/2000/svg" width="20" height="26" viewBox="0 0 20 26" fill="none" {...other} sx={{ width: "20px", height: "26px", ...sx }}>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.2736 16.9863C5.43912 16.9863 1.31055 17.7173 1.31055 20.6447C1.31055 23.572 5.41293 24.3292 10.2736 24.3292C15.1082 24.3292 19.2355 23.597 19.2355 20.6709C19.2355 17.7447 15.1344 16.9863 10.2736 16.9863Z" stroke="#6C737F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.2746 12.8111C13.4472 12.8111 16.0186 10.2384 16.0186 7.06583C16.0186 3.89321 13.4472 1.32178 10.2746 1.32178C7.10195 1.32178 4.52933 3.89321 4.52933 7.06583C4.51862 10.2277 7.07338 12.8003 10.2341 12.8111H10.2746Z" stroke="#6C737F" stroke-width="1.42857" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path fillRule="evenodd" clipRule="evenodd" d="M10.2736 16.9863C5.43912 16.9863 1.31055 17.7173 1.31055 20.6447C1.31055 23.572 5.41293 24.3292 10.2736 24.3292C15.1082 24.3292 19.2355 23.597 19.2355 20.6709C19.2355 17.7447 15.1344 16.9863 10.2736 16.9863Z" stroke="#6C737F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path fillRule="evenodd" clipRule="evenodd" d="M10.2746 12.8111C13.4472 12.8111 16.0186 10.2384 16.0186 7.06583C16.0186 3.89321 13.4472 1.32178 10.2746 1.32178C7.10195 1.32178 4.52933 3.89321 4.52933 7.06583C4.51862 10.2277 7.07338 12.8003 10.2341 12.8111H10.2746Z" stroke="#6C737F" strokeWidth="1.42857" strokeLinecap="round" strokeLinejoin="round"/>
                   </Box>
             }
         </>

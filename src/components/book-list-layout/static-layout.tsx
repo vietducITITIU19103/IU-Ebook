@@ -1,7 +1,7 @@
 import { BookTypes } from '@/type/book/book-type'
 import Grid from '@mui/material/Grid'
 import React from 'react'
-import BookCard from '../card'
+import BookCard from '../card/book-card'
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import "./style.css"

@@ -1,6 +1,6 @@
 "use client"
 import * as React from 'react';
-import BookCard from '@/components/card';
+import BookCard from '@/components/card/book-card';
 import Box from '@mui/material/Box';
 import StyledButton from '@/components/button/styled-button';
 import CenterVerticalLayout from '@/layout/component-base-layout/center-vertical-layout';
