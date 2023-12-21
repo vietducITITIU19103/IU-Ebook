@@ -33,15 +33,18 @@ export const ThemeContext = createContext<{ themeName: string, toggleTheme: Void
 });
 
 export default function ThemeProvider({ children }: ProviderPropsT) {
-  const [themeName, setThemeName] = useState<"light" | "dark">("light");
+  const [themeName, setThemeName] = useState<"light" | "dark">(typeof window !== 'undefined' && localStorage.getItem("theme") as ("light" | "dark")|| "light");
 
   const toggleTheme = () => {
+    
     // if the theme is not light, then set it to dark
     if (themeName === 'light') {
       setThemeName('dark');
+      localStorage.setItem('theme', "dark");
       // otherwise, it should be light
     } else {
       setThemeName('light');
+      localStorage.setItem('theme', "light");
     }
   }
 
