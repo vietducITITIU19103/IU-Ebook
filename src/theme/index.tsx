@@ -10,6 +10,7 @@ import merge from 'lodash/merge';
 import { componentsOverrides } from './overrides';
 import { viVN } from '@mui/material/locale';
 import { useTheme } from '@mui/material/styles';
+import { PaletteType } from "./palette"
 
 export const changeTheme = (mode: 'light' | 'dark') => (
   {
@@ -25,9 +26,10 @@ type ProviderPropsT = {
 
 };
 
-export const ThemeContext = createContext<{themeName:string,toggleTheme:VoidFunction}>({
-  themeName:"light",
-  toggleTheme: ()=>{}
+export const ThemeContext = createContext<{ themeName: string, toggleTheme: VoidFunction, palette: PaletteType }>({
+  themeName: "light",
+  toggleTheme: () => { },
+  palette: palette("light")
 });
 
 export default function ThemeProvider({ children }: ProviderPropsT) {
@@ -45,7 +47,8 @@ export default function ThemeProvider({ children }: ProviderPropsT) {
 
   const themeobj = {
     themeName,
-    toggleTheme
+    toggleTheme,
+    palette: palette(themeName)
   }
 
   const baseOption = useMemo(
@@ -64,13 +67,15 @@ export default function ThemeProvider({ children }: ProviderPropsT) {
   theme.components = merge(componentsOverrides(theme));
 
   return (
-    <NextAppDirEmotionCacheProvider options={{ key: 'css' }}>
-      <ThemeContext.Provider value={themeobj}>
-      <MuiThemeProvider theme={theme}>
-        <CssBaseline />
-        {children}
-      </MuiThemeProvider>
+    <ThemeContext.Provider value={themeobj}>
+      <NextAppDirEmotionCacheProvider options={{ key: 'css' }}>
+
+        <MuiThemeProvider theme={theme}>
+          <CssBaseline />
+          {children}
+        </MuiThemeProvider>
+
+      </NextAppDirEmotionCacheProvider >
     </ThemeContext.Provider>
-    </NextAppDirEmotionCacheProvider >
   );
 }

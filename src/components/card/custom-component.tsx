@@ -16,7 +16,7 @@ const CustomCard = styled(Card)<CardProps>(
         border: '0.5px solid #6C737F'
 
 
-        
+
     }
 )
 
@@ -30,14 +30,14 @@ const RecommendContainer = styled(Box)<BoxProps>(
     }
 )
 
-const BookTitle = styled(Typography)<TypographyProps>(({theme})=>(
+const BookTitle = styled(Typography)<TypographyProps>(
     {
         fontSize: "16px",
         fontWeight: "bold",
         fontFamily: "inherit",
-        color: theme.palette.iub.text.main
+        color: "iub.text.main"
     }
-)
+
 )
 const BookType = styled(Typography)<TypographyProps>(
     {

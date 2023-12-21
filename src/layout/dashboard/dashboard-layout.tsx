@@ -6,11 +6,27 @@ import BottomNavBar from '@/components/mobile-footer';
 import { Container } from '@mui/material'
 import VerticalNavbar from '@/components/vertical-nav/vertical-navbar';
 import { usePathname } from 'next/navigation';
+import { BookTypes } from '@/type/book/book-type';
+import BookCard from '@/components/card/book-card';
+
+const book: BookTypes = {
+    title: "Kế toán tài chính",
+    type: "Kế toán",
+    code: " MS 001",
+    price: "65.000",
+    download: "+3k",
+    state: "mine",
+    isFavorite: false,
+    isRecommend: false,
+    isLoved: false,
+    isDownLoaded: true
+  }
+  
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
     const path = usePathname();
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', backgroundColor: "#F5F5FA", flexShrink: 1 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', backgroundColor: "iub.background.body", flexShrink: 1, minHeight: "100vh" }}>
             <Header sx={{...(path.includes("setting") && { display: {xs: "none", md: "block"} })}}/>
             <Container sx={{
                 display: "flex",
@@ -22,7 +38,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 <VerticalNavbar />
                 <Box sx={{ width: "100%" }}>{children}</Box>
             </Container>
-            
+            {children}
         </Box>
     )
 }

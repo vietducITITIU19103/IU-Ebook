@@ -3,8 +3,40 @@
 
 export type ColorSchema = 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'error';
 
+export type PaletteType = {
+  iub: {
+    logo: {
+      normal: string
+    },
+    text: {
+      default: string;
+      paper: string;
+      info: string;
+      placeholder: string;
+      normal: string,
+      active: string,
+      light: string,
+      main: string,
+      footer: string
+    };
+    background: {
+      default: string;
+      paper: string;
+      transparent: string;
+      body: string,
+      chip: string,
+      pattern_purple: string,
+      pattern_orange: string,
+    };
+    line: {
+      headerBottom: string;
+      default: string;
+    };
+  };
+}
+
 declare module '@mui/material/styles/createPalette' {
-  interface Palette {
+  export interface PaletteT {
     iub: {
       logo: {
         normal: string
@@ -57,7 +89,7 @@ const LIGHT = {
     },
     background: {
       default: 'white',
-      paper: '#FFFFFF',
+      paper: 'white',
       transparent: 'transparent',
       body: "#F5F5FA",
       chip: "#F2EFFF",
@@ -90,7 +122,7 @@ const DARK = {
     },
     background: {
       default: '#212B36',
-      paper: '#FFFFFF',
+      paper: '#212B36',
       transparent: 'transparent',
       body: "#161C24",
       chip: "#6C737F",

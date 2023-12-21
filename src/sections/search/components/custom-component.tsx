@@ -3,7 +3,7 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Tabs from '@mui/material/Tabs';
 import Container, { ContainerProps } from '@mui/material/Container';
-import Tab from '@mui/material/Tab';
+import Tab, { TabProps } from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { useResponsive } from '@/hooks/use-responsive';
@@ -59,13 +59,13 @@ export const StyledTabs = styled((props: StyledTabsProps) => {
             {...props}
             TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
             centered={!sm}
-            sx={{width: {xs: "800px", sm: "100%"},}}
+            sx={{ width: { xs: "800px", sm: "100%" }, }}
         />
     )
 })
     ({
         padding: "20px",
-        backgroundColor: "#F5F5FA",
+        backgroundColor: "iub.background.body",
         '& .MuiTabs-indicator': {
 
             backgroundColor: 'transparent',
@@ -82,20 +82,26 @@ interface StyledTabProps {
 }
 
 export const StyledTab = styled((props: StyledTabProps) => (
-    <Tab disableRipple {...props} />
+    <Tab disableRipple {...props} sx={{
+        backgroundColor: "iub.background.paper",
+        color: "iub.text.main",
+        '&.Mui-selected': {
+            color: "iub.text.active"
+        },
+    }} />
 ))(({ theme }) => ({
     minHeight: "38px",
     textTransform: 'none',
-    backgroundColor: "white",
+    backgroundColor: "iub.background.paper",
     padding: "0px 24px",
     lineHeight: 1,
-    color: " #9DA4AE",
+    color: "iub.text.normal",
     border: "1px solid #9DA4AE",
     borderRadius: "8px",
     marginRight: theme.spacing(1),
 
     '&.Mui-selected': {
-        color: '#4E49D6',
+        color: "iub.background.pattern_orange",
         border: "1px solid #4E49D6",
         backgroundImage: `url(/images/tag.png)`,
         backgroundRepeat: "no-repeat",

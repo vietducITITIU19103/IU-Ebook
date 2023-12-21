@@ -71,12 +71,12 @@ export default function VerticalNavbar() {
                         </Box>
                     </Stack>
                     <Stack sx={{ my: "24px" }} spacing="8px">
-                        {mainLink.map((item) => (
-                            <NavItem item={item}/>
+                        {mainLink.map((item, index) => (
+                            <NavItem item={item} key={index}/>
                         ))}
                         <Divider/>
-                        {subList.map((item) => (
-                            <NavItem item={item}/>
+                        {subList.map((item, index) => (
+                            <NavItem item={item} key={index}/>
                         ))}
                     </Stack>
                 </FireNav>
