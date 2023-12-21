@@ -9,7 +9,7 @@ import RecommendSVG from '../../sections/home/components/main/svg/recommendSVG';
 import HeartSVG from '../../sections/home/components/main/svg/heartSVG';
 import FavoriteSVG from '../../sections/home/components/main/svg/favouriteSVG';
 import HeartIconSVG from '../../sections/home/components/main/svg/heartIconSVG';
-import PatternSVG from '../../sections/home/components/main/svg/parternSVG';
+import PatternSVG from "@/assets/icons/parternSVG"
 import DownloadIconSVG from '../../assets/icons/book/download-icon';
 import BoughtIconSVG from '../../sections/home/components/main/svg/boughtIconSVG';
 import { PURPLE_COLOR, WHITE_COLOR, LIGHT_DARK, ORANGE_COLOR, DARK_COLOR } from '@/app/color'
@@ -87,7 +87,7 @@ export default function BookCard({ title, type, code, price, download, state, is
           title={title}
         />
         <CardContent sx={{ padding: "10px", color: DARK_COLOR, backgroundColor: "iub.background.default" }}>
-          <BookTitle gutterBottom component="h5">{title}</BookTitle>
+          <BookTitle gutterBottom component="h5" sx={{color: "iub.text.main"}}>{title}</BookTitle>
           <BookType color="text.secondary">{type} | {code}</BookType>
           <Stack spacing={2} direction="row" justifyContent="space-between" alignItems="flex-end">
             {renderView(state)}
