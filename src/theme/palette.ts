@@ -17,7 +17,8 @@ export type PaletteType = {
       active: string,
       light: string,
       main: string,
-      footer: string
+      footer: string,
+      title: string
     };
     background: {
       default: string;
@@ -27,6 +28,8 @@ export type PaletteType = {
       chip: string,
       pattern_purple: string,
       pattern_orange: string,
+      nav_active: string,
+      line_active: string
     };
     line: {
       headerBottom: string;
@@ -50,7 +53,8 @@ declare module '@mui/material/styles/createPalette' {
         active: string,
         light: string,
         main: string,
-        footer: string
+        footer: string,
+        title: string
       };
       background: {
         default: string;
@@ -60,6 +64,8 @@ declare module '@mui/material/styles/createPalette' {
         chip: string,
         pattern_purple: string,
         pattern_orange: string,
+        nav_active: string,
+        line_active: string
       };
       line: {
         headerBottom: string;
@@ -85,7 +91,8 @@ const LIGHT = {
       active: "#4E49D6", //purple-white
       light: "#6C737F", //gray-white
       main: "#1F2A37", //black-white
-      footer: "#0D006A"
+      footer: "#0D006A",
+      title: "#344054" //white-blackblue
     },
     background: {
       default: 'white',
@@ -95,6 +102,8 @@ const LIGHT = {
       chip: "#F2EFFF",
       pattern_purple: "#4E49D6",
       pattern_orange: "#F3633E",
+      nav_active: "white",
+      line_active: "#D8DBDF"
     },
     line: {
       headerBottom: "#F2F4F7",
@@ -112,13 +121,14 @@ const DARK = {
       default: '#000000',
       paper: '#FFFFFF',
       info: '#2DC0AC',
-      placeholder: '#667085',
+      placeholder: 'lightgray',
       //-------
       normal: "#9DA4AE",
       active: "white",
       light: "white",
       main: "white",
-      footer: "#white"
+      footer: "#white",
+      title: "white"
     },
     background: {
       default: '#212B36',
@@ -128,6 +138,8 @@ const DARK = {
       chip: "#6C737F",
       pattern_purple: "#F2EFFF",
       pattern_orange: "#F2EFFF",
+      nav_active: "rgba(78, 73, 214, 0.16)",
+      line_active: "rgba(78, 73, 214, 0.16)"
     },
     line: {
       headerBottom: '#212B36',

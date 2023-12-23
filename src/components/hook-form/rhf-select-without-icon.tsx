@@ -2,6 +2,8 @@ import * as React from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import TextField, { TextFieldProps } from '@mui/material/TextField';
 import { useFormContext, Controller } from 'react-hook-form';
+import { ThemeContext } from '@/theme';
+import { useContext } from 'react';
 
 type Props = TextFieldProps & {
     name: string;
@@ -9,6 +11,12 @@ type Props = TextFieldProps & {
 };
 
 const TextFieldStyle = {
+    "input": {
+        "&::placeholder": {
+          color: "iub.text.placeholder"
+        },
+        color: "white", // if you also want to change the color of the input, this is the prop you'd use
+      },
     "& .MuiInputBase-input": {
         paddingTop: "6.5px",
       paddingBottom: "6.5px",
@@ -19,7 +27,7 @@ const TextFieldStyle = {
     "& .MuiOutlinedInput-root": {
         paddingTop: 0,
         paddingBottom: 0,
-        backgroundColor: "white",
+        backgroundColor: "iub.background.default",
         "& fieldset": {
             borderColor: "#9DA4AE",
             borderWidth: "1px",
@@ -40,8 +48,7 @@ const TextFieldStyle = {
 
 export default function RHFSelectWithoutIcon({ data, name, helperText, type, defaultValue, ...other }: Props) {
     const { control } = useFormContext();
-    // const { t } = useLocales();
-    // const isClient = useIsClient();
+    const {palette: {iub: {text}}} = useContext(ThemeContext);
 
     
     return (
@@ -64,7 +71,7 @@ export default function RHFSelectWithoutIcon({ data, name, helperText, type, def
                 >
                     {data.map((option: {value: number, label: string }, index:number) => (
                         <MenuItem key={option.value} value={option.value} disabled={index === 0 ? true : false}>
-                            <span>{option.label}</span>
+                            <span style={{...(index === 0 && {color: text.placeholder})}}>{option.label}</span>
                         </MenuItem>
                     ))}
                 </TextField>

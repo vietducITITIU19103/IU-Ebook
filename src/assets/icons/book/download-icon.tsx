@@ -10,8 +10,9 @@ type Props = BoxProps & {
 }
 
 function DownloadIcon({ sx, color, ...other }: Props) {
-    const {palette: {iub}} = useTheme()
-    const colorCode = color? color : iub.text.light
+    // const {palette: {iub}} = useTheme()
+    //iub.text.light
+    const colorCode = color? color : "red"
     return (
         <Box component="svg" xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none" {...other} sx={{width: "13px", height: "13px", ...sx}}> 
             <path d="M6.25667 8.00439L6.25667 0.980469" stroke={colorCode} strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" />

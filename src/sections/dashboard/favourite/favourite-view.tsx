@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import EmptyFavouriteView from './sub-view/empty-favourite-view'
 import ListFavouriteView from './sub-view/list-favourite-view'
 import { BookTypes } from '@/type/book/book-type'
+import DashboardLayout from '@/layout/dashboard/dashboard-layout'
 
 const book: BookTypes = {
   title: "Kế toán tài chính",
@@ -20,21 +21,23 @@ const book: BookTypes = {
 
 
 export default function FavouriteView() {
-  const FavouriteList = [book,book,book,book, book]
- // const FavouriteList: any = [];
+  const FavouriteList = [book, book, book, book, book]
+  // const FavouriteList: any = [];
   const [state, setState] = useState<"empty" | "list">(FavouriteList.length === 0 ? "empty" : "list")
 
   const RenderView = (state: "empty" | "list") => {
     const currentView = {
       empty: <EmptyFavouriteView />,
-      list: <ListFavouriteView data={FavouriteList}/>
+      list: <ListFavouriteView data={FavouriteList} />
     }[state]
     return (<>{currentView}</>)
   }
 
   return (
-    <Box sx={{ width: "100%"}}>
-      {RenderView(state)}
-    </Box>
+    <DashboardLayout>
+      <Box sx={{ width: "100%" }}>
+        {RenderView(state)}
+      </Box>
+    </DashboardLayout>
   )
 }

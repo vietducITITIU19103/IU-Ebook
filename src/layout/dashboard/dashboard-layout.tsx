@@ -38,7 +38,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 <VerticalNavbar />
                 <Box sx={{ width: "100%" }}>{children}</Box>
             </Container>
-            {children}
         </Box>
     )
 }

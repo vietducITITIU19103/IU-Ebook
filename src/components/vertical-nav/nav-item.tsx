@@ -11,15 +11,18 @@ export default function NavItem({ item }: { item: { name: string, path: string, 
     const router = useRouter();
     return (
         <ListItemButton
-        onClick={()=>router.push("/dashboard/"+item.path)}
+            onClick={() => router.push("/dashboard/" + item.path)}
             key={item.path}
             sx={{
                 p: "10px",
                 pl: 0,
-                color: '#6C737F',
-                backgroundColor: path.includes(item.path) ? "white" : "transparent",
+                color: path.includes(item.path) ?"#4E49D6":'#6C737F',
+                backgroundColor: path.includes(item.path) ? "iub.background.nav_active" : "transparent",
                 borderRadius: "12px",
-                border: path.includes(item.path) ? "0.5px solid #D8DBDF" : "none"
+                border: path.includes(item.path) ? "0.5px solid iub.background.line_active" : "none",
+                "&:hover": {
+                    ...(path.includes(item.path) && {backgroundColor:"white"}),
+                }
             }}
         >
             <ListItemIcon sx={{
