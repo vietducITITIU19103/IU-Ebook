@@ -1,7 +1,8 @@
 import { useFormContext, Controller } from 'react-hook-form';
 // @mui
 import TextField, { TextFieldProps } from '@mui/material/TextField';
-
+import { ThemeContext } from '@/theme';
+import { useContext } from 'react';
 // ----------------------------------------------------------------------
 
 type Props = TextFieldProps & {
@@ -9,6 +10,7 @@ type Props = TextFieldProps & {
 };
 
 const TextFieldStyle = {
+  
   "& .MuiInputBase-input": {
       paddingTop: "6.5px",
       paddingBottom: "6.5px",
@@ -19,7 +21,8 @@ const TextFieldStyle = {
   "& .MuiOutlinedInput-root": {
       paddingTop: 0,
       paddingBottom: 0,
-      backgroundColor: "white",
+      //backgroundColor: "white",
+      
       "& fieldset": {
           borderColor: "#9DA4AE",
           borderWidth: "1px",
@@ -38,7 +41,7 @@ const TextFieldStyle = {
 
 export default function RHFTextField({ name, helperText, type, sx, ...other }: Props) {
   const { control } = useFormContext();
-
+  const {palette: {iub: {text}}} = useContext(ThemeContext);
   return (
     <Controller
       name={name}
@@ -59,7 +62,12 @@ export default function RHFTextField({ name, helperText, type, sx, ...other }: P
           error={!!error}
           helperText={error ? error?.message : helperText}
           {...other}
-          sx={{...TextFieldStyle, ...sx}}
+          sx={{...TextFieldStyle, ...sx, "input": {
+            "&::placeholder": {
+                color: text.placeholder
+            },
+            color: text.placeholder // if you also want to change the color of the input, this is the prop you'd use
+        },}}
         />
       )}
     />

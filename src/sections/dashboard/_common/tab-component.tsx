@@ -41,19 +41,26 @@ export const StyledTabs = styled((props: StyledTabsProps) => (
 });
 
 export const StyledTab = styled((props: StyledTabProps) => (
-    <Tab disableRipple {...props} />
+    <Tab disableRipple {...props}
+        sx={{
+            color: "iub.text.normal",
+            '&.Mui-selected': {
+                color: "iub.text.active",
+
+            },
+        }} />
 ))(({ theme }) => ({
     textTransform: 'none',
     fontSize: "16px",
     lineHeight: 1,
     fontFamily: "inherit",
-    color: "#0D006A",
+    //color: "#0D006A",
     fontWeight: 700,
     marginRight: theme.spacing(1),
-    '&.Mui-selected': {
-        color: '#0D006A',
+    // '&.Mui-selected': {
+    //     color: '#0D006A',
 
-    },
+    // },
     '&.Mui-focusVisible': {
         backgroundColor: '#0D006A',
 
@@ -72,8 +79,8 @@ export function CustomTabPanel(props: TabPanelProps) {
             {...other}
         >
             {value === index && (
-                <Box sx={{ p: 0}}>
-                   {children}
+                <Box sx={{ p: 0 }}>
+                    {children}
                 </Box>
             )}
         </div>

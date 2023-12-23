@@ -28,7 +28,7 @@ export default function SettingTabs({ tabIndex }: { tabIndex: number }) {
     };
 
     return (
-        <Box sx={{ width: '100%', backgroundColor: "white", padding: "16px 24px 34px 24px", borderRadius: '16px' }}>
+        <Box sx={{ width: '100%', backgroundColor: "iub.background.default", padding: "16px 24px 34px 24px", borderRadius: '16px' }}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <StyledTabs value={tabIndex} onChange={handleChange} aria-label="basic tabs example" sx={{ textTransform: "initial" }} >
                     <StyledTab label="Hồ sơ cá nhân" {...a11yProps(0)} />

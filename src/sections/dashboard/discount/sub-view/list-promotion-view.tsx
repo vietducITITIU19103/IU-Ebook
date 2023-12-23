@@ -12,7 +12,7 @@ export default function ListPromotionView({data} : {data:PromotionTypes[]}) {
         <Grid container spacing={2} mt="10px">
           {
             data.map((item: PromotionTypes, index: number) => (
-              <Grid item xs={12} smmd={6} md={12} mdlg={6} key={item.id} >
+              <Grid item xs={12} smmd={6} md={12} mdlg={6} key={item.id+index} >
                 <PromotionCard {...item}/>
               </Grid>
             ))

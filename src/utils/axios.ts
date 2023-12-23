@@ -42,7 +42,8 @@ export const fetcherServer = async (args: string | [string, AxiosRequestConfig])
 export const endpoints = {
   auth:{
     me: "/",
-    login:"/auth/login"
+    login:"/auth/login",
+    refresh_token: "/"
   },
   enterprise: {
     suggest: '/enterprise/get-suggest',

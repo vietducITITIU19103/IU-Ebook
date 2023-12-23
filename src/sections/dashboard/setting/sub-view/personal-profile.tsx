@@ -12,6 +12,8 @@ import RHFSelectWithoutIcon from '@/components/hook-form/rhf-select-without-icon
 import StyledButton from '@/components/button/styled-button';
 import CommonGridLayout from '../_common/common-grid-layout';
 import UploadAvatar from '@/components/hook-form/upload-image/upload-avatar';
+import { ThemeContext } from '@/theme';
+import { useContext } from 'react';
 
 const selectData: { value: number; label: string; }[] = [
     { value: 0, label: "Chọn giới tính" },
@@ -23,6 +25,7 @@ const selectData: { value: number; label: string; }[] = [
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
 export default function PersonalProfile() {
+    const {palette: {iub: {text, background}}} = useContext(ThemeContext);
 
 
     const ProfileSettingSchema = Yup.object().shape({
@@ -73,9 +76,9 @@ export default function PersonalProfile() {
     return (
         <CommonGridLayout>
             <FormProvider methods={methods} onSubmit={onSubmit}>
-                <Stack direction={{xs:"column", lg:"row"}} justifyContent={{xs:"center", lg:"space-between"}}  alignItems={{xs:"center", lg:"flex-start"}} spacing={{xs:"0", lg:"10px"}}>
+                <Stack direction={{ xs: "column", lg: "row" }} justifyContent={{ xs: "center", lg: "space-between" }} alignItems={{ xs: "center", lg: "flex-start" }} spacing={{ xs: "0", lg: "10px" }}>
                     <UploadAvatar name="avt" />
-                    <Grid container  mt="10px" columnSpacing={{xs:"20px", lg:"48px"}} rowSpacing="24px" sx={{position: "relative", right: "10px"}}>
+                    <Grid container mt="10px" columnSpacing={{ xs: "20px", lg: "48px" }} rowSpacing="24px" sx={{ position: "relative", right: "10px" }}>
                         <Grid item xs={12} md={6} >
                             <InputContainer label="Họ và tên" isRequired>
                                 <RHFTextField name="name" placeholder="Điền họ và tên ở đây" />

@@ -22,10 +22,13 @@ import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import DownloadedIcon from '@/assets/icons/book/downloaded-icon';
 import { BookTypes } from '@/type/book/book-type';
+import { useContext } from 'react';
+import { ThemeContext } from '@/theme';
 
 export default function BookCard({ title, type, code, price, download, state, isFavorite, isRecommend, isLoved, isLovedState, isDownLoaded, sx, ...other }: CardProps & BookTypes) {
 
   const router = useRouter();
+  const { palette: {iub: {text, background}} } = useContext(ThemeContext);
   const [active, setActive] = React.useState<boolean>(isLovedState || false)
   const toggleState = React.useCallback(() => {
     setActive(!active)
@@ -40,19 +43,21 @@ export default function BookCard({ title, type, code, price, download, state, is
     return currentView
   }
 
-  const NoneState = () => (
-    <>
-      <BookPrice color="text.secondary">
-        <span>{price}</span>
-        <span style={{ textDecoration: "underline" }}>đ</span>
-      </BookPrice>
-      <Stack direction="row" alignItems="center" gap="2px" justifyContent="center">
-        <DownloadIconSVG />
-        <Typography variant="body2" color="text.secondary" sx={{ fontSize: "12px", color: "iub.text.light" }}>
-          {download}
-        </Typography>
-      </Stack></>
-  )
+  const NoneState = () => {
+    return (
+      <>
+        <BookPrice color="text.secondary">
+          <span>{price}</span>
+          <span style={{ textDecoration: "underline" }}>đ</span>
+        </BookPrice>
+        <Stack direction="row" alignItems="center" gap="2px" justifyContent="center">
+          <DownloadIconSVG color={text.light} />
+          <Typography variant="body2" color="text.secondary" sx={{ fontSize: "12px", color:text.light }}>
+            {download}
+          </Typography>
+        </Stack></>
+    )
+  }
 
   const BoughtState = () => (
     <>
@@ -86,9 +91,9 @@ export default function BookCard({ title, type, code, price, download, state, is
           image="/images/book/ketoan.png"
           title={title}
         />
-        <CardContent sx={{ padding: "10px", color: DARK_COLOR, backgroundColor: "iub.background.default" }}>
-          <BookTitle gutterBottom component="h5" sx={{color: "iub.text.main"}}>{title}</BookTitle>
-          <BookType color="text.secondary">{type} | {code}</BookType>
+        <CardContent sx={{ padding: "10px", color: DARK_COLOR, backgroundColor: background.default }}>
+          <BookTitle gutterBottom component="h5" sx={{ color: text.main }}>{title}</BookTitle>
+          <BookType color={text.light}>{type} | {code}</BookType>
           <Stack spacing={2} direction="row" justifyContent="space-between" alignItems="flex-end">
             {renderView(state)}
           </Stack>
@@ -106,7 +111,7 @@ export default function BookCard({ title, type, code, price, download, state, is
         {
           isDownLoaded &&
           <Chip
-            icon={<DownloadedIcon />}
+            icon={<DownloadedIcon color={text.light} />}
             label="Đã tải"
             size='small'
             sx={{
