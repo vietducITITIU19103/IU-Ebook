@@ -50,7 +50,7 @@ export default function EditDob({ value, handleBack }: { value: string, handleBa
 
         <FormProvider methods={methods} onSubmit={onSubmit}>
             <CartHeader title="Ngày sinh" onClick={onSubmit} isHandleLogic isHandleBack handleBack={handleBack} />
-            <Box sx={{ height: "100vh", pt: "75px", px: "12px" }}>
+            <Box sx={{ height: "100vh", pt: "75px", px: "12px", backgroundColor: "iub.background.body" }}>
                 <RHFTextField
                     name="dob"
                     placeholder="Điền ngày sinh ở đây"
@@ -61,6 +61,7 @@ export default function EditDob({ value, handleBack }: { value: string, handleBa
                             </IconButton>
                         </InputAdornment>
                     }}
+                    sx={{backgroundColor: "iub.background.default"}}
                 />
             </Box>
         </FormProvider>

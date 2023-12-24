@@ -193,7 +193,7 @@ export default function UploadAvatarFile({ isMobile, file, error, onRemove, isUs
                     </Box>
 
                 </Box>
-                <Typography sx={{ maxWidth: { xs: "300px", lg: "150px" }, fontSize: "14px", textAlign: "center", color: "rgba(99, 115, 129, 1)", letterSpacing: "0" }}>Sử dụng các định dạng *.jpeg, *.jpg, *.png, *.gif Max size of 3.1 MB</Typography>
+                <Typography sx={{ maxWidth: { xs: "300px", lg: "150px" }, fontSize: "14px", textAlign: "center", color: "iub.text.light", letterSpacing: "0" }}>Sử dụng các định dạng *.jpeg, *.jpg, *.png, *.gif Max size of 3.1 MB</Typography>
             </Stack>
             {error && <FormHelperText sx={{ color: "red" }}>{error}</FormHelperText>}
         </>

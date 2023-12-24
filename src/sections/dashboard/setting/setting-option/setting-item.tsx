@@ -5,6 +5,8 @@ import React from 'react'
 import { StackProps } from '@mui/material/Stack'
 import Stack from '@mui/system/Stack'
 import { typography } from '@/theme/typography';
+import { useContext } from 'react';
+import { ThemeContext } from '@/theme';
 
 type Props = StackProps & {
     title: string,
@@ -12,10 +14,22 @@ type Props = StackProps & {
 }
 
 export default function SettingItem({ title, description, ...other }: Props) {
+    const {palette: {iub: {text}}} = useContext(ThemeContext)
     return (
-        <CenterHorizontalLayout justifyContent="space-between" sx={{ backgroundColor: "white", p: "12px", pr: "6px", cursor: "pointer", transition: "0.2s ease", "&:hover": { backgroundColor: "rgba(31, 42, 55, 0.05)" } }} {...other}>
+        <CenterHorizontalLayout
+            justifyContent="space-between"
+            sx={{
+                backgroundColor: "iub.background.default",
+                p: "12px",
+                pr: "6px",
+                cursor: "pointer",
+                transition: "0.2s ease",
+                "&:hover": { backgroundColor: "iub.background.item_hover" }
+            }}
+            {...other}
+        >
             <Stack>
-                <Typography>{title}</Typography>
+                <Typography sx={{ color: "iub.text.main" }}>{title}</Typography>
                 {description && <Typography sx={{
                     color: "#6C737F",
                     fontFamily: typography.fontFamilySecondary,
@@ -25,7 +39,7 @@ export default function SettingItem({ title, description, ...other }: Props) {
                     lineHeight: "normal",
                 }}>{description}</Typography>}
             </Stack>
-            <BackIcon color="black" sx={{ transform: "rotate(180deg)", top: "2px" }} />
+            <BackIcon color={text.main} sx={{ transform: "rotate(180deg)", top: "2px" }} />
         </CenterHorizontalLayout>
     )
 }

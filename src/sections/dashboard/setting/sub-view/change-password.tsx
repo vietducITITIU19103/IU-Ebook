@@ -15,6 +15,8 @@ import VisibilityIcon from '@/assets/icons/password/visibility-icon';
 import CenterVerticalLayout from '@/layout/component-base-layout/center-vertical-layout';
 import CommonGridLayout from '../_common/common-grid-layout';
 import CartHeader from '@/components/header/cart-header';
+import { useContext } from 'react';
+import { ThemeContext } from '@/theme';
 
 const CustomGrid = ({ children, sx, ...other }: GridProps & { children: React.ReactNode }) => (
   <Grid item xs={12} sx={{ width: "100%", ...sx }} {...other}>
@@ -23,6 +25,7 @@ const CustomGrid = ({ children, sx, ...other }: GridProps & { children: React.Re
 )
 
 export default function ChangePassword() {
+  const {palette: {iub: {background}}} = useContext(ThemeContext)
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -79,7 +82,7 @@ export default function ChangePassword() {
     <CommonGridLayout>
       <CartHeader title="Thay đổi mật khẩu" isHandleLogic onClick={onSubmit} />
       <FormProvider methods={methods} onSubmit={onSubmit}>
-        <CenterVerticalLayout sx={{padding: "16px", height: {xs: "calc( 100vh )", md: "auto"}}}>
+        <CenterVerticalLayout sx={{padding: "16px", height: {xs: "calc( 100vh )", md: "auto", backgroundColor: { xs: background.body, md: background.default }}}}>
           <Grid container spacing={2} mt="10px" columnSpacing="48px" rowSpacing="24px" sx={{ width: { sm: "100%", md: "400px" } }}>
             <CustomGrid>
               <InputContainer label="Mật khẩu cũ" isRequired >
@@ -87,6 +90,7 @@ export default function ChangePassword() {
                   name="currentPassword"
                   placeholder='Điền mật khẩu hiện tại ở đây'
                   type={showPassword ? 'text' : 'password'}
+                  sx={{backgroundColor: background.default}}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end" sx={{ p: 0 }}>
@@ -106,12 +110,12 @@ export default function ChangePassword() {
             </CustomGrid>
             <CustomGrid>
               <InputContainer label="Mật khẩu mới" isRequired >
-                <RHFTextField name="newPassword" placeholder="Điền mật khẩu mới ở đây" type="password" />
+                <RHFTextField name="newPassword" placeholder="Điền mật khẩu mới ở đây" type="password" sx={{backgroundColor: background.default}}/>
               </InputContainer>
             </CustomGrid>
             <CustomGrid>
               <InputContainer label="Xác nhận mật khẩu">
-                <RHFTextField name="repeatePassword" placeholder="Nhập lại mật khẩu ở đây" type="password" />
+                <RHFTextField name="repeatePassword" placeholder="Nhập lại mật khẩu ở đây" type="password"sx={{backgroundColor: background.default}} />
               </InputContainer>
             </CustomGrid>
             <CustomGrid sx={{ position: "relative", right: "4px", display: {xs:"none", md: "flex"} }}>

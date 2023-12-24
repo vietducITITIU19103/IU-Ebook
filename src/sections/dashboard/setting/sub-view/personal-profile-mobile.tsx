@@ -39,7 +39,7 @@ export default function PersonalProfileMobile() {
   const OverviewScreen = () => (
     <div>
 
-      <Stack spacing="5px" sx={{ backgroundColor: "#F5F5FA", height: "100vh", paddingTop: "70px" }}>
+      <Stack spacing="5px" sx={{ backgroundColor: "iub.background.body", height: "100vh", paddingTop: "70px" }}>
         <SettingItem title="Họ và tên" description='Nguyễn văn anh' onClick={() => setCurrentScreen("name")} />
         <SettingItem title="Giới tính" description='Nam' onClick={() => setCurrentScreen("sex")} />
         <SettingItem title="Ngày sinh" description='13/3/2000' onClick={() => setCurrentScreen("dob")} />
@@ -58,7 +58,7 @@ export default function PersonalProfileMobile() {
         title="Hồ sơ cá nhân"
         isHandleBack
         isHandleLogic={currentScreen !== "overview"}
-        handleBack={handleBack} />
+       />
       {RenderCurrentScreen(currentScreen)}
     </>
 

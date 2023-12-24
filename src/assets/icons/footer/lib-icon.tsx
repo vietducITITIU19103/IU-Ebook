@@ -1,6 +1,8 @@
 import { memo } from 'react';
 // @mui
 import Box, { BoxProps } from '@mui/material/Box';
+import { ThemeContext } from '@/theme';
+import { useContext } from 'react';
 
 // ----------------------------------------------------------------------
 
@@ -9,7 +11,8 @@ type Props = BoxProps & {
 }
 
 function LibIcon({ isActive, sx, ...other }: Props) {
-    const colorCode = isActive ? "#4E49D6" : "#6C737F"
+    const {palette: {iub: {text}}} = useContext(ThemeContext);
+    const colorCode = isActive ? text.active : "#6C737F"
     return (
         <Box component="svg" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill={colorCode} {...other} sx={{ width: "24px", height: "25px", ...sx }}>
             <path fillRule="evenodd" clipRule="evenodd" d="M0.75 5.625C0.75 2.34348 0.785137 1.25 5.125 1.25C9.46486 1.25 9.5 2.34348 9.5 5.625C9.5 8.90652 9.51384 10 5.125 10C0.736159 10 0.75 8.90652 0.75 5.625Z" stroke={colorCode} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

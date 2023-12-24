@@ -18,7 +18,7 @@ export default function BottomNavBar() {
         color: "#0D006A",
         // display: { xs: "flex", md: "none" },
         position: "fixed",
-        backgroundColor: "white",
+        backgroundColor: "iub.background.default",
         boxShadow: "0px -2px 4px 0px rgba(145, 158, 171, 0.15)",
         bottom: 0,
         width: "100%",

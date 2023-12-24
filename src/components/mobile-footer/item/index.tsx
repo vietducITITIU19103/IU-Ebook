@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import Stack, {StackProps} from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import { ThemeContext } from '@/theme';
 
 export default function Item({ children, title, isActive, isHidden, ...other}: StackProps & { children: React.ReactNode, title: string, isActive?: Boolean, isHidden?: Boolean }) {
+    const {palette: {iub: {text}}} = useContext(ThemeContext)
     return (
         <Stack
             direction="column"
@@ -22,7 +24,7 @@ export default function Item({ children, title, isActive, isHidden, ...other}: S
                 gutterBottom
                 sx={{
                     fontSize: "14px",
-                    color: `${isActive ? "#4E49D6" : "#6C737F"}`,
+                    color: `${isActive ? "iub.text.active" : "#6C737F"}`,
                     textAlign: "center"
                 }}>
                 {!isHidden && title}
@@ -31,7 +33,7 @@ export default function Item({ children, title, isActive, isHidden, ...other}: S
                 <div style={{
                     height: "3px",
                     width: "68px",
-                    backgroundColor: "#4E49D6",
+                    backgroundColor: text.active,
                     position: "absolute",
                     top: "-4px"
                 }}>

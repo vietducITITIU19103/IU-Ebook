@@ -50,7 +50,7 @@ export default function EditEmail({ value, handleBack }: { value: string, handle
 
         <FormProvider methods={methods} onSubmit={onSubmit}>
             <CartHeader title="Email" onClick={onSubmit} isHandleLogic isHandleBack handleBack={handleBack} />
-            <Box sx={{ height: "100vh", pt: "75px", px: "12px" }}>
+            <Box sx={{ height: "100vh", pt: "75px", px: "12px",  backgroundColor: "iub.background.body"  }}>
                 <RHFTextField
                     name="email"
                     placeholder="Điền địa chỉ email ở đây"
@@ -60,7 +60,9 @@ export default function EditEmail({ value, handleBack }: { value: string, handle
                                 <CloseIcon />
                             </IconButton>
                         </InputAdornment>
+                        
                     }}
+                    sx={{backgroundColor: "iub.background.default"}}
                 />
             </Box>
         </FormProvider>

@@ -2,12 +2,14 @@ import { memo } from 'react';
 // @mui
 import Box, { BoxProps } from '@mui/material/Box';
 
+
 // ---------------------------------------------------------------------
 type Props = BoxProps & {
     color?: string
 }
 
 function BackIcon({ color, sx, ...other }: Props) {
+    
     const colorCode = color ? `${color}` : "white"
     return (
         <Box sx={{py: 0, px: "3.5px", height: '24px', width: '24px'}}>
