@@ -35,7 +35,7 @@ export default function EditName({ value, handleBack }: { value: string, handleB
     } = methods;
 
     const resetValue = () => {
-        setValue("name","")
+        setValue("name", "")
     }
 
     const onSubmit = handleSubmit(async (data) => {
@@ -50,17 +50,18 @@ export default function EditName({ value, handleBack }: { value: string, handleB
 
         <FormProvider methods={methods} onSubmit={onSubmit}>
             <CartHeader title="Họ và tên" onClick={onSubmit} isHandleLogic isHandleBack handleBack={handleBack} />
-            <Box sx={{ height: "100vh", pt: "75px", px: "12px" }}>
+            <Box sx={{ height: "100vh", pt: "75px", px: "12px", backgroundColor: "iub.background.body" }}>
                 <RHFTextField
                     name="name"
                     placeholder="Điền họ và tên ở đây"
                     InputProps={{
-                        endAdornment: <InputAdornment position="end" sx={{position: "relative", right: "-10px"}}>
-                            <IconButton sx={{padding: '2px'}} onClick={resetValue}>
+                        endAdornment: <InputAdornment position="end" sx={{ position: "relative", right: "-10px" }}>
+                            <IconButton sx={{ padding: '2px' }} onClick={resetValue}>
                                 <CloseIcon />
                             </IconButton>
                         </InputAdornment>
                     }}
+                    sx={{backgroundColor: "iub.background.default"}}
                 />
             </Box>
         </FormProvider>

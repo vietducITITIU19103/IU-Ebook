@@ -50,7 +50,7 @@ export default function EditStudentCode({ value, handleBack }: { value: string, 
 
         <FormProvider methods={methods} onSubmit={onSubmit}>
             <CartHeader title="Mã số sinh viên" onClick={onSubmit} isHandleLogic isHandleBack handleBack={handleBack} />
-            <Box sx={{ height: "100vh", pt: "75px", px: "12px" }}>
+            <Box sx={{ height: "100vh", pt: "75px", px: "12px", backgroundColor: "iub.background.body"  }}>
                 <RHFTextField
                     name="studenCode"
                     placeholder="Điền mã số sinh viên ở đây"
@@ -61,6 +61,7 @@ export default function EditStudentCode({ value, handleBack }: { value: string, 
                             </IconButton>
                         </InputAdornment>
                     }}
+                    sx={{backgroundColor: "iub.background.default"}}
                 />
             </Box>
         </FormProvider>

@@ -50,7 +50,7 @@ export default function EditAddress({ value, handleBack }: { value: string, hand
 
         <FormProvider methods={methods} onSubmit={onSubmit}>
             <CartHeader title="Địa chỉ" onClick={onSubmit} isHandleLogic isHandleBack handleBack={handleBack} />
-            <Box sx={{ height: "100vh", pt: "75px", px: "12px" }}>
+            <Box sx={{ height: "100vh", pt: "75px", px: "12px", backgroundColor: "iub.background.body"  }}>
                 <RHFTextField
                     name="address"
                     placeholder="Điền địa chỉ ở đây"
@@ -61,6 +61,7 @@ export default function EditAddress({ value, handleBack }: { value: string, hand
                             </IconButton>
                         </InputAdornment>
                     }}
+                    sx={{backgroundColor: "iub.background.default"}}
                 />
             </Box>
         </FormProvider>

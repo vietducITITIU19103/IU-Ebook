@@ -29,7 +29,8 @@ export type PaletteType = {
       pattern_purple: string,
       pattern_orange: string,
       nav_active: string,
-      line_active: string
+      line_active: string,
+      item_hover: string
     };
     line: {
       headerBottom: string;
@@ -65,7 +66,8 @@ declare module '@mui/material/styles/createPalette' {
         pattern_purple: string,
         pattern_orange: string,
         nav_active: string,
-        line_active: string
+        line_active: string,
+        item_hover: string
       };
       line: {
         headerBottom: string;
@@ -103,7 +105,8 @@ const LIGHT = {
       pattern_purple: "#4E49D6",
       pattern_orange: "#F3633E",
       nav_active: "white",
-      line_active: "#D8DBDF"
+      line_active: "#D8DBDF",
+      item_hover: "rgba(31, 42, 55, 0.05)"
     },
     line: {
       headerBottom: "#F2F4F7",
@@ -139,7 +142,8 @@ const DARK = {
       pattern_purple: "#F2EFFF",
       pattern_orange: "#F2EFFF",
       nav_active: "rgba(78, 73, 214, 0.16)",
-      line_active: "rgba(78, 73, 214, 0.16)"
+      line_active: "rgba(78, 73, 214, 0.16)",
+      item_hover: "rgba(78, 73, 214, 0.16)"
     },
     line: {
       headerBottom: '#212B36',

@@ -50,7 +50,7 @@ export default function EditMajor({ value, handleBack }: { value: string, handle
 
         <FormProvider methods={methods} onSubmit={onSubmit}>
             <CartHeader title="Khoa" onClick={onSubmit} isHandleLogic isHandleBack handleBack={handleBack} />
-            <Box sx={{ height: "100vh", pt: "75px", px: "12px" }}>
+            <Box sx={{ height: "100vh", pt: "75px", px: "12px",backgroundColor: "iub.background.body"  }}>
                 <RHFTextField
                     name="major"
                     placeholder="Điền tên khoa ở đây"
@@ -61,6 +61,7 @@ export default function EditMajor({ value, handleBack }: { value: string, handle
                             </IconButton>
                         </InputAdornment>
                     }}
+                    sx={{backgroundColor: "iub.background.default"}}
                 />
             </Box>
         </FormProvider>

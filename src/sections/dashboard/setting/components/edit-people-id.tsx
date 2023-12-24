@@ -50,7 +50,7 @@ export default function EditPeopleId({ value, handleBack }: { value: string, han
 
         <FormProvider methods={methods} onSubmit={onSubmit}>
             <CartHeader title="CMMD/CCCD" onClick={onSubmit} isHandleLogic isHandleBack handleBack={handleBack} />
-            <Box sx={{ height: "100vh", pt: "75px", px: "12px" }}>
+            <Box sx={{ height: "100vh", pt: "75px", px: "12px",backgroundColor: "iub.background.body"  }}>
                 <RHFTextField
                     name="peopleID"
                     placeholder="Điền số CMMD/CCCD ở đây"
@@ -62,7 +62,9 @@ export default function EditPeopleId({ value, handleBack }: { value: string, han
                             </IconButton>
                         </InputAdornment>
                     }}
+                    sx={{backgroundColor: "iub.background.default"}}
                 />
+
             </Box>
         </FormProvider>
 

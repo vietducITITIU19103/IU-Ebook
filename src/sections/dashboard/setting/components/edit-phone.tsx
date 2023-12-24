@@ -51,7 +51,7 @@ export default function EditPhone({ value, handleBack }: { value: string, handle
 
         <FormProvider methods={methods} onSubmit={onSubmit}>
             <CartHeader title="Số điện thoại" onClick={onSubmit} isHandleLogic isHandleBack handleBack={handleBack} />
-            <Box sx={{ height: "100vh", pt: "75px", px: "12px" }}>
+            <Box sx={{ height: "100vh", pt: "75px", px: "12px", backgroundColor: "iub.background.body"  }}>
                 <RHFTextField
                     name="phone"
                     placeholder="Điền số điện thoại ở đây"
@@ -62,6 +62,7 @@ export default function EditPhone({ value, handleBack }: { value: string, handle
                             </IconButton>
                         </InputAdornment>
                     }}
+                    sx={{backgroundColor: "iub.background.default"}}
                 />
             </Box>
         </FormProvider>

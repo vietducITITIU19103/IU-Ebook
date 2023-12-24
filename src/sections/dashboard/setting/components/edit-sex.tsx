@@ -50,7 +50,7 @@ export default function EditSex({ value, handleBack }: { value: 0 | 1 | 2, handl
 
         <FormProvider methods={methods} onSubmit={onSubmit}>
             <CartHeader title="Giới tính" onClick={onSubmit} isHandleLogic isHandleBack handleBack={handleBack} />
-            <Box sx={{ height: "100vh", pt: "75px", px: "12px" }}>
+            <Box sx={{ height: "100vh", pt: "75px", px: "12px", backgroundColor: "iub.background.body"  }}>
                 <RadioGroup
                     aria-labelledby="demo-radio-buttons-group-label"
                     defaultValue={sexList[value]}

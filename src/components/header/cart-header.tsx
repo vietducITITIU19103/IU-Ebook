@@ -8,19 +8,21 @@ import BackArrowIcon from '@/assets/icons/arrow/back-arrow-icon';
 import Typography from '@mui/material/Typography';
 import { useRouter } from 'next/navigation'
 import CheckIcon from '@/assets/icons/header/check-icon';
-
+import { useContext } from 'react';
+import { ThemeContext } from '@/theme';
 
 export default function CartHeader({ title, isHandleLogic, handleBack, isHandleBack,...other }: IconButtonProps & { title: string, isHandleLogic?: boolean, isHandleBack?: boolean,handleBack?: VoidFunction }) {
     const router = useRouter()
+    const {palette: {iub: {background, text}}} = useContext(ThemeContext)
     return (
-        <Box sx={{ borderBottom: "1px solid #F2F4F7", backgroundColor: "white", py: "12px", display: { xs: "block", md: "none" }, position: "fixed", width: "100%", zIndex: 20 }}>
+        <Box sx={{ borderBottom: "1px solid iub.line.headerBottom", backgroundColor: background.default, py: "12px", display: { xs: "block", md: "none" }, position: "fixed", width: "100%", zIndex: 20 }}>
             <Container sx={{ px: "12px !important" }}>
                 <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <IconButton onClick={() => handleBack ? handleBack() : router.back()}>
                         <BackArrowIcon />
                     </IconButton>
                     <Typography sx={{
-                        color: "#4E49D6",
+                        color: text.active,
                         textAlign: "center",
                         fontSize: "20px",
                         fontWeight: 700,
