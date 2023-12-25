@@ -5,18 +5,25 @@ import Tabs from '@mui/material/Tabs';
 import Container, { ContainerProps } from '@mui/material/Container';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import { useContext } from 'react';
+import { ThemeContext } from '@/theme';
 
-export const TabRoot = styled(Container)<ContainerProps>(({ theme }) => ({
-    width: '100%',
-    borderRadius: "16px",
-    border: "1px solid #D8DBDF",
-    my: "36px",
-    [theme.breakpoints.down("md")]: {
-        border: "none",
-        backgroundColor: "white",
-        borderRadius: 0,
-    }
-}))
+
+
+export const TabRoot = styled(Container)<ContainerProps>(({ theme }) => {
+    const { palette } = useContext(ThemeContext)
+    return ({
+        width: '100%',
+        borderRadius: "16px",
+        border: `1px solid ${palette.iub.line.default}`,
+        my: "36px",
+        [theme.breakpoints.down("md")]: {
+            border: "none",
+            backgroundColor: "white",
+            borderRadius: 0,
+        }
+    })
+})
 
 export const MainLayout = styled(Container)<ContainerProps>(({ theme }) => ({
     width: "100%",
@@ -26,17 +33,20 @@ export const MainLayout = styled(Container)<ContainerProps>(({ theme }) => ({
     alignItems: "center"
 }))
 
-export const ContainerLayout = styled(Container)<ContainerProps>(({ theme }) => ({
-    backgroundColor: "white",
-    padding: "32px",
-    borderRadius: "16px",
-    marginBottom: "30px",
-    [theme.breakpoints.down("md")]: {
-        backgroundColor: "transparent",
-        padding: "20px",
-        paddingBottom: "100px",
-    }
-}))
+export const ContainerLayout = styled(Container)<ContainerProps>(({ theme }) => {
+    const { palette } = useContext(ThemeContext)
+    return ({
+        backgroundColor: palette.iub.background.default,
+        padding: "32px",
+        borderRadius: "16px",
+        marginBottom: "30px",
+        [theme.breakpoints.down("md")]: {
+            backgroundColor: "transparent",
+            padding: "20px",
+            paddingBottom: "100px",
+        }
+    })
+})
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -84,14 +94,17 @@ export const StyledTabs = styled((props: StyledTabsProps) => {
             {...props}
             TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
             centered={true}
+            sx={{
+                '& .MuiTabs-indicator': {
+                    backgroundColor: "iub.text.active",
+                },
+            }}
         />
     )
 })
     ({
-        '& .MuiTabs-indicator': {
-            backgroundColor: '#4E49D6',
-        },
         '& .MuiTabs-indicatorSpan': {
+            backgroundColor: "red"
         },
     });
 
@@ -100,20 +113,24 @@ interface StyledTabProps {
 }
 
 export const StyledTab = styled((props: StyledTabProps) => (
-    <Tab disableRipple {...props} />
+    <Tab disableRipple {...props}
+        sx={{
+            color: "iub.text.normal",
+            '&.Mui-selected': {
+                color: "iub.text.active",
+
+            },
+        }} />
 ))(({ theme }) => ({
-    minHeight: "38px",
     textTransform: 'none',
-    padding: "0px 24px",
-    // paddingBottom: "-10px",
+    fontSize: "16px",
     lineHeight: 1,
-    color: " #9DA4AE",
+    fontFamily: "inherit",
+    fontWeight: 700,
     marginRight: theme.spacing(1),
-    '&.Mui-selected': {
-        color: '#4E49D6',
-    },
     '&.Mui-focusVisible': {
-        backgroundColor: 'rgba(100, 95, 228, 0.32)',
+        backgroundColor: '#0D006A',
+
     },
 }));
 

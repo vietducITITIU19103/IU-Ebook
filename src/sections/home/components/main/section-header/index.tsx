@@ -3,12 +3,12 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
 import Link from "@mui/material/Link"
-import { PURPLE_COLOR, WHITE_COLOR, GRAY_COLOR } from '@/app/color'
-import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
+import { useContext } from 'react';
+import { ThemeContext } from '@/theme';
 
 export default function SectionHeader({ chipContent, title, hasTitle }: { chipContent?: string, title: string, hasTitle?: boolean }) {
-    const { palette: { iub } } = useTheme()
+    const { palette: { iub } } = useContext(ThemeContext)
     return (
         <Stack
             direction="row"
