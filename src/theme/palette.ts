@@ -89,7 +89,7 @@ const LIGHT = {
       info: '#2DC0AC',
       placeholder: '#667085',
       //-------
-      normal: "#9DA4AE",//gray-gray
+      normal: "#6C737F",//gray-gray
       active: "#4E49D6", //purple-white
       light: "#6C737F", //gray-white
       main: "#1F2A37", //black-white
@@ -110,7 +110,7 @@ const LIGHT = {
     },
     line: {
       headerBottom: "#F2F4F7",
-      default: '#FFFCF6',
+      default: '#D8DBDF',
     },
   },
 };
@@ -147,7 +147,7 @@ const DARK = {
     },
     line: {
       headerBottom: '#212B36',
-      default: '#FFFCF6',
+      default: '#6C737F',
     },
   },
 };

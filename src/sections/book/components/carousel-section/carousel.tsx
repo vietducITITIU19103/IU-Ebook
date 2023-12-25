@@ -15,7 +15,6 @@ import IconButton from '@mui/material/IconButton';
 import ControlButton from './control-button';
 import { useResponsive } from '@/hooks/use-responsive';
 import LightBoxModal from '@/components/lightbox/LightboxModal';
-import imgSrc from "@/assets/images/previewImg.png"
 
 export default function CarouselSection() {
     const [open, setOpen] = useState(false);
@@ -51,7 +50,17 @@ export default function CarouselSection() {
             <ControlButton sx={{ left: { xs: 0, md: "-40px" }, transform: "rotate(180deg)" }} onClick={onPrev}>
                 <BreadcrumIcon />
             </ControlButton>
-            <IconButton sx={{ p: "5px", backgroundColor: "rgba(0, 0, 0, 0.6)", position: "absolute", zIndex: '2', borderRadius: '50%' }}>
+            <IconButton sx={{ 
+                backgroundColor: "rgba(0, 0, 0, 0.5)", 
+                position: "absolute", 
+                zIndex: '2', 
+                borderRadius: '50%', 
+                width: "40px", 
+                height: "40px",
+                "&:hover": {
+                    backgroundColor:"rgba(0, 0, 0, 0.8)"
+                }
+                }}>
                 <LightBoxModal
                     open={open}
                     setOpen={setOpen}
@@ -64,7 +73,7 @@ export default function CarouselSection() {
                             downloadFilename: "banner-preview"
                         },
                     ]}>
-                    <FullscreenIcon />
+                    <FullscreenIcon sx={{position: "relative", top: "2px"}}/>
                 </LightBoxModal>
             </IconButton>
 

@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 import Box, { BoxProps } from '@mui/material/Box';
-import { useTheme } from '@mui/material/styles';
+import { useContext } from 'react';
+import { ThemeContext } from '@/theme';
 
 type Props = BoxProps & {
     isActive?: boolean
@@ -8,7 +9,7 @@ type Props = BoxProps & {
 
 
 function HomeIcon({ isActive, sx, ...other }: Props) {
-    const {palette} = useTheme()
+    const {palette} = useContext(ThemeContext)
     const colorCode = isActive ? palette.iub.text.active :  palette.iub.text.normal
 
     return (

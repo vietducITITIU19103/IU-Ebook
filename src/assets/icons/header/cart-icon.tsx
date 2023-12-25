@@ -1,13 +1,14 @@
 import React, { memo } from 'react'
 import Box, { BoxProps } from '@mui/material/Box';
-import { useTheme } from '@mui/material/styles';
+import { useContext } from 'react';
+import { ThemeContext } from '@/theme';
 
 type Props = BoxProps & {
     colors? : string
 } 
 
 function CartIcon({ color, sx, ...other }: Props) {
-    const {palette} = useTheme()
+    const {palette} = useContext(ThemeContext)
     const colorCode = palette.iub.text.active
     return (
         <Box component="svg" xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="0 0 23 22" fill="none" { ...other } sx={{width: "24px", height: '23px', ...sx}}>

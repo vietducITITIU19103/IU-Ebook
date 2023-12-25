@@ -29,7 +29,6 @@ export default function DetailView() {
           direction={{ xs: "column", md: 'row' }}
           justifyContent="flex-start" spacing={{ xs: "16px", md: '36px' }}
           sx={{
-            backgroundColor: "white",
             marginBottom: "8px",
             paddingBottom: "20px",
             px: { xs: "16px", md: '0' }

@@ -1,12 +1,13 @@
 import { memo } from 'react';
 // @mui
 import Box, { BoxProps } from '@mui/material/Box';
-import { useTheme } from '@mui/material/styles';
+import { useContext } from 'react';
+import { ThemeContext } from '@/theme';
 
 // ----------------------------------------------------------------------
 
 function MainLogo({ sx, ...other }: BoxProps) {
-    const {palette} = useTheme()
+    const {palette} = useContext(ThemeContext)
     const colorCode = palette.iub.logo.normal
     return (
         <Box component="svg"

@@ -31,7 +31,6 @@ export const StyledTabs = styled((props: StyledTabsProps) => (
 ))({
     '& .MuiTabs-indicator': {
         display: 'flex',
-        // justifyContent: 'center',
         backgroundColor: 'transparent',
     },
     '& .MuiTabs-indicatorSpan': {
@@ -54,13 +53,8 @@ export const StyledTab = styled((props: StyledTabProps) => (
     fontSize: "16px",
     lineHeight: 1,
     fontFamily: "inherit",
-    //color: "#0D006A",
     fontWeight: 700,
     marginRight: theme.spacing(1),
-    // '&.Mui-selected': {
-    //     color: '#0D006A',
-
-    // },
     '&.Mui-focusVisible': {
         backgroundColor: '#0D006A',
 

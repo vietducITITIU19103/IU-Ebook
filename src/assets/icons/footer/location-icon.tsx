@@ -1,11 +1,12 @@
 import { memo } from 'react';
 // @mui
 import Box, { BoxProps } from '@mui/material/Box';
-import { useTheme } from '@mui/material/styles';
+import { useContext } from 'react';
+import { ThemeContext } from '@/theme';
 // ----------------------------------------------------------------------
 
 function LocationIcon({ ...other }: BoxProps) {
-    const {palette} = useTheme()
+    const {palette} = useContext(ThemeContext)
     const colorCode = palette.iub.text.footer
     return (
         <Box component="svg" xmlns="http://www.w3.org/2000/svg" width="30" height="33" viewBox="0 0 17 21" fill="none" { ...other }>

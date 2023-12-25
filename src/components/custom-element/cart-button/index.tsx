@@ -1,13 +1,13 @@
 import React from 'react'
 import Box from '@mui/material/Box';
-import CartSVG from '@/components/header/svg/cartSVG'
+import CartIcon from '@/assets/icons/header/cart-icon';
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function CartButton({ num }: any) {
     return (
         <Box sx={{ position: "relative", display: "inline", top: "3px" }}>
-            <CartSVG />
+            <CartIcon />
             <Box sx={{
                 padding: "4px",
                 paddingBottom: "4px",
