@@ -19,11 +19,15 @@ import { useRouter } from 'next/navigation';
 
 
 type HeaderData = {
-    title: string, destination: string, icon: React.ReactNode, iconActive: React.ReactNode
+    title: string,
+    destination: string,
+    icon: React.ReactNode,
+    iconActive: React.ReactNode,
+
 }
 
 
-export default function Header({ sx, ...other }: BoxProps) {
+export default function Header({ sx, isResponsive, ...other }: BoxProps & { isResponsive?: boolean }) {
     const down1260px = useResponsive("down", 1260);
     const path = usePathname()
     const router = useRouter()
@@ -35,7 +39,7 @@ export default function Header({ sx, ...other }: BoxProps) {
             {path === item.destination ? item.iconActive : item.icon}
             <HeaderLink
                 onClick={() => router.push(item.destination)}
-                sx={{ display: "inline", cursor: "pointer", color: "iub.text.normal",...(path === item.destination && { color: 'iub.text.active', fontWeight: 600 }) }}>
+                sx={{ display: "inline", cursor: "pointer", color: "iub.text.normal", ...(path === item.destination && { color: 'iub.text.active', fontWeight: 600 }) }}>
                 {item.title}
             </HeaderLink>
         </CenterHorizontalLayout>
@@ -49,7 +53,8 @@ export default function Header({ sx, ...other }: BoxProps) {
                 backgroundColor: "iub.background.default",
                 position: "sticky",
                 zIndex: 20,
-                ...sx
+                ...sx,
+                ...(isResponsive && { display: { xs: "none", md: "block" } })
             }}
             {...other}
         >
@@ -58,7 +63,7 @@ export default function Header({ sx, ...other }: BoxProps) {
                     <Box sx={{ display: { xs: "none", md: "flex" } }}><MainLogo /></Box>
                     <CenterHorizontalLayout spacing="8px" justifyContent="flex-end" sx={{ width: '100%' }}>
                         <SearchBar />
-                        <Box sx={{ display: { xs: "none", md: "flex" } }} onClick={()=>router.push("/search")}>
+                        <Box sx={{ display: { xs: "none", md: "flex" } }} onClick={() => router.push("/search")}>
                             <StyledButton label='Search' width={100} bg='#F3633E' />
                         </Box>
 

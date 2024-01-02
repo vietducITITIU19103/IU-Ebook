@@ -23,7 +23,7 @@ export default function DetailView() {
           p: {
             xs: "0 !important",
             md: '40px !important',
-          }
+          },
         }}>
         <Stack
           direction={{ xs: "column", md: 'row' }}
@@ -31,7 +31,8 @@ export default function DetailView() {
           sx={{
             marginBottom: "8px",
             paddingBottom: "20px",
-            px: { xs: "16px", md: '0' }
+            px: { xs: "16px", md: '0' },
+             backgroundColor: "iub.background.default"
           }}
         >
           <Box sx={{ display: { xs: "none", md: 'block' } }}>
@@ -42,7 +43,7 @@ export default function DetailView() {
               height={264}
               style={{ objectFit: "cover", objectPosition: "center", borderRadius: "20px" }} />
           </Box>
-          <Box sx={{ flexGrow: 1 }}>
+          <Box sx={{ flexGrow: 1  }}>
             <RenderBookInfo />
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
               <RenderControlButton />

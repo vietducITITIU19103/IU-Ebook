@@ -19,7 +19,7 @@ export default function BookDetailHeader({ sx, ...other }: BoxProps) {
     useCallback(() => useScrollToShow("book-detail-header"), [])()
 
     return (
-        <Box id="book-detail-header" sx={{ width: "100%", borderBottom: "1px solid #F2F4F7", backgroundColor: "white", position: "fixed", zIndex: 20, ...sx }} {...other}>
+        <Box id="book-detail-header" sx={{ width: "100%", borderBottom: "1px solid iub.line.headerBottom", backgroundColor: "iub.background.default", position: "fixed", zIndex: 20, ...sx }} {...other}>
             <Container sx={{ px: "0 !important", my: "16px", ...(down1260px && { px: "12px" }) }}>
                 <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <IconButton

@@ -8,7 +8,7 @@ const BookTitle = styled(Typography)<TypographyProps>(
         fontSize: "24px",
         fontStyle: "normal",
         fontWeight: 700,
-        fontFamily: "inherit",
+        fontFamily: typography.fontFamilySecondary,
         color: "#1F2A37",
         lineHeight: "130%"
     }

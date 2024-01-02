@@ -17,35 +17,36 @@ import { useRouter } from 'next/navigation';
 import AddToCartBackdrop from '../add-to-cart-backdrop/add-to-cart-backdrop';
 import { useContext } from 'react';
 import { ThemeContext } from '@/theme';
+import { typography } from '@/theme/typography';
 
 export const RenderBookInfo = () => {
     const { palette } = useContext(ThemeContext)
     return (
-        
-            <>
-                <BookTitle component="h1" sx={{color: "iub.text.main"}}>Giáo trình Kế toán Tài chính - Phần I</BookTitle>
-                <BookType sx={{color: "iub.text.normal"}}>Kế toán | MS 001</BookType>
-                <Stack direction="row" justifyContent="flex-start" spacing="16px">
-                    <TextWithIcon icon={<UploadIcon />} text="Đang cập nhật" />
-                    <TextWithIcon icon={<DownloadIcon sx={{ width: "24px", height: "24px" }} color="#4E49D6" />} text="156 lượt mua" color="#4E49D6" />
-                </Stack>
-                <hr style={{ border: "0.5px solid", borderColor: palette.iub.line.default }} />
-                <RenderBookUploader />
-            </>
-        
+
+        <>
+            <BookTitle component="h1" sx={{ color: "iub.text.main"}}>Giáo trình Kế toán Tài chính - Phần I</BookTitle>
+            <BookType sx={{ color: "iub.text.normal" }}>Kế toán | MS 001</BookType>
+            <Stack direction="row" justifyContent="flex-start" spacing="16px">
+                <TextWithIcon icon={<UploadIcon />} text="Đang cập nhật" />
+                <TextWithIcon icon={<DownloadIcon sx={{ width: "24px", height: "24px" }} color="#4E49D6" />} text="156 lượt mua" color="#4E49D6" />
+            </Stack>
+            <hr style={{ border: "0.5px solid", borderColor: palette.iub.line.default }} />
+            <RenderBookUploader />
+        </>
+
     )
 }
 
 export const RenderBookUploader = () => (
     <>
-        <AuthorTitle sx={{mb: "3px"}}>
+        <AuthorTitle sx={{ mb: "3px" }}>
             Đăng tải bởi
         </AuthorTitle>
         <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing="16px">
             <Avatar alt="Remy Sharp" src="/images/book/ketoantaichinh.png" sx={{ width: '48px', height: "48px" }} />
             <Box>
-                <AuthorName sx={{color: "iub.text.main"}}>Ths. Trình Minh</AuthorName>
-                <AuthorEmail sx={{color: "iub.text.normal"}}>tranvancao@uih.edu.com</AuthorEmail>
+                <AuthorName sx={{ color: "iub.text.main" }}>Ths. Trình Minh</AuthorName>
+                <AuthorEmail sx={{ color: "iub.text.normal" }}>tranvancao@uih.edu.com</AuthorEmail>
             </Box>
         </Stack>
     </>
@@ -108,7 +109,7 @@ export const BookDetailsFooter = () => (
             display: { xs: "flex", md: "none" },
             position: "fixed",
             pb: "16px",
-            backgroundColor: "white",
+            backgroundColor: "iub.background.default",
             boxShadow: "0px -2px 4px 0px rgba(145, 158, 171, 0.15)",
             bottom: 0,
             width: "100%",

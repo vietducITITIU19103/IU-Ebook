@@ -30,7 +30,7 @@ export const primaryFont = Philosopher({
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
 });
 export const secondaryFont = Bitter({
-  weight: ['400',  '700'],
+ // weight: ['400',  '700'],
   subsets: ['latin'],
   display: 'swap',
   fallback: ['Helvetica', 'Arial', 'sans-serif'],

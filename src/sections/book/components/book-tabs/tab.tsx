@@ -13,8 +13,8 @@ export default function CustomizedTabs() {
     };
 
     return (
-        <TabRoot>
-            <Box>
+        <TabRoot >
+            <Box  >
                 <Box sx={{ overflowX: "scroll" }} className="scroll">
                     <StyledTabs
                         value={value}

@@ -8,10 +8,10 @@ import BookDetailHeader from '@/components/header/book-detail-header';
 export default function BookDetailWiew({ children }: { children: React.ReactNode }) {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', backgroundColor: "iub.background.body" }}>
-            {/* <Box sx={{ display: { xs: "none", md: "block" }, backgroundColor: "white" }}> */}
-                <Header />
+            {/* <Box sx={{ display: { xs: "none", md: "block" } }}> */}
+                <Header isResponsive/>
             {/* </Box> */}
-            <Box sx={{ display: { xs: "block", md: "none" } }}>
+            <Box sx={{ display: { xs: "block", md: "none" }, backgroundColor: "iub.background.default"  }}>
                 <BookDetailHeader sx={{ display: "none" }} />
             </Box>
             <Box
