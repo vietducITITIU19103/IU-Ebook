@@ -19,7 +19,7 @@ export const TabRoot = styled(Container)<ContainerProps>(({ theme }) => {
         my: "36px",
         [theme.breakpoints.down("md")]: {
             border: "none",
-            backgroundColor: "white",
+            backgroundColor: palette.iub.background.default,
             borderRadius: 0,
         }
     })

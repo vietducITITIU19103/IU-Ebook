@@ -9,12 +9,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider>
-      <html lang="en" className={primaryFont.className} style={{ backgroundColor: "#F5F5FA" }}>
-        <body style={{ minHeight: "100vh" }}>
+
+    <html lang="en" className={primaryFont.className} style={{ backgroundColor: "#F5F5FA" }}>
+      <body style={{ minHeight: "100vh" }}>
+        <ThemeProvider>
           {children}
-        </body>
-      </html>
-    </ThemeProvider>
+        </ThemeProvider>
+      </body>s
+    </html>
+
   );
 }

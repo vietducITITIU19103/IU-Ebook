@@ -24,7 +24,7 @@ const book: BookTypes = {
 export default function RecommendView() {
   const data = [book, book, book, book, book, book]
   return (
-    <Box sx={{  marginTop: "8px", p: { xs: "16px 0 16px 16px", md: "40px 0" } }}>
+    <Box sx={{  marginTop: "8px", p: { xs: "16px 0 16px 16px", md: "40px 0" }, backgroundColor: "iub.background.default" }}>
       <SectionHeader chipContent="" title="Có thể bạn sẽ thích" />
       <StaticLayout data={data} />
     </Box>

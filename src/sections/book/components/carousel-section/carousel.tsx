@@ -39,6 +39,7 @@ export default function CarouselSection() {
                 position: "relative",
                 justifyContent: "center",
                 alignItems: "center",
+                
                 p: "0",
                 mt: { xs: "0", md: "20px" },
                 mb: { xs: "20px", md: "0" },

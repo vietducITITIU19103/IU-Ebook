@@ -26,10 +26,10 @@ export default function Carousel({ images }: any) {
     return (
         <Box sx={{
             marginBottom: "16px",
-            // marginTop: "70px",
             display: { xs: "block", md: "none" },
             width: "100%",
-            // maxHeight: "297px",
+            ml: "3px",
+            mt: "-16px !important"
         }}>
 
             <Box sx={{ width: "100%", transition: "0.3s ease" }}>
