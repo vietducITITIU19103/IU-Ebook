@@ -18,7 +18,8 @@ export type PaletteType = {
       light: string,
       main: string,
       footer: string,
-      title: string
+      title: string,
+      table_title: string,
     };
     background: {
       default: string;
@@ -55,7 +56,8 @@ declare module '@mui/material/styles/createPalette' {
         light: string,
         main: string,
         footer: string,
-        title: string
+        title: string,
+        table_title: string,
       };
       background: {
         default: string;
@@ -94,7 +96,8 @@ const LIGHT = {
       light: "#6C737F", //gray-white
       main: "#1F2A37", //black-white
       footer: "#0D006A",
-      title: "#344054" //white-blackblue
+      title: "#344054", //white-blackblue,
+      table_title: "#0D006A" //blue-white
     },
     background: {
       default: 'white',
@@ -130,8 +133,9 @@ const DARK = {
       active: "white",
       light: "white",
       main: "white",
-      footer: "#white",
-      title: "white"
+      footer: "white",
+      title: "white",
+      table_title: "white" //blue-white
     },
     background: {
       default: '#212B36',

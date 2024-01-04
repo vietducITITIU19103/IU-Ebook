@@ -12,6 +12,8 @@ import EnhancedTableHead from './cart-table/enhanced-table';
 import { useTable } from './cart-table/use-table';
 import { Order, Data } from './cart-table/cart-table-type';
 import { TabletItemLayout, MobileItemLayout, DiscountChip, TableCellMD } from './cart-table/custom-component';
+import { ThemeContext } from '@/theme';
+import { useContext } from 'react';
 
 
 function createData(
@@ -51,14 +53,16 @@ export default function CartTable() {
     emptyRows
   } = useTable(rows)
   const mddown = useResponsive("down", "md")
+  const { palette: {iub: {text, background, line}} } = useContext(ThemeContext);
 
   return (
     <Box
       sx={{
         width: '100%',
-        border: { xs: "none", md: "1px solid #D8DBDF" },
+        // #D8DBDF
+        border: { xs: "none", md: `1px solid ${line.default} !important` },
         borderRadius: { xs: "0", md: "12px" },
-        backgroundColor: "white"
+        backgroundColor: "iub.background.default"
       }}>
       <TableContainer>
         <Table
@@ -103,7 +107,7 @@ export default function CartTable() {
                     id={labelId}
                     scope="row"
                     padding="none"
-                    sx={{ color: "#1F2A37", fontWeight: 600, display: { xs: "table-cell", sm: "none" }, py: "8px" }}
+                    sx={{ color: "iub.text.main", fontWeight: 600, display: { xs: "table-cell", sm: "none" }, py: "8px" }}
                   >
                     <MobileItemLayout
                       name={row.name}
@@ -117,7 +121,7 @@ export default function CartTable() {
                     id={labelId}
                     scope="row"
                     padding="none"
-                    sx={{ color: "#1F2A37", fontWeight: 600, display: { xs: "none", sm: "table-cell", md: "none" }, py: "8px" }}
+                    sx={{ color: "iub.text.main", fontWeight: 600, display: { xs: "none", sm: "table-cell", md: "none" }, py: "8px" }}
                   >
                     <TabletItemLayout
                       name={row.name}
@@ -131,7 +135,7 @@ export default function CartTable() {
                     id={labelId}
                     scope="row"
                     padding="none"
-                    sx={{ color: "#1F2A37", fontWeight: 600, display: { xs: "none", md: "table-cell" } }}
+                    sx={{ color: "iub.text.main", fontWeight: 600, display: { xs: "none", md: "table-cell" } }}
                   >
                     {row.name}
                   </TableCell>
@@ -140,7 +144,7 @@ export default function CartTable() {
                     <DiscountChip discountRate={row.discountRate} />
                   </TableCellMD>
                   <TableCellMD>{row.date}</TableCellMD>
-                  <TableCell align={mddown ? "right" : 'left'} sx={{ color: "#1F2A37" }}><TextLink label='Xoá' href="/" sx={{ color: "#D92D20", textDecoration: "underline", fontWeight: 400 }} /></TableCell>
+                  <TableCell align={mddown ? "right" : 'left'} sx={{ color: "iub.text.main" }}><TextLink label='Xoá' href="/" sx={{ color: "#D92D20", textDecoration: "underline", fontWeight: 400 }} /></TableCell>
                 </TableRow>
               );
             })}

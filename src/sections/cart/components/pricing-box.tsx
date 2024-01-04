@@ -14,7 +14,7 @@ export default function PricingBox() {
     const price = useMemo(() => useConvertCurrency(56000), [])
     return (
         <Box sx={{width: {xs: "100%",md: "560px"}, position: {xs: "fixed", md: "static"}, bottom: 0, right: 0}}>
-            <CartSubTitle sx={{display: {xs: "none", md: "block"}}}>Thành tiền</CartSubTitle>
+            <CartSubTitle sx={{display: {xs: "none", md: "block"},color:"iub.text.light"}}>Thành tiền</CartSubTitle>
             <Box
                 sx={{
                     width: "100%",

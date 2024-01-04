@@ -3,15 +3,20 @@ import LoginBg from '@/assets/icons/login-bg';
 import Box from '@mui/material/Box';
 import Typography, { TypographyProps } from '@mui/material/Typography';
 import { typography } from '@/theme/typography';
+import { ThemeContext } from '@/theme';
+import { useContext } from 'react';
 
-const NameText = styled(Typography)<TypographyProps>(({ theme }) => ({
-    color: "#1F2A37",
-    fontFamily: "inherit",
-    fontSize: "18px",
-    fontStyle: "normal",
-    fontWeight: 700,
-    lineHeight: "normal"
-}));
+const NameText = styled(Typography)<TypographyProps>(({ theme }) => {
+    const { palette: { iub: { text } } } = useContext(ThemeContext);
+    return ({
+        color: text.main,
+        fontFamily: "inherit",
+        fontSize: "18px",
+        fontStyle: "normal",
+        fontWeight: 700,
+        lineHeight: "normal"
+    })
+});
 
 
 const DateText = styled(Typography)<TypographyProps>(({ theme }) => ({

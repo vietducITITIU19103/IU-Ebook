@@ -10,7 +10,7 @@ import Stack from '@mui/material/Stack';
 import { DateText, SubtitleText, SubDesText, NameText } from "../../_common/custom-typo"
 
 const TableCellMD = styled(TableCell)<TypographyProps>(({ theme }) => ({
-    color: "#1F2A37",
+    color: "iub.text.main",
     display: "table-cell",
     [theme.breakpoints.down("md")]: {
     display: "none"
@@ -57,7 +57,7 @@ const TabletItemLayout = ({ name, discountRate, date, price }: { price: number, 
             <DateText>{date}</DateText>
         </Stack>
         <Stack spacing="8px">
-            <SubtitleText>Đơn giá</SubtitleText>
+            <SubtitleText >Đơn giá</SubtitleText>
             <SubDesText>{price}đ</SubDesText>
         </Stack>
         <Stack spacing="8px">

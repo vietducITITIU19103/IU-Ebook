@@ -16,7 +16,8 @@ export default function CartView() {
     }
     return (
         <CartViewLayout>
-            {RenderCurrenView(viewName)}
+            {/* {RenderCurrenView(viewName)} */}
+            <SubCartView />
         </CartViewLayout>
     )
 }
