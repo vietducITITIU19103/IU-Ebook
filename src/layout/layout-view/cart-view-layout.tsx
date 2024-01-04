@@ -7,7 +7,7 @@ import CartHeader from '@/components/header/cart-header';
 
 export default function CartViewLayout({ children }: { children: React.ReactNode }) {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', backgroundColor: "#F5F5FA" }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', backgroundColor: "iub.background.body", minHeight: "100vh" }}>
       {/* <Box sx={{ display: { xs: "none", md: "block" }, backgroundColor: "white" }}> */}
         <Header sx={{display: { xs: "none", md: "block" }}}/>
       {/* </Box> */}

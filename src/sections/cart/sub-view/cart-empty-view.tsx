@@ -15,7 +15,7 @@ export default function CartEmptyView() {
                 Ôi, bạn chưa có tài liệu nào trong giỏ hàng cả!
             </CartTitle>
             <CartDescription
-                sx={{ mb: "16px" }}>
+                sx={{ mb: "16px", color: "iub.text.light" }}>
                 Hãy xem thử kho tài liệu tại thư viện của chúng tôi bạn nhé!
             </CartDescription>
             <StyledButton label='Quay lại thư viện' bg='#4E49D6' width={170} onClick={()=>router.push("/search")}/>

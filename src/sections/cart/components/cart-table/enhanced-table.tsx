@@ -9,6 +9,8 @@ import { visuallyHidden } from '@mui/utils';
 import DeleteIcon from '@/assets/icons/table/delete-icon';
 import { useResponsive } from '@/hooks/use-responsive';
 import { Order, Data } from './cart-table-type';
+import { ThemeContext } from '@/theme';
+import { useContext } from 'react';
 
 interface HeadCell {
     disablePadding: boolean;
@@ -27,6 +29,7 @@ interface EnhancedTableProps {
 }
 
 export default function EnhancedTableHead({ onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort }: EnhancedTableProps ) {
+    const { palette: { iub: { text } } } = useContext(ThemeContext);
     const createSortHandler =
         (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
             onRequestSort(event, property);
@@ -90,7 +93,7 @@ export default function EnhancedTableHead({ onSelectAllClick, order, orderBy, nu
                         align={headCell.numeric ? 'right' : 'left'}
                         padding={headCell.disablePadding ? 'none' : 'normal'}
                         sortDirection={orderBy === headCell.id ? order : false}
-                        sx={{ color: "#0D006A !important", fontWeight: 600 }}
+                        sx={{ color: text.table_title, fontWeight: 600 }}
                     >
 
 
