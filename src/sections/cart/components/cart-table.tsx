@@ -10,7 +10,7 @@ import TextLink from '@/sections/auth/components/text-link';
 import { useResponsive } from '@/hooks/use-responsive';
 import EnhancedTableHead from './cart-table/enhanced-table';
 import { useTable } from './cart-table/use-table';
-import { Order, Data } from './cart-table/cart-table-type';
+import { Data } from './cart-table/cart-table-type';
 import { TabletItemLayout, MobileItemLayout, DiscountChip, TableCellMD } from './cart-table/custom-component';
 import { ThemeContext } from '@/theme';
 import { useContext } from 'react';
@@ -91,7 +91,7 @@ export default function CartTable() {
                   tabIndex={-1}
                   key={row.id}
                   selected={isItemSelected}
-                  sx={{ cursor: 'pointer', borderBottom: { xs: "2px solid #F5F5FA", md: "none" } }}
+                  sx={{ cursor: 'pointer', borderBottom: { xs: `2px solid ${background.body}`, md: "none" } }}
                 >
                   <TableCell padding="checkbox">
                     <Checkbox

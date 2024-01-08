@@ -21,7 +21,7 @@ export default function PaymentSuccesView({totalPrice}: {totalPrice: number}) {
                 Yay, bạn đã thanh toán thành công!
             </CartTitle>
             <CartDescription
-                sx={{ mb: "24px" }}>
+                sx={{ mb: "24px", color:"iub.text.light" }}>
                 Chúc bạn sử dụng tài liệu hiệu quả và đạt kết quả tốt nhất trong kì thi
             </CartDescription>
             <Box

@@ -7,7 +7,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 //Carousel component
 import { useCarousel } from '@/components/carousel';
-import Image from 'next/image';
 
 export default function Carousel({ images }: any) {
     var settings = {

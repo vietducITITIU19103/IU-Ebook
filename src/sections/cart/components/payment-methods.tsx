@@ -16,7 +16,7 @@ import { ThemeContext } from '@/theme'
 
 
 const PaymentItem = (src: any, name: string, value: string, currentValue: string) => {
-  const { palette: { iub: { line } } } = useContext(ThemeContext);
+  const { palette: { iub: { line, background } } } = useContext(ThemeContext);
   return (
     <Stack spacing="8px" direction="row" justifyContent="flex-start" alignItems="center"
       sx={{
@@ -25,17 +25,17 @@ const PaymentItem = (src: any, name: string, value: string, currentValue: string
         padding: "16px 24px 16px 16px",
         borderRadius: { xs: 0, md: "12px" },
         border: { xs: "none", md: currentValue === value ? "1px solid #4E49D6" : `1px solid ${line.default}` },
-        background: "iub.background.body"
+        background: background.default
       }}>
-      <FormControlLabel value={value} control={<BpRadio />} label="" />
+      <FormControlLabel value={value} control={<BpRadio />} label=""/>
       <Image src={src} width={36} height={36} alt="logo"></Image>
-      <CartDescription>{name}</CartDescription>
+      <CartDescription sx={{color: "iub.text.light"}}>{name}</CartDescription>
     </Stack>
   )
 }
 
 const CardItem = (src: any, name: string, value: string, cardNumber: string, currentValue: string) => {
-  const { palette: { iub: { line } } } = useContext(ThemeContext);
+  const { palette: { iub: { line ,background} } } = useContext(ThemeContext);
   return (
     <Stack spacing="8px" direction="row" justifyContent="flex-start" alignItems="center"
       sx={{
@@ -44,13 +44,14 @@ const CardItem = (src: any, name: string, value: string, cardNumber: string, cur
         padding: "16px 24px 16px 16px",
         borderRadius: { xs: 0, md: "12px" },
         border: { xs: "none", md: currentValue === value ? "1px solid #4E49D6" : `1px solid ${line.default}` },
-        background: "iub.background.body"
+        background: background.default,
+        
       }}>
-      <FormControlLabel value={value} control={<BpRadio />} label="" />
+      <FormControlLabel value={value} control={<BpRadio/>} label="" />
       <Image src={src} width={36} height={36} alt="logo"></Image>
       <Stack alignItems="flex-start">
-        <CartDescription>{name}</CartDescription>
-        <CartDescription sx={{ color: "#767676", fontSize: "12px" }}>{cardNumber}</CartDescription>
+        <CartDescription sx={{color: "iub.text.light"}}>{name}</CartDescription>
+        <CartDescription sx={{ color: "iub.text.light", fontSize: "12px" }}>{cardNumber}</CartDescription>
       </Stack>
     </Stack>
   )
