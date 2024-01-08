@@ -37,11 +37,11 @@ const MobileItemLayout = ({ name, discountRate, date, price }: { price: number, 
             <NameText>{name}</NameText>
         </Stack>
         <Stack direction="row" spacing="8px">
-            <SubtitleText>Đơn giá</SubtitleText>
-            <SubDesText>{price}đ</SubDesText>
+            <SubtitleText sx={{color: "iub.text.table_text"}}>Đơn giá</SubtitleText>
+            <SubDesText sx={{color: "iub.text.light"}}>{price}đ</SubDesText>
         </Stack>
         <Stack direction="row" spacing="8px">
-            <SubtitleText>Khuyến mãi</SubtitleText>
+            <SubtitleText sx={{color: "iub.text.table_text"}}>Khuyến mãi</SubtitleText>
             <SubDesText>
                 <DiscountChip discountRate={discountRate} />
             </SubDesText>

@@ -29,7 +29,7 @@ interface EnhancedTableProps {
 }
 
 export default function EnhancedTableHead({ onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort }: EnhancedTableProps ) {
-    const { palette: { iub: { text } } } = useContext(ThemeContext);
+    const { palette: { iub: { text, background } } } = useContext(ThemeContext);
     const createSortHandler =
         (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
             onRequestSort(event, property);
@@ -75,7 +75,7 @@ export default function EnhancedTableHead({ onSelectAllClick, order, orderBy, nu
     const data = mddown ? headCellsMobile : headCells
     return (
         <TableHead>
-            <TableRow sx={{ borderBottom: { xs: "8px solid #F5F5FA", md: "none" } }}>
+            <TableRow sx={{ borderBottom: { xs: `8px solid ${background.body}`, md: "none" } }}>
                 <TableCell padding="checkbox">
                     <Checkbox
                         color="primary"

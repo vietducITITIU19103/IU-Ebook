@@ -17,7 +17,8 @@ export default function CartView() {
     return (
         <CartViewLayout>
             {/* {RenderCurrenView(viewName)} */}
-            <SubCartView />
+            {/* <SubCartView /> */}
+            <PaymentSuccesView totalPrice={56000} />
         </CartViewLayout>
     )
 }
