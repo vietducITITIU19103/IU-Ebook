@@ -14,10 +14,11 @@ import { Data } from './cart-table/cart-table-type';
 import { TabletItemLayout, MobileItemLayout, DiscountChip, TableCellMD } from './cart-table/custom-component';
 import { ThemeContext } from '@/theme';
 import { useContext } from 'react';
+import { TableItemTypes } from '../cart-view';
 
 
 function createData(
-  id: number,
+  id: number | string,
   name: string,
   price: number,
   discountRate: number,
@@ -32,14 +33,15 @@ function createData(
   };
 }
 
-const rows = [
-  createData(1, 'Giáo trình Kế toán Tài chính - Phần I ', 70000, 50, "20/10/2024"),
-  createData(2, 'Giáo trình Kế toán Tài chính - Phần II ', 60000, 60, "20/10/2024"),
-];
 
 
 
-export default function CartTable() {
+
+export default function CartTable({ tableData }: { tableData: TableItemTypes[] }) {
+
+
+  const rows = tableData.map((item: TableItemTypes) => (createData(item.id, item.name, item.price, item.discount, item.date))) || []
+
   const {
     dense,
     order,
@@ -53,7 +55,7 @@ export default function CartTable() {
     emptyRows
   } = useTable(rows)
   const mddown = useResponsive("down", "md")
-  const { palette: {iub: {text, background, line}} } = useContext(ThemeContext);
+  const { palette: { iub: { text, background, line } } } = useContext(ThemeContext);
 
   return (
     <Box

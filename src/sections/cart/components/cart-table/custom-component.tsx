@@ -57,11 +57,11 @@ const TabletItemLayout = ({ name, discountRate, date, price }: { price: number, 
             <DateText>{date}</DateText>
         </Stack>
         <Stack spacing="8px">
-            <SubtitleText >Đơn giá</SubtitleText>
+            <SubtitleText sx={{color: "iub.text.table_text"}}>Đơn giá</SubtitleText>
             <SubDesText>{price}đ</SubDesText>
         </Stack>
         <Stack spacing="8px">
-            <SubtitleText>Khuyến mãi</SubtitleText>
+            <SubtitleText sx={{color: "iub.text.table_text"}}>Khuyến mãi</SubtitleText>
             <SubDesText>
                 <DiscountChip discountRate={discountRate} />
             </SubDesText>
