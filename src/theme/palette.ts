@@ -20,6 +20,7 @@ export type PaletteType = {
       footer: string,
       title: string,
       table_title: string,
+      table_text: string
     };
     background: {
       default: string;
@@ -31,9 +32,9 @@ export type PaletteType = {
       pattern_orange: string,
       nav_active: string,
       line_active: string,
-      item_hover: string, 
+      item_hover: string,
       pricing_bg: string,
-      table_text: string
+
     };
     line: {
       headerBottom: string;
@@ -60,6 +61,7 @@ declare module '@mui/material/styles/createPalette' {
         main: string,
         footer: string,
         title: string,
+        table_text: string,
         table_title: string,
       };
       background: {
@@ -75,7 +77,7 @@ declare module '@mui/material/styles/createPalette' {
         item_hover: string,
         pricing_bg: string,
         table_text: string,
-        
+
       };
       line: {
         headerBottom: string;
@@ -105,7 +107,7 @@ const LIGHT = {
       footer: "#0D006A",
       title: "#344054", //white-blackblue,
       table_title: "#0D006A", //blue-white
-      table_text: "#0D006A" 
+      table_text: "#0D006A"
     },
     background: {
       default: 'white',

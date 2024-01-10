@@ -18,7 +18,7 @@ import { TableItemTypes } from '../cart-view';
 
 
 function createData(
-  id: number | string,
+  id: number,
   name: string,
   price: number,
   discountRate: number,
