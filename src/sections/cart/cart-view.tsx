@@ -5,7 +5,7 @@ import PaymentSuccesView from './sub-view/payment-succes-view'
 import SubCartView from './sub-view/sub-cart-view'
 
 export type TableItemTypes = {
-    id: number | string,
+    id: number,
     name: string,
     price: number,
     discount: number,
