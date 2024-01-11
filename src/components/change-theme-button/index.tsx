@@ -21,7 +21,6 @@ export default function ChangeThemeButton() {
                         height="20"
                         viewBox="0 0 20 20"
                         fill="none"
-
                     >
                         <ellipse cx="10.0286" cy="9.9911" rx="2.46693" ry="2.46693" fill="white" />
                         <path d="M10.8516 6.32328L11.2451 4.5481" stroke="white" strokeLinecap="round" />

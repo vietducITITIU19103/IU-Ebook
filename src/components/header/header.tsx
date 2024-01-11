@@ -1,5 +1,5 @@
 "use client"
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 
 import Box, { BoxProps } from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -31,7 +31,8 @@ export default function Header({ sx, isResponsive, ...other }: BoxProps & { isRe
     const down1260px = useResponsive("down", 1260);
     const path = usePathname()
     const router = useRouter()
-    const { navLink, signIn } = ConfigHeader();
+    const { navLink } = ConfigHeader();
+    const [keyword, setKeyword] = useState<string>("");
     useCallback(() => useScrollPosition("header"), [])()
 
     const LinkWithBtn = (item: HeaderData) => (
@@ -62,8 +63,8 @@ export default function Header({ sx, isResponsive, ...other }: BoxProps & { isRe
                 <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <Box sx={{ display: { xs: "none", md: "flex" } }}><MainLogo /></Box>
                     <CenterHorizontalLayout spacing="8px" justifyContent="flex-end" sx={{ width: '100%' }}>
-                        <SearchBar />
-                        <Box sx={{ display: { xs: "none", md: "flex" } }} onClick={() => router.push("/search")}>
+                        <SearchBar value={keyword} changeValue={setKeyword}/>
+                        <Box sx={{ display: { xs: "none", md: "flex" } }} onClick={() => router.push("/search?q="+keyword)}>
                             <StyledButton label='Search' width={100} bg='#F3633E' />
                         </Box>
 

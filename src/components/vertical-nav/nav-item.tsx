@@ -6,7 +6,7 @@ import ListItemText from '@mui/material/ListItemText';
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 
-export default function NavItem({ item }: { item: { name: string, path: string, icon: any, activeIcon: any } }) {
+export default function NavItem({ item }: { item: { name: string, path: string, icon: any, activeIcon: any, isDisable: boolean } }) {
     const path = usePathname();
     const router = useRouter();
     return (
@@ -22,7 +22,8 @@ export default function NavItem({ item }: { item: { name: string, path: string, 
                 border: path.includes(item.path) ? "0.5px solid iub.background.line_active" : "none",
                 "&:hover": {
                     ...(path.includes(item.path) && {backgroundColor:"white"}),
-                }
+                },
+                ...(item.isDisable && {cursor: "not-allowed"})
             }}
         >
             <ListItemIcon sx={{

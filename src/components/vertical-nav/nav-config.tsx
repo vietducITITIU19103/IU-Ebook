@@ -11,23 +11,27 @@ export default function NavConfig() {
         {
             name: "Tài liệu của tôi",
             path: "my-document",
+            isDisable: false,
             icon: <BookmarkIcon/>,
             activeIcon: <BookmarkIcon isActive/>
         },
         {
             name: "Yêu thích",
+            isDisable: false,
             path: "favorite",
             icon: <HeartIcon/>,
             activeIcon: <HeartIcon isActive/>
         },
         {
             name: "Khuyến mãi",
+            isDisable: false,
             path: "promotion",
             icon: <VoucherIcon/>,
             activeIcon: <VoucherIcon isActive/>
         },
         {
             name: "Cài đặt",
+            isDisable: false,
             path: "setting",
             icon: <SettingIcon/>,
             activeIcon: <BookmarkIcon isActive/>
@@ -36,12 +40,14 @@ export default function NavConfig() {
     const subList = useMemo(()=>([
         {
             name: "Hỗ trợ",
+            isDisable: true,
             path: "support",
             icon: <SupportIcon/>,
             activeIcon: <SupportIcon isActive/>
         },
         {
             name: "Liên hệ",
+            isDisable: true,
             path: "contact",
             icon: <ContactIcon/>,
             activeIcon: <ContactIcon isActive/>

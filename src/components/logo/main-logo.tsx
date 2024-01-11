@@ -1,9 +1,10 @@
 import React from 'react'
-import Stack from '@mui/material/Stack';
+import Stack, {StackProps} from '@mui/material/Stack';
 import TextHidden from "@/components/text-hidden"
 import MainLogoIcon from '@/assets/icons/logo/main-logo';
 
-export default function MainLogo() {
+
+export default function MainLogo({width, height, ...other}: StackProps & {width?: string, height?:string}) {
     return (
         <Stack
             direction="row"
@@ -13,8 +14,9 @@ export default function MainLogo() {
             component="a" 
             href='/'
             sx={{cursor: "pointer"}}
+            {...other}
         >
-            <MainLogoIcon sx={{width: '132px', height: "36.5px"}}/>
+            <MainLogoIcon sx={{width: width || '132px', height: height || "36.5px"}}/>
             <TextHidden>IUH Ebook</TextHidden>
         </Stack>
     )
