@@ -22,6 +22,7 @@ export default function StyledButton({ type, label, width, bg, sx, ...other }: P
           color: "white",
           width: width,
           backgroundColor: bg,
+          fontWeight: 600 ,
           borderRadius: "8px !important",
           textTransform: "initial",
           '&: hover': {
