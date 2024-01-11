@@ -27,6 +27,8 @@ import VisibilityOffIcon from '@/assets/icons/password/visibility-off-icon';
 import LoadingButtonAnimation from '@/components/button/loading-button-animation';
 import LoginBanner from './components/login-banner';
 import { FormBox } from './components/custom-component';
+import LoadingStyledButton from '@/components/button/loading-styled-button';
+import MainLogo from '@/components/logo/main-logo';
 
 
 export default function JwtLoginView() {
@@ -86,14 +88,11 @@ export default function JwtLoginView() {
         </Grid>
         <Grid item xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: { xs: 'flex-start', sm: 'center' }, alignItems: { xs: 'center', md: 'flex-end', lg: 'center' } }}>
           <FormProvider methods={methods} onSubmit={onSubmit}>
-            <Stack direction="row" alignItems="center" justifyContent="center">
-              <TextHidden>IUH Ebook</TextHidden>
-              <Image src={IUHLogo} alt="Register logo" width={173} height={48}></Image>
-            </Stack>
+            <MainLogo onClick={()=>router.push("/")} width="173px" height="48px"/>
             <Typography
               component="h1"
               sx={{
-                color: '#0D006A',
+                color: 'iub.text.table_title',
                 marginTop: '20px',
                 fontSize: '32px',
                 fontStyle: 'normal',
@@ -144,7 +143,8 @@ export default function JwtLoginView() {
                 <TextLink label="Quên mật khẩu" href="/forgot-password" />
               </Stack>
               <Stack direction="column" spacing="16px" alignItems="center">
-                <LoadingButtonAnimation isSubmitting={isSubmitting} />
+                {/* <LoadingButtonAnimation isSubmitting={isSubmitting} /> */}
+                <LoadingStyledButton label='Cập nhật' width={170} bg='#4E49D6' sx={{ float: "right" }} onClick={onSubmit} loading={isSubmitting}/>
               </Stack>
             </FormBox>
           </FormProvider>
