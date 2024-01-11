@@ -14,9 +14,6 @@ import InputContainer from './components/input-container';
 import CustomCheckbox from './components/custom-checkbox';
 import Typography from '@mui/material/Typography';
 import { Container } from '@mui/system';
-import Image from 'next/image';
-import IUHLogo from '@/assets/images/Logo-Ebook.png';
-import TextHidden from '@/components/text-hidden';
 import TextLink from './components/text-link';
 import { typography } from '@/theme/typography';
 import Grid from '@mui/material/Grid';
@@ -24,7 +21,6 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import VisibilityIcon from '@/assets/icons/password/visibility-icon';
 import VisibilityOffIcon from '@/assets/icons/password/visibility-off-icon';
-import LoadingButtonAnimation from '@/components/button/loading-button-animation';
 import LoginBanner from './components/login-banner';
 import { FormBox } from './components/custom-component';
 import LoadingStyledButton from '@/components/button/loading-styled-button';
@@ -32,7 +28,6 @@ import MainLogo from '@/components/logo/main-logo';
 
 
 export default function JwtLoginView() {
-  const { login } = useAuthContext();
   const router = useRouter();
   const searchParams = useSearchParams();
   const returnTo = searchParams.get('returnTo');
