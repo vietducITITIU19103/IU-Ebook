@@ -4,7 +4,7 @@ import TextHidden from "@/components/text-hidden"
 import MainLogoIcon from '@/assets/icons/logo/main-logo';
 
 
-export default function MainLogo({width, height, ...other}: StackProps & {width?: string, height?:string}) {
+export default function MainLogo({isReverse, width, height, ...other}: StackProps & {width?: string, height?:string, isReverse?: boolean}) {
     return (
         <Stack
             direction="row"
@@ -16,7 +16,7 @@ export default function MainLogo({width, height, ...other}: StackProps & {width?
             sx={{cursor: "pointer"}}
             {...other}
         >
-            <MainLogoIcon sx={{width: width || '132px', height: height || "36.5px"}}/>
+            <MainLogoIcon sx={{width: width || '132px', height: height || "36.5px"}} isReverse={isReverse}/>
             <TextHidden>IUH Ebook</TextHidden>
         </Stack>
     )

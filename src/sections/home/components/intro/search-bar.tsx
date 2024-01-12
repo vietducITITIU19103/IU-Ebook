@@ -3,7 +3,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import FormControl from '@mui/material/FormControl';
 import SearchIcon from '@/assets/icons/header/search-icon';
 import { useResponsive } from '@/hooks/use-responsive';
-import { TextField } from '@mui/material';
+import { InputAdornment, TextField } from '@mui/material';
 
 const TextFieldStyle = {
     "& .MuiInputBase-input": {
@@ -11,7 +11,7 @@ const TextFieldStyle = {
         paddingBottom: "8.5px",
     },
     "& .MuiOutlinedInput-notchedOutline": {
-        borderRadius: "8px",    
+        borderRadius: "8px",
     },
     "& .MuiOutlinedInput-root": {
         paddingTop: 0,
@@ -30,7 +30,7 @@ const TextFieldStyle = {
             boxShadow: "0 0 2px 2px #4e49d65e"
         },
     },
-  };
+};
 
 export default function SearchBar({ value, changeValue }: { value: string, changeValue: React.Dispatch<React.SetStateAction<string>> }) {
     const down1260px = useResponsive("down", 1260);
@@ -47,8 +47,10 @@ export default function SearchBar({ value, changeValue }: { value: string, chang
                 value={value}
                 onChange={(e) => { changeValue(e.target.value) }}
                 placeholder='Nhập từ khóa'
-                startAdornment={<SearchIcon sx={{ width: "20px", height: "19px", ml: "7px", position: "relative", left: "-7px" }} />}
-                sx={{ height: "40px", borderRadius: "8px", border: "none", color: "inherit", fontFamily: "inherit", ...TextFieldStyle}}
+                InputProps={{
+                    startAdornment: <InputAdornment position="start"><SearchIcon sx={{ width: "20px", height: "19px", ml: "7px", position: "relative", left: "-7px" }} /></InputAdornment>,
+                }}
+                sx={{ height: "40px", borderRadius: "8px", border: "none", color: "inherit", fontFamily: "inherit", ...TextFieldStyle }}
             />
         </FormControl >
     )

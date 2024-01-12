@@ -6,7 +6,8 @@ export type ColorSchema = 'primary' | 'secondary' | 'info' | 'success' | 'warnin
 export type PaletteType = {
   iub: {
     logo: {
-      normal: string
+      normal: string,
+      reverse: string
     },
     text: {
       default: string;
@@ -48,7 +49,8 @@ declare module '@mui/material/styles/createPalette' {
   export interface PaletteT {
     iub: {
       logo: {
-        normal: string
+        normal: string,
+        reverse: string
       },
       text: {
         default: string;
@@ -92,7 +94,8 @@ declare module '@mui/material/styles/createPalette' {
 const LIGHT = {
   iub: {
     logo: {
-      normal: "#363636"
+      normal: "#363636",
+      reverse: "white"
     },
     text: {
       default: '#000000',
@@ -133,7 +136,8 @@ const LIGHT = {
 const DARK = {
   iub: {
     logo: {
-      normal: "white"
+      normal: "white",
+      reverse: "#363636"
     },
     text: {
       default: '#000000',
