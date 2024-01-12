@@ -3,7 +3,7 @@ import React from 'react';
 import HomeView from '@/sections/home/home-view';
 
 export const metadata = {
-  title: 'IUH-Ebook',
+  title: 'IU-Ebook',
   icons: [
     {
       rel: 'icon',
