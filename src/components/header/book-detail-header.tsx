@@ -1,5 +1,5 @@
 "use client"
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 
 import Box, { BoxProps } from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -17,6 +17,7 @@ export default function BookDetailHeader({ sx, ...other }: BoxProps) {
     const down1260px = useResponsive("down", 1260);
     const router = useRouter()
     useCallback(() => useScrollToShow("book-detail-header"), [])()
+    const [keyword, setKeyword] = useState<string>("");
 
     return (
         <Box id="book-detail-header" sx={{ width: "100%", borderBottom: "1px solid iub.line.headerBottom", backgroundColor: "iub.background.default", position: "fixed", zIndex: 20, ...sx }} {...other}>
@@ -28,7 +29,7 @@ export default function BookDetailHeader({ sx, ...other }: BoxProps) {
                     >
                         <BackArrowIcon color="#4E49D6" />
                     </IconButton>
-                    <SearchBar />
+                    <SearchBar value={keyword} changeValue={setKeyword}/>
                     <IconButton
                         onClick={() => router.push("/auth/cart/")}
                         sx={{ position: "relative", top: "-1px", right: "-10px" }}

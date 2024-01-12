@@ -22,7 +22,7 @@ const IconContainer = styled(CenterVerticalLayout)({
 export default function IntroView() {
     return (
         <Container>
-            <Stack direction="row" alignItems="center">
+            <Stack direction="row" alignItems="center" height="calc(100vh - 70px)">
                 <Stack width="400px" gap="16px">
                     <Typography
                         sx={{
@@ -81,7 +81,7 @@ export default function IntroView() {
                     <StyledButton label='Khám phá ngay' width={170} bg='#4E49D6' />
                 </Stack>
                 <CenterVerticalLayout position="relative" width="calc(100% - 400px)" height="calc(100vh - 90px - 30px)">
-                    <Image src="/images/banner/landing-banner.svg" alt="landing banner" fill={true} />
+                    <Image src="/images/banner/landing-banner-light.png" alt="landing banner" fill={true} />
                 </CenterVerticalLayout>
             </Stack>
         </Container>

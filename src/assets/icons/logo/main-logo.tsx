@@ -6,9 +6,9 @@ import { ThemeContext } from '@/theme';
 
 // ----------------------------------------------------------------------
 
-function MainLogo({ sx, ...other }: BoxProps) {
-    const {palette} = useContext(ThemeContext)
-    const colorCode = palette.iub.logo.normal
+function MainLogo({ isReverse, sx, ...other }: BoxProps & { isReverse?: boolean }) {
+    const { palette } = useContext(ThemeContext)
+    const colorCode = isReverse ? palette.iub.logo.reverse : palette.iub.logo.normal
     return (
         <Box component="svg"
             width={174}
