@@ -83,7 +83,7 @@ export default function JwtLoginView() {
         </Grid>
         <Grid item xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: { xs: 'flex-start', sm: 'center' }, alignItems: { xs: 'center', md: 'flex-end', lg: 'center' } }}>
           <FormProvider methods={methods} onSubmit={onSubmit}>
-            <MainLogo onClick={()=>router.push("/")} width="173px" height="48px"/>
+            <MainLogo onClick={() => router.push("/")} width="173px" height="48px" />
             <Typography
               component="h1"
               sx={{
@@ -138,8 +138,7 @@ export default function JwtLoginView() {
                 <TextLink label="Quên mật khẩu" href="/forgot-password" />
               </Stack>
               <Stack direction="column" spacing="16px" alignItems="center">
-                {/* <LoadingButtonAnimation isSubmitting={isSubmitting} /> */}
-                <LoadingStyledButton label='Cập nhật' width={170} bg='#4E49D6' sx={{ float: "right" }} onClick={onSubmit} loading={isSubmitting}/>
+                <LoadingStyledButton label='Cập nhật' width={170} bg='#4E49D6' sx={{ float: "right" }} onClick={onSubmit} loading={isSubmitting} />
               </Stack>
             </FormBox>
           </FormProvider>

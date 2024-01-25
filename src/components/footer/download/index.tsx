@@ -13,14 +13,14 @@ const listItemStyle = {
   marginBottom: "15px"
 }
 
-export default function DownLoad() {
+export default function DownLoad({ isLanding }: { isLanding?: boolean }) {
   return (
     <List>
       <ListItem sx={{ listItemStyle }}>
         <Typography
           variant="body2"
           sx={{
-            color: "inherit",
+            color: isLanding ? "iub.text.paper" : "inherit",
             fontSize: "inherit",
             fontFamily: "inherit"
           }}>

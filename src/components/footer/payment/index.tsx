@@ -7,19 +7,22 @@ import MomoLogo from "@/assets/images/momo.png"
 import ZaloLogo from "@/assets/images/zalo.png"
 import VisaLogo from "@/assets/images/visa.png"
 
-const listItemStyle = {
-  display: 'flex',
-  alignItems: 'flex-start',
-  paddingBottom: "0",
-  marginBottom: "15px"
-}
-const TypographyStyle = {
-  color: "inherit",
-  fontSize: "inherit",
-  fontFamily: "inherit"
-}
 
-export default function Payment() {
+export default function Payment({ isLanding }: { isLanding?: boolean }) {
+
+  const listItemStyle = {
+    display: 'flex',
+    alignItems: 'flex-start',
+    paddingBottom: "0",
+    marginBottom: "15px"
+  }
+  const TypographyStyle = {
+    color: isLanding ? "iub.text.paper" : "inherit",
+    fontSize: "inherit",
+    fontFamily: "inherit"
+  }
+
+
   return (
     <List>
       <ListItem sx={{ listItemStyle, fontSize: "inherit" }}>

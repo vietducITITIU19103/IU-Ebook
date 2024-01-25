@@ -3,22 +3,23 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Typography from '@mui/material/Typography';
 
-const TypographyStyle = {
-  color: "inherit",
-  marginLeft: "8px",
-  fontSize: "inherit",
-  fontFamily: "inherit"
-}
+export default function NavList({ isLanding }: { isLanding?: boolean }) {
 
-const ListItemStyle = {
-  display: 'flex',
-  alignItems: 'flex-start',
-  paddingBottom: "0",
-  marginBottom: "10px",
-  fontSize: "inherit"
-}
+  const TypographyStyle = {
+    color: isLanding ? "iub.text.paper" : "inherit",
+    marginLeft: "8px",
+    fontSize: "inherit",
+    fontFamily: "inherit"
+  }
 
-export default function NavList() {
+  const ListItemStyle = {
+    display: 'flex',
+    alignItems: 'flex-start',
+    paddingBottom: "0",
+    marginBottom: "10px",
+    fontSize: "inherit"
+  }
+
   return (
     <List>
       <ListItem sx={ListItemStyle}>

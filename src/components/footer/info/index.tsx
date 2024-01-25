@@ -5,14 +5,17 @@ import Typography from '@mui/material/Typography';
 import LocationIcon from '@/assets/icons/footer/location-icon';
 import MailIcon from '@/assets/icons/footer/mail-icon';
 
-const TypographyStyle = {
-  color: "inherit",
-  marginLeft: "8px",
-  fontSize: "inherit",
-  fontFamily: "inherit"
-}
 
-export default function Info() {
+
+export default function Info({ isLanding }: { isLanding?: boolean }) {
+
+  const TypographyStyle = {
+    color: isLanding ? "iub.text.paper" : "inherit",
+    marginLeft: "8px",
+    fontSize: "inherit",
+    fontFamily: "inherit"
+  }
+
   return (
     <List>
       <ListItem sx={{
@@ -24,13 +27,13 @@ export default function Info() {
           lg: "18px"
         }
       }}>
-        <LocationIcon sx={{width: "30px", height: "33px"}}/>
+        <LocationIcon sx={{ width: "30px", height: "33px" }} color="white"/>
         <Typography variant="body2" sx={TypographyStyle}>
           12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM
         </Typography>
       </ListItem>
       <ListItem>
-        <MailIcon sx={{width: "25px", height: "25px"}}/>
+        <MailIcon sx={{ width: "25px", height: "25px" }} color="white"/>
         <Typography variant="body2" sx={TypographyStyle}>
           iuh@ebook.edu.com
         </Typography>

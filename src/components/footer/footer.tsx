@@ -1,10 +1,8 @@
 "use client"
 import * as React from 'react';
 import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Unstable_Grid2';
-import Image from 'next/image'
 import Typography from '@mui/material/Typography';
 import NavList from './nav-list';
 import Info from './info';
