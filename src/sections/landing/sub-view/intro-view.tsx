@@ -27,13 +27,14 @@ export default function IntroView() {
             <Stack
                 direction={{ xs: "column", md: "row" }}
                 alignItems="center"
+                justifyItems="center"
                 gap="20px"
                 height={{ xs: "auto", md: "calc(100vh - 70px)" }}
             >
                 <Stack
                     width={{ xs: "100%", md: "340px", lg: "400px" }}
                     gap="16px"
-                    alignItems="flex-start"
+                    alignItems={{ xs: "center", md:"flex-start" }}
                     sx={{ transform: { xs: "scale(0.8)", sm: "scale(0.9)", md: "scale(0.85)", lg: "scale(1)" } }}
                 >
                     <Typography
@@ -69,14 +70,15 @@ export default function IntroView() {
                             color: 'iub.text.light',
                             fontSize: '18px',
                             fontStyle: 'normal',
-                            textAlign: 'left',
+                            textAlign: { xs: "center", md: 'left'},
                             lineHeight: '25px',
                             fontFamily: typography.fontFamilySecondary,
+                            maxWidth: "520px"
                         }}
                     >
                         Tham gia ngay với chúng tôi để có trong tay những bộ tài liệu mới nhất từ giảng viên
                     </Typography>
-                    <Stack direction="row" gap="12px" width={1}>
+                    <Stack direction="row" gap="12px" width={1} justifyContent="center">
                         <IconContainer>
                             <Icon1 />
                             <Typography sx={{ color: 'iub.text.table_title' }}>Tài liệu uy tín</Typography>
@@ -90,7 +92,7 @@ export default function IntroView() {
                             <Typography sx={{ color: 'iub.text.table_title' }}>+100k lượt tải</Typography>
                         </IconContainer>
                     </Stack>
-                    <StyledButton label='Khám phá ngay' width={170} bg='#4E49D6' />
+                    <StyledButton label='Khám phá ngay' width={170} bg='#4E49D6' sx={{transform:{ xs: "scale(1.25)", sm: "scale(1.2)", md: "scale(1.15)", lg: "scale(1)" }}}/>
                 </Stack>
                 <CenterVerticalLayout
                     position="relative"

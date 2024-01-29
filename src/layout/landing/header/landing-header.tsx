@@ -52,7 +52,7 @@ export default function LandingHeader({ sx, isResponsive, ...other }: BoxProps &
                 backgroundColor: "iub.background.default",
                 position: "sticky",
                 zIndex: 20,
-                height: "80px",
+                height: { xs: "75px", md: "80px" },
                 ...sx,
                 ...(isResponsive && { display: { xs: "none", md: "block" } })
             }}
@@ -60,8 +60,8 @@ export default function LandingHeader({ sx, isResponsive, ...other }: BoxProps &
         >
             <Container sx={{ px: "0 !important", mb: "16px", ...(down1260px && { px: "12px" }) }}>
                 <Stack direction="row" justifyContent="space-between" alignItems="center">
-                    <Box borderRadius="0px 0px 16px 16px" bgcolor="#0D006A" width="265px" py="26px">
-                        <MainLogo isReverse />
+                    <Box borderRadius="0px 0px 16px 16px" bgcolor="#0D006A" width="265px" py={{xs:"22px", md: "26px"}} px="26px">
+                        <MainLogo isReverse width="110px"/>
                     </Box>
 
                     <CenterHorizontalLayout spacing="8px" width={1} alignItems="flex-start">
@@ -70,11 +70,6 @@ export default function LandingHeader({ sx, isResponsive, ...other }: BoxProps &
                         ))}
                     </CenterHorizontalLayout>
                     <Stack direction="row" justifyContent="flex-end" alignItems="center" spacing="16px" width="265px" onClick={() => router.push("/auth/login")}>
-                        <HeaderLink
-                            onClick={() => router.push("/auth/register")}
-                            sx={{ display: "inline", cursor: "pointer", color: "iub.text.light", fontWeight: 600 }}>
-                            Đăng kí
-                        </HeaderLink>
                         <StyledButton label='Đăng nhập' width={100} bg='#F3633E' />
                     </Stack>
                 </Stack>

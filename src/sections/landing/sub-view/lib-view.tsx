@@ -10,7 +10,7 @@ import CenterVerticalLayout from '@/layout/component-base-layout/center-vertical
 
 export default function LibView() {
     return (
-        <Box sx={{ backgroundColor: "#FFF7F5", py: "100px", my: "100px" }}>
+        <Box sx={{ backgroundColor: "#FFF7F5", py: {xs:"50px",md: "100px"}, my: {xs:"50px",md: "100px"} }}>
             <Container>
                 <CenterVerticalLayout>
                     <Stack
@@ -23,7 +23,7 @@ export default function LibView() {
                         <Typography
                             sx={{
                                 color: '#FE0000',
-                                fontSize: '20px',
+                                fontSize: { xs: "18px", md: '20px' },
                                 fontStyle: 'normal',
                                 fontWeight: 500,
                                 textAlign: 'left',
@@ -37,7 +37,7 @@ export default function LibView() {
                             component="h1"
                             sx={{
                                 color: 'iub.text.table_title',
-                                fontSize: '32px',
+                                fontSize: { xs: "28px", md: '32px' },
                                 fontStyle: 'normal',
                                 fontWeight: 600,
                                 textAlign: 'center',
@@ -47,8 +47,8 @@ export default function LibView() {
                         >
                             VỚI HƠN 3000 TÀI LIỆU CHẤT LƯỢNG CAO
                         </Typography>
-                        <BigStarIcon sx={{ position: "absolute", top: "-10px", right: "-40px" }} />
-                        <SmallStarIcon sx={{ position: "absolute", left: "-30px", bottom: "-5px" }} />
+                        <BigStarIcon sx={{ position: "absolute", top: "-15px", right: { xs: "10px", md: "-40px" } }} />
+                        <SmallStarIcon sx={{ position: "absolute", left: { xs: "10px", md: "-30px" }, bottom: "-5px" }} />
                     </Stack>
                 </CenterVerticalLayout>
                 <TabView />

@@ -7,23 +7,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 //Carousel component
 import { useCarousel } from '@/components/carousel';
-import { Container, IconButton } from '@mui/material';
+import { IconButton } from '@mui/material';
 import { BookTypes } from '@/type/book/book-type';
-import BookCard from '@/components/card/book-card';
+import SimpleBookCard from '@/components/card/simple-bookcard';
 import ToLeftIcon from '@/assets/icons/landing/to-left-icon';
 import ToRightIcon from '@/assets/icons/landing/to-right-icon';
-const book: BookTypes = {
-    title: "Kế toán tài chính",
-    type: "Kế toán",
-    code: " MS 001",
-    price: "65.000",
-    download: "+3k",
-    state: "none",
-    isFavorite: false,
-    isRecommend: true,
-    isLoved: true,
-    isLovedState: false
-}
 
 export default function LibCarousel({ images }: any) {
     var settings = {
@@ -36,30 +24,65 @@ export default function LibCarousel({ images }: any) {
         slidesToScroll: 1,
         initialSlide: 0,
         arrows: false,
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 700,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
     };
     const { onNext, onPrev, carouselRef } = useCarousel(settings);
 
     return (
-            <Box sx={{
-                marginBottom: "16px",
-                width: "100%",
-                ml: "3px",
-                mt: "40px",
-                position:"relative"
-            }}>
-                <IconButton onClick={onPrev} sx={{position: 'absolute', left: "-55px", top: "calc(50% - 39px)"}}><ToLeftIcon/></IconButton>
-                <IconButton onClick={onNext} sx={{position: 'absolute', right: "-55px", top: "calc(50% - 39px)"}}><ToRightIcon/></IconButton>
-                <Box sx={{ width: "100%", transition: "0.3s ease" }}>
-                    <Slider {...settings} ref={carouselRef}>
-                        <Box sx={{ px: "20px" }}><BookCard key={0} {...book} sx={{ flexShrink: 0, mb: "20px" }} /></Box>
-                        <Box sx={{ px: "20px" }}><BookCard key={1} {...book} sx={{ flexShrink: 0, mb: "20px" }} /></Box>
-                        <Box sx={{ px: "20px" }}><BookCard key={2} {...book} sx={{ flexShrink: 0, mb: "20px" }} /></Box>
-                        <Box sx={{ px: "20px" }}><BookCard key={3} {...book} sx={{ flexShrink: 0, mb: "20px" }} /></Box>
-                        <Box sx={{ px: "20px" }}><BookCard key={4} {...book} sx={{ flexShrink: 0, mb: "20px" }} /></Box>
-                        <Box sx={{ px: "20px" }}><BookCard key={10} {...book} sx={{ flexShrink: 0, mb: "20px" }} /></Box>
-                        <Box sx={{ px: "20px" }}><BookCard key={6} {...book} sx={{ flexShrink: 0, mb: "20px" }} /></Box>
-                    </Slider>
-                </Box>
+        <Box sx={{
+            marginBottom: "16px",
+            width: "100%",
+            ml: "3px",
+            mt: "40px",
+            position: "relative"
+        }}>
+            <IconButton onClick={onPrev} sx={{ position: 'absolute', left: "-55px", top: "calc(50% - 39px)", display: {xs:"none",sm: "block"} }}><ToLeftIcon /></IconButton>
+            <IconButton onClick={onNext} sx={{ position: 'absolute', right: "-55px", top: "calc(50% - 39px)" , display: {xs:"none",sm: "block"} }}><ToRightIcon /></IconButton>
+            <Box sx={{ width: "100%", transition: "0.3s ease" }}>
+                <Slider {...settings} ref={carouselRef}>
+                    <Box sx={{ px: {xs:"35px",sm: "20px"} }}><SimpleBookCard key={0} id="1" src={"/images/book/ketoan.png"} /></Box>
+                    <Box sx={{ px: {xs:"35px",sm: "20px"} }}><SimpleBookCard key={0} id="1" src={"/images/book/ketoan.png"} /></Box>
+                    <Box sx={{ px: {xs:"35px",sm: "20px"} }}><SimpleBookCard key={0} id="1" src={"/images/book/ketoan.png"} /></Box>
+                    <Box sx={{ px: {xs:"35px",sm: "20px"} }}><SimpleBookCard key={0} id="1" src={"/images/book/ketoan.png"} /></Box>
+                    <Box sx={{ px: {xs:"35px",sm: "20px"} }}><SimpleBookCard key={0} id="1" src={"/images/book/ketoan.png"} /></Box>
+                    <Box sx={{ px: {xs:"35px",sm: "20px"} }}><SimpleBookCard key={0} id="1" src={"/images/book/ketoan.png"} /></Box>
+                    <Box sx={{ px: {xs:"35px",sm: "20px"} }}><SimpleBookCard key={0} id="1" src={"/images/book/ketoan.png"} /></Box>
+                </Slider>
             </Box>
+        </Box>
     )
 }
