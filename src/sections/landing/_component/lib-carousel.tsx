@@ -8,7 +8,6 @@ import "slick-carousel/slick/slick-theme.css";
 //Carousel component
 import { useCarousel } from '@/components/carousel';
 import { IconButton } from '@mui/material';
-import { BookTypes } from '@/type/book/book-type';
 import SimpleBookCard from '@/components/card/simple-bookcard';
 import ToLeftIcon from '@/assets/icons/landing/to-left-icon';
 import ToRightIcon from '@/assets/icons/landing/to-right-icon';

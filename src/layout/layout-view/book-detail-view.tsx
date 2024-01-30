@@ -2,16 +2,13 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Header from '../../components/header/header';
 import Footer from '@/components/footer/footer';
-import BottomNavBar from '@/components/mobile-footer';
 import BookDetailHeader from '@/components/header/book-detail-header';
 
 export default function BookDetailWiew({ children }: { children: React.ReactNode }) {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', backgroundColor: "iub.background.body" }}>
-            {/* <Box sx={{ display: { xs: "none", md: "block" } }}> */}
-                <Header isResponsive/>
-            {/* </Box> */}
-            <Box sx={{ display: { xs: "block", md: "none" }, backgroundColor: "iub.background.default"  }}>
+            <Header isResponsive />
+            <Box sx={{ display: { xs: "block", md: "none" }, backgroundColor: "iub.background.default" }}>
                 <BookDetailHeader sx={{ display: "none" }} />
             </Box>
             <Box
